@@ -1,0 +1,70 @@
+Source,Target,Weight,Type,data_quality,Pacific_Link
+Flintlock Musket (Brown B,Flintlock Pistol & Cavalr,1,Timeline_Evolves,primary,
+Flintlock Pistol & Cavalr,Springfield Model 1841 Ri,1,Timeline_Evolves,primary,
+Springfield Model 1841 Ri,Rifled Musket (Springfiel,1,Timeline_Evolves,primary,
+Rifled Musket (Springfiel,Gatling Gun Model 1861,1,Timeline_Evolves,primary,
+Gatling Gun Model 1861,Ironclad Warships,1,Timeline_Evolves,primary,
+Ironclad Warships,Krag-Jorgensen & M1893 Sp,1,Timeline_Evolves,primary,
+Krag-Jorgensen & M1893 Sp,M1917 Enfield / M1903 Spr,1,Timeline_Evolves,primary,
+M1917 Enfield / M1903 Spr,M1918 BAR,1,Timeline_Evolves,primary,
+M1918 BAR,M1 Garand,1,Timeline_Evolves,primary,
+M1 Garand,M3 Grease Gun Submachine ,1,Timeline_Evolves,primary,
+M3 Grease Gun Submachine ,M1 Carbine,1,Timeline_Evolves,primary,
+M1 Carbine,Atomic Bomb,1,Timeline_Evolves,primary,
+Atomic Bomb,M14 Rifle,1,Timeline_Evolves,primary,
+M14 Rifle,Hydrogen Bomb,1,Timeline_Evolves,primary,
+Hydrogen Bomb,M16 Rifle,1,Timeline_Evolves,primary,
+M16 Rifle,M60 General Purpose Machi,1,Timeline_Evolves,primary,
+M60 General Purpose Machi,AGM-45 Shrike Anti-radiat,1,Timeline_Evolves,primary,
+AGM-45 Shrike Anti-radiat,M1A1 Abrams Tank,1,Timeline_Evolves,primary,
+M1A1 Abrams Tank,F-117 Nighthawk Stealth A,1,Timeline_Evolves,primary,
+F-117 Nighthawk Stealth A,Tomahawk Cruise Missile,1,Timeline_Evolves,primary,
+Tomahawk Cruise Missile,MQ-1 Predator Drone,1,Timeline_Evolves,primary,
+MQ-1 Predator Drone,M4 Carbine Modernized,1,Timeline_Evolves,primary,
+M4 Carbine Modernized,F-35 Lightning II Block 4,1,Timeline_Evolves,primary,
+F-35 Lightning II Block 4,Switchblade 600 Kamikaze ,1,Timeline_Evolves,primary,
+Switchblade 600 Kamikaze ,AI-Powered ISR (Gorgon/St,1,Timeline_Evolves,primary,
+AI-Powered ISR (Gorgon/St,LAWS Lethal Autonomous We,1,Timeline_Evolves,primary,
+Flintlock Musket (Brown B,Flintlock Pistol & Cavalr,2,Same_War,verified,
+Rifled Musket (Springfiel,Gatling Gun Model 1861,2,Same_War,verified,
+Rifled Musket (Springfiel,Ironclad Warships,2,Same_War,verified,
+Gatling Gun Model 1861,Ironclad Warships,2,Same_War,verified,
+M1917 Enfield / M1903 Spr,M1918 BAR,2,Same_War,verified,
+M1 Garand,M3 Grease Gun Submachine ,2,Same_War,verified,
+M1 Garand,M1 Carbine,2,Same_War,verified,
+M1 Garand,Atomic Bomb,2,Same_War,verified,
+M3 Grease Gun Submachine ,M1 Carbine,2,Same_War,verified,
+M3 Grease Gun Submachine ,Atomic Bomb,2,Same_War,verified,
+M1 Carbine,Atomic Bomb,2,Same_War,verified,
+M16 Rifle,M60 General Purpose Machi,2,Same_War,verified,
+M16 Rifle,AGM-45 Shrike Anti-radiat,2,Same_War,verified,
+M60 General Purpose Machi,AGM-45 Shrike Anti-radiat,2,Same_War,verified,
+M1A1 Abrams Tank,F-117 Nighthawk Stealth A,2,Same_War,verified,
+M1A1 Abrams Tank,Tomahawk Cruise Missile,2,Same_War,verified,
+F-117 Nighthawk Stealth A,Tomahawk Cruise Missile,2,Same_War,verified,
+MQ-1 Predator Drone,M4 Carbine Modernized,2,Same_War,verified,
+Ironclad Warships,Gatling Gun Model 1861,3,Era_Cluster,estimated,
+M1 Garand,Atomic Bomb,3,Era_Cluster,estimated,
+F-117 Nighthawk Stea,Tomahawk Cruise Miss,3,Era_Cluster,estimated,
+MQ-1 Predator Drone,M4 Carbine Modernize,3,Era_Cluster,estimated,
+AI-Powered ISR (Gorg,LAWS Lethal Autonomo,3,Era_Cluster,estimated,
+Krag-Jorgensen & M1893 Sp,Pacific_Foothold_1898,2,Pacific_Link,verified,Spanish-American War → Philippines occupation; first major Pacific US base
+M1918 BAR,Pacific_Foothold_1898,1,Pacific_Link,verified,"WWII Pacific Theater: Guam, Okinawa, Philippines; heavy weapon deployment"
+M1 Garand,Pacific_Theater_WWII,3,Pacific_Link,primary,M1 Garand widespread in Pacific island campaigns; documented in NARA records
+Atomic Bomb,Pacific_Theater_WWII,2,Pacific_Link,verified,"Atomic bombings: Hiroshima (6 Aug 1945), Nagasaki (9 Aug 1945) – Pacific dimension of nuclear era"
+M14 Rifle,Korean_War_Pacific,2,Pacific_Link,primary,US weapons supplied to South Korean forces; Korean War (1950–53) – first major Cold War Pacific conflict
+M16 Rifle,Vietnam_War_Pacific,3,Pacific_Link,primary,M16 standard issue for US forces in Vietnam; documented LoC NARA service records
+M1A1 Abrams Tank,Indo-Pacific_Modern,2,Pacific_Link,estimated,"Abrams exports to Japan, Taiwan; Indo-Pacific strategic alliance hardware"
+F-35 Lightning II Block 4,Indo-Pacific_Modern,3,Pacific_Link,estimated,"F-35 deployed to Japan (F-35J), South Korea, Australia; network-centric warfare Pacific"
+Switchblade 600 Kamikaze ,Ukraine_Pacific_Era,1,Pacific_Link,estimated,"Switchblade 600 to Ukraine; similar systems sought by Taiwan, Philippines – drone-era Pacific deterrence"
+LAWS Lethal Autonomous We,AI_Pacific_Future,2,Pacific_Link,estimated,"LAWS development US-led; Pacific allies (Japan, S.Korea, Australia) reviewing AI weapons ethics – next Pacific arms race"
+Tomahawk Cruise Missile,Operation Epic Fury,4,MiddleEast_Link,verified,Land-attack Tomahawk used against 13000+ Iran targets; 1500+ km range; CENTCOM verified
+F-35 Lightning II Block 4,Operation Epic Fury,3,MiddleEast_Link,verified,F-35 stealth missions over Iran; sensor fusion + network-centric; one of 26 aircraft types used
+AGM-45 Shrike Anti-radiat,EA-37B Compass Call,2,Same_War,primary,EA-37B replaces EC-130H Compass Call lineage; electronic attack mission continuity
+EA-37B Compass Call,Operation Epic Fury,4,MiddleEast_Link,verified,EA-37B Compass Call combat debut; electronic warfare to deny Iranian radar & comms
+Switchblade 600 Kamikaze ,Operation Epic Fury,2,MiddleEast_Link,verified,Switchblade 600 loitering munitions deployed in Iran conflict; man-portable; 40+ km range
+MQ-1 Predator Drone,Operation Epic Fury,3,MiddleEast_Link,verified,MQ-1 / MQ-9 involved in anti-ship strikes; 155 ships sunk or damaged in Persian Gulf
+AI-Powered ISR (Gorgon/St,Low-Cost One-Way Drone (US),3,Timeline_Evolves,primary,AI-powered ISR enables target tracking for one-way drone swarms; next-step from Gorgon/Stare
+LAWS Lethal Autonomous We,Low-Cost One-Way Drone (US),2,Timeline_Evolves,primary,LAWS + low-cost drones = drone arms race; US adopting Shahed-style one-way attack doctrine
+M1A1 Abrams Tank,Operation Epic Fury,2,MiddleEast_Link,estimated,M1A1/M1A2 Abrams deployed in Middle East; 120mm main gun; composite armor
+M4 Carbine Modernized,Operation Epic Fury,1,MiddleEast_Link,estimated,M4 variants in use by US ground forces in Iran operation; modular Picatinny rail
