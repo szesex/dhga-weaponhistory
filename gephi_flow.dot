@@ -1,0 +1,39 @@
+digraph GephiFlow {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor=lightblue];
+    edge [color=gray];
+    
+    // Start
+    START [label="打開Gephi\nNew Project", shape=ellipse, fillcolor=lightgreen];
+    
+    // Step 1
+    FILE [label="File → Import Spreadsheet", shape=box, fillcolor=yellow];
+    NODE_CSV [label="① Nodes CSV\nweapons_nodes_\nmonth2_control_group.csv", shape=box, fillcolor=wheat];
+    MAP_NODES [label="確認欄位映射\nId, Label, Year...", shape=box, fillcolor=wheat];
+    FINISH_N [label="Finish", shape=box, fillcolor=wheat];
+    
+    // Step 2
+    FILE2 [label="File → Import Spreadsheet", shape=box, fillcolor=yellow];
+    EDGE_CSV [label="② Edges CSV\nweapons_gephi_\nmonth2_control_group.csv", shape=box, fillcolor=wheat];
+    MAP_EDGES [label="確認欄位映射\nSource, Target, Type...", shape=box, fillcolor=wheat];
+    FINISH_E [label="Finish", shape=box, fillcolor=wheat];
+    
+    // Step 3
+    EDGE_TYPE [label="設定Edge Type\n= Type column", shape=box, fillcolor=orange];
+    LAYOUT [label="Layout\nForceAtlas 2 / OpenOrd", shape=box, fillcolor=orange];
+    PARTITION [label="Partition Color\nControl_Group:\n🔴 TRUE\n🔵 FALSE", shape=box, fillcolor=orange];
+    
+    // Result
+    GRAPH [label="完成網絡圖\n4 clusters\n33 nodes / 79 edges", shape=ellipse, fillcolor=lightpink];
+    
+    // Connections
+    START -> FILE;
+    FILE -> NODE_CSV -> MAP_NODES -> FINISH_N;
+    FINISH_N -> FILE2;
+    FILE2 -> EDGE_CSV -> MAP_EDGES -> FINISH_E;
+    FINISH_E -> EDGE_TYPE -> LAYOUT -> PARTITION -> GRAPH;
+    
+    // Labels
+    {rank=same; FILE -> FILE2 [style=invis]}
+    {rank=same; NODE_CSV -> EDGE_CSV [style=invis]}
+}
