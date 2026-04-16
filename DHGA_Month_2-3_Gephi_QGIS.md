@@ -31,6 +31,26 @@
 
 ---
 
+## 📍 2026-04-16 QGIS Status Update
+
+**⚠️ Blocker Identified:** `weapons_supply_chain.csv` contains **no lat/lon coordinates** — it tracks conceptual supply chain relationships (原料→零件→組裝→部署), not geospatial points.
+
+**Current state:**
+- ✅ Gephi edge CSV ready: `weapons_gephi_month2_3.csv` (49 edges, 3 types)
+- ⏳ QGIS spatial layer: **Pending** — requires manual geocoding of supply source locations
+
+**Manual action required:**
+1. Open QGIS
+2. Create point layer from supply chain sources (e.g., Steel → Pittsburgh, Rare Earth → Inner Mongolia, etc.)
+3. Symbolize by Type (supply/assembly/deploy) and Weight (line thickness)
+4. Screenshot and save to `/dhga-weaponhistory/qgis_screenshots/`
+
+**Alternative approach:** Convert supply chain to network graph in QGIS using *Lines from Points* or *Hub Lines* if source/destination coordinates can be approximated.
+
+*Reminder fired by cron DHGA_QGIS_Reminder | 2026-04-16 10:00 UTC*
+
+---
+
 ## 🎯 袁騰飛式總結
 
 「呢個網絡圖告訴我哋乜？槍嘅進化唔係獨立事件——佢係一群人喺同一場仗入面逼出嚟嘅！
