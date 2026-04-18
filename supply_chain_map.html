@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Military Weapons Supply Chain - Global Asia Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; }
+        #map { width: 100vw; height: 100vh; }
+        .legend { position: absolute; bottom: 20px; left: 20px; z-index: 1000; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .legend h3 { font-size: 14px; margin-bottom: 10px; color: #1a1a2e; }
+        .legend-item { display: flex; align-items: center; margin: 8px 0; font-size: 12px; color: #333; }
+        .legend-color { width: 18px; height: 18px; border-radius: 50%; margin-right: 10px; border: 2px solid white; }
+        .legend-line { width: 30px; height: 3px; margin-right: 10px; border-radius: 2px; }
+        .title { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(26,26,46,0.9); color: white; padding: 15px 30px; border-radius: 25px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .title h1 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .title p { font-size: 11px; opacity: 0.8; }
+        .leaflet-popup-content-wrapper { border-radius: 10px; }
+        .popup-title { font-weight: bold; color: #1a1a2e; font-size: 13px; margin-bottom: 5px; }
+        .popup-type { font-size: 11px; color: #666; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="title">
+        <h1>🪖 US Military Weapons Supply Chain</h1>
+        <p>1776 Flintlock → 2026 AI Weapons | Global Asia Georeference</p>
+    </div>
+    <div class="legend">
+        <h3>Supply Chain Legend</h3>
+        <div class="legend-item"><div class="legend-color" style="background:#e74c3c"></div>Raw Materials (Steel, Rare Earth, etc.)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#3498db"></div>Parts (Engines, Guidance, Sensors)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#2ecc71"></div>Assembly (Arsenal, Factory)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#9b59b6"></div>Deployment (Pacific Bases)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#e74c3c"></div>Supply Chain Flow</div>
+        <div class="legend-item"><div class="legend-line" style="background:#2ecc71"></div>Deployment Route</div>
+    </div>
+
+    <script>
+    // Node data
+    const nodes = [
+        { name: "中國-鞍鋼", name_en: "China-Anshan-Steel", lon: 122.9942, lat: 41.1067, type: "RawMaterial", category: "原料-鋼鐵" },
+        { name: "中國-包頭稀土", name_en: "China-Baotou-RareEarth", lon: 109.8400, lat: 40.6560, type: "RawMaterial", category: "原料-稀土" },
+        { name: "澳洲-必和必拓", name_en: "Australia-BHP", lon: 151.2152, lat: -33.8688, type: "RawMaterial", category: "原料-鋁合金" },
+        { name: "俄羅斯-VSMPO", name_en: "Russia-VSMPO-Titanium", lon: 61.3960, lat: 54.8950, type: "RawMaterial", category: "原料-鈦合金" },
+        { name: "日本-東京電子", name_en: "Japan-Tokyo-Electron", lon: 139.7454, lat: 35.6586, type: "RawMaterial", category: "原料-電子元件" },
+        { name: "台灣-台積電", name_en: "Taiwan-TSMC", lon: 121.5598, lat: 24.9737, type: "RawMaterial", category: "原料-半導體" },
+        { name: "美國-Albemarle", name_en: "USA-Albemarle-Lithium", lon: -93.0000, lat: 37.0000, type: "RawMaterial", category: "原料-鋰電池" },
+        { name: "以色列-埃爾比爾", name_en: "Israel-Elbit", lon: 34.8516, lat: 31.0461, type: "RawMaterial", category: "原料-推進劑" },
+        { name: "德國-萊茵金屬", name_en: "Germany-Rheinmetall", lon: 8.6821, lat: 50.1109, type: "Parts", category: "零件-槍管" },
+        { name: "美國-諾格", name_en: "USA-Northrop", lon: -118.2437, lat: 34.0522, type: "Parts", category: "零件-導引系統" },
+        { name: "以色列-拉斐爾", name_en: "Israel-Rafael", lon: 34.8516, lat: 31.0461, type: "Parts", category: "零件-導引系統" },
+        { name: "日本-松下", name_en: "Japan-Panasonic", lon: 138.2529, lat: 36.2048, type: "Parts", category: "零件-感應器" },
+        { name: "美國-特斯拉", name_en: "USA-Tesla", lon: -122.4194, lat: 37.7749, type: "Parts", category: "零件-動力系統" },
+        { name: "中國-北方工業", name_en: "China-North-Industries", lon: 116.4074, lat: 39.9042, type: "Parts", category: "零件-導引系統" },
+        { name: "法國-空客", name_en: "France-Airbus", lon: 2.3522, lat: 48.8566, type: "Parts", category: "零件-機身" },
+        { name: "法國-達索", name_en: "France-Dassault", lon: 2.3522, lat: 48.8566, type: "Parts", category: "零件-機翼" },
+        { name: "美國-康明斯", name_en: "USA-Cummins", lon: -86.8025, lat: 36.1627, type: "Parts", category: "零件-發動機" },
+        { name: "美國-萊文沃思", name_en: "US-Arsenal-Levenworth", lon: -95.2350, lat: 39.3489, type: "Assembly", category: "組裝" },
+        { name: "日本-三菱", name_en: "Mitsubishi", lon: 138.2529, lat: 36.2048, type: "Assembly", category: "組裝" },
+        { name: "中國-北方工業組裝", name_en: "China-North-Assembly", lon: 116.4074, lat: 39.9042, type: "Assembly", category: "組裝" },
+        { name: "以色列-埃爾比爾組裝", name_en: "Israel-Elbit-Assembly", lon: 34.8516, lat: 31.0461, type: "Assembly", category: "組裝" },
+        { name: "俄羅斯-杜丁", name_en: "USSR-Dudintsev", lon: 37.6173, lat: 55.7558, type: "Assembly", category: "組裝" },
+        { name: "關島", name_en: "US-Guam", lon: 144.7937, lat: 13.4443, type: "Deploy", category: "部署" },
+        { name: "横須賀", name_en: "US-Yokosuka", lon: 139.6386, lat: 35.3228, type: "Deploy", category: "部署" },
+        { name: "冲繩", name_en: "US-Okinawa", lon: 127.6780, lat: 26.5018, type: "Deploy", category: "部署" },
+        { name: "阿拉斯加", name_en: "US-Alaska", lon: -149.9000, lat: 61.2180, type: "Deploy", category: "部署" },
+        { name: "夏威夷", name_en: "US-Hawaii", lon: -157.8260, lat: 21.3069, type: "Deploy", category: "部署" },
+        { name: "横田", name_en: "US-Yokota", lon: 139.3600, lat: 35.7400, type: "Deploy", category: "部署" },
+        { name: "釜山", name_en: "US-Busan", lon: 129.0403, lat: 35.1798, type: "Deploy", category: "部署" },
+    ];
+
+    // Edge data
+    const edges = [
+        { source: "中國-鞍鋼", target: "德國-萊茵金屬", weight: 5, type: "supply" },
+        { source: "俄羅斯-VSMPO", target: "美國-康明斯", weight: 9, type: "supply" },
+        { source: "日本-東京電子", target: "美國-諾格", weight: 10, type: "supply" },
+        { source: "台灣-台積電", target: "以色列-拉斐爾", weight: 10, type: "supply" },
+        { source: "中國-包頭稀土", target: "日本-松下", weight: 8, type: "supply" },
+        { source: "以色列-埃爾比爾", target: "中國-北方工業", weight: 6, type: "supply" },
+        { source: "美國-Albemarle", target: "美國-特斯拉", weight: 7, type: "supply" },
+        { source: "澳洲-必和必拓", target: "法國-空客", weight: 7, type: "supply" },
+        { source: "澳洲-必和必拓", target: "法國-達索", weight: 6, type: "supply" },
+        { source: "德國-萊茵金屬", target: "美國-萊文沃思", weight: 5, type: "assembly" },
+        { source: "法國-空客", target: "日本-三菱", weight: 8, type: "assembly" },
+        { source: "美國-康明斯", target: "美國-萊文沃思", weight: 7, type: "assembly" },
+        { source: "美國-諾格", target: "以色列-埃爾比爾組裝", weight: 10, type: "assembly" },
+        { source: "以色列-拉斐爾", target: "以色列-埃爾比爾組裝", weight: 10, type: "assembly" },
+        { source: "日本-松下", target: "中國-北方工業", weight: 8, type: "assembly" },
+        { source: "美國-特斯拉", target: "以色列-埃爾比爾組裝", weight: 7, type: "assembly" },
+        { source: "法國-達索", target: "日本-三菱", weight: 7, type: "assembly" },
+        { source: "中國-北方工業", target: "以色列-埃爾比爾組裝", weight: 6, type: "assembly" },
+        { source: "美國-萊文沃思", target: "阿拉斯加", weight: 4, type: "deploy" },
+        { source: "日本-三菱", target: "横須賀", weight: 9, type: "deploy" },
+        { source: "日本-三菱", target: "冲繩", weight: 8, type: "deploy" },
+        { source: "日本-三菱", target: "關島", weight: 8, type: "deploy" },
+        { source: "以色列-埃爾比爾組裝", target: "阿拉斯加", weight: 10, type: "deploy" },
+        { source: "以色列-埃爾比爾組裝", target: "夏威夷", weight: 8, type: "deploy" },
+        { source: "以色列-埃爾比爾組裝", target: "横田", weight: 9, type: "deploy" },
+        { source: "中國-北方工業組裝", target: "釜山", weight: 7, type: "deploy" },
+    ];
+
+    // Color mapping
+    const colors = {
+        RawMaterial: '#e74c3c',
+        Parts: '#3498db',
+        Assembly: '#2ecc71',
+        Deploy: '#9b59b6'
+    };
+
+    const edgeColors = {
+        supply: '#e74c3c',
+        assembly: '#3498db',
+        deploy: '#2ecc71'
+    };
+
+    // Create map centered on Pacific
+    const map = L.map('map').setView([25, 140], 3);
+    
+    // Add tile layer (dark theme)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors © CARTO',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Create node lookup
+    const nodeMap = {};
+    nodes.forEach(n => nodeMap[n.name] = n);
+
+    // Draw edges
+    edges.forEach(edge => {
+        const sourceNode = nodeMap[edge.source];
+        const targetNode = nodeMap[edge.target];
+        if (!sourceNode || !targetNode) return;
+        
+        const color = edgeColors[edge.type] || '#7f8c8d';
+        const opacity = 0.3 + (edge.weight / 20) * 0.5;
+        const weight = edge.weight / 2;
+        
+        const polyline = L.polyline([
+            [sourceNode.lat, sourceNode.lon],
+            [targetNode.lat, targetNode.lon]
+        ], {
+            color: color,
+            weight: weight,
+            opacity: opacity,
+            dashArray: edge.type === 'deploy' ? '5, 10' : null
+        }).addTo(map);
+        
+        // Add arrow for direction
+        const midpoint = [
+            (sourceNode.lat + targetNode.lat) / 2,
+            (sourceNode.lon + targetNode.lon) / 2
+        ];
+        
+        if (edge.type === 'supply' || edge.type === 'assembly') {
+            L.marker(midpoint, {
+                icon: L.divIcon({
+                    html: '▶',
+                    className: 'arrow-marker',
+                    iconSize: [12, 12],
+                    iconAnchor: [6, 6]
+                })
+            }).addTo(map);
+        }
+    });
+
+    // Draw nodes
+    nodes.forEach(node => {
+        const color = colors[node.type] || '#7f8c8d';
+        const size = node.type === 'Deploy' ? 12 : (node.type === 'Assembly' ? 10 : 8);
+        
+        const marker = L.circleMarker([node.lat, node.lon], {
+            radius: size,
+            fillColor: color,
+            color: 'white',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map);
+        
+        marker.bindPopup(`
+            <div class="popup-title">${node.name}</div>
+            <div class="popup-type">${node.category}</div>
+            <div class="popup-type" style="margin-top:3px;color:#999">${node.name_en}</div>
+        `);
+    });
+
+    // Add Pacific annotation
+    L.marker([0, 160], {
+        icon: L.divIcon({
+            html: '<div style="font-size:16px;color:#aaa;font-style:italic;">🌏 Pacific Ocean</div>',
+            className: 'pacific-label',
+            iconSize: [150, 30],
+            iconAnchor: [75, 15]
+        })
+    }).addTo(map);
+    </script>
+</body>
+</html>
