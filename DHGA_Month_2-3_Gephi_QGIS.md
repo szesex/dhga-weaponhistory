@@ -81,6 +81,30 @@
 
 ---
 
+## 📍 2026-04-23 QGIS Status Update
+
+**⏸️ Manual QGIS Overlay Still Pending** — Server environment (headless Linux) cannot run QGIS GUI
+
+**✅ Geocoding Complete:** `enhanced_supply_chain_with_coordinates.csv` contains lat/lon for all supply chain nodes
+**✅ Alternative Visualization Done:** 
+- `supply_chain_map.html` — Plotly interactive map (2026-04-17)
+- `supply_chain_plotly.html` — Enhanced geographic view (2026-04-17)
+
+**Remaining Manual Step (requires local QGIS installation):**
+1. Open QGIS Desktop on local machine
+2. Import `supply_chain_edges_georeferenced.csv` as delimited text layer (Longitude, Latitude)
+3. Use "Lines from Points" or Hub Lines to connect Source → Target
+4. Symbolize: line color by Type (supply=blue, assembly=orange), line width by Weight
+5. Add base map (OpenStreetMap)
+6. Screenshot and save to `/dhga-weaponhistory/qgis_screenshots/`
+7. Update this document with screenshot path
+
+**Fallback (no QGIS):** The HTML maps (`supply_chain_plotly.html`) provide full interactivity and can replace QGIS output for documentation purposes.
+
+*Reminder fired by cron DHGA_QGIS_Reminder | 2026-04-23 10:00 UTC*
+
+---
+
 ## 🎯 袁騰飛式總結
 
 「呢個網絡圖告訴我哋乜？槍嘅進化唔係獨立事件——佢係一群人喺同一場仗入面逼出嚟嘅！
