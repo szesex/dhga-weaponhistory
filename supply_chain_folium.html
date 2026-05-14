@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a2f3c7559504f7d540cedb324288efd7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a2f3c7559504f7d540cedb324288efd7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a2f3c7559504f7d540cedb324288efd7 = L.map(
+                "map_a2f3c7559504f7d540cedb324288efd7",
+                {
+                    center: [35.0, 140.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b6e5b8d03e88d31c834a70c0858165e7 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b6e5b8d03e88d31c834a70c0858165e7.addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var poly_line_0c47856e43a14db3f344dee93ea66bca = L.polyline(
+                [[41.1067, 122.9942], [50.1109, 8.6821]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_937eab3e9282d25ba28d4a84c6bcfc5d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d114cb9269692c99805554934e0c395 = $(`<div id="html_9d114cb9269692c99805554934e0c395" style="width: 100.0%; height: 100.0%;">中國-鞍鋼/China-Anshan-Steel → 德國-萊茵金屬槍管/Germany-Rheinmetall-Barrel</div>`)[0];
+                popup_937eab3e9282d25ba28d4a84c6bcfc5d.setContent(html_9d114cb9269692c99805554934e0c395);
+            
+        
+
+        poly_line_0c47856e43a14db3f344dee93ea66bca.bindPopup(popup_937eab3e9282d25ba28d4a84c6bcfc5d)
+        ;
+
+        
+    
+    
+            var poly_line_b556b50dadf85e67156257dff0bdfd45 = L.polyline(
+                [[41.1067, 122.9942], [55.7558, 37.6173]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_fcf8d87085d8a56b1d810e8ebe68bbbb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd5da319c2ebd1d068a41e471000843d = $(`<div id="html_dd5da319c2ebd1d068a41e471000843d" style="width: 100.0%; height: 100.0%;">中國-鞍鋼/China-Anshan-Steel → 俄羅斯-軍甲/Armor-Russia</div>`)[0];
+                popup_fcf8d87085d8a56b1d810e8ebe68bbbb.setContent(html_dd5da319c2ebd1d068a41e471000843d);
+            
+        
+
+        poly_line_b556b50dadf85e67156257dff0bdfd45.bindPopup(popup_fcf8d87085d8a56b1d810e8ebe68bbbb)
+        ;
+
+        
+    
+    
+            var poly_line_9772395eaf0c5d6f5cd2fc6632c23eb1 = L.polyline(
+                [[-33.8688, 151.2152], [48.8566, 2.3522]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_ca7bd217400f3cd92e46b26554c35702 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c97df38a0b0a58dfeff59b4a6aab4e4 = $(`<div id="html_1c97df38a0b0a58dfeff59b4a6aab4e4" style="width: 100.0%; height: 100.0%;">澳洲-必和必拓/Australia-BHP-Aluminum → 法國-空客機身/France-Airbus-Airframe</div>`)[0];
+                popup_ca7bd217400f3cd92e46b26554c35702.setContent(html_1c97df38a0b0a58dfeff59b4a6aab4e4);
+            
+        
+
+        poly_line_9772395eaf0c5d6f5cd2fc6632c23eb1.bindPopup(popup_ca7bd217400f3cd92e46b26554c35702)
+        ;
+
+        
+    
+    
+            var poly_line_65e5b3969e74940d3a72934e7938210d = L.polyline(
+                [[54.895, 61.396], [36.1627, -86.8025]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_61fe4ae51994e19926cf463850861ad3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d1a613624e6c64b799de00023421e65 = $(`<div id="html_4d1a613624e6c64b799de00023421e65" style="width: 100.0%; height: 100.0%;">俄羅斯-VSMPO鈦合金/Russia-VSMPO-Titanium → 美國-康明斯發動機/USA-Cummins-Engine</div>`)[0];
+                popup_61fe4ae51994e19926cf463850861ad3.setContent(html_4d1a613624e6c64b799de00023421e65);
+            
+        
+
+        poly_line_65e5b3969e74940d3a72934e7938210d.bindPopup(popup_61fe4ae51994e19926cf463850861ad3)
+        ;
+
+        
+    
+    
+            var poly_line_79ea9ad5db71a3430f70332788b2e7f6 = L.polyline(
+                [[35.6586, 139.7454], [34.0522, -118.2437]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_085fc4396d2ccaaa79727fb943704f32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8289679b7814a399569e06c45f0da0e0 = $(`<div id="html_8289679b7814a399569e06c45f0da0e0" style="width: 100.0%; height: 100.0%;">日本-東京電子/Japan-Tokyo-Electron → 美國-諾格導引/USA-Northrop-Guidance</div>`)[0];
+                popup_085fc4396d2ccaaa79727fb943704f32.setContent(html_8289679b7814a399569e06c45f0da0e0);
+            
+        
+
+        poly_line_79ea9ad5db71a3430f70332788b2e7f6.bindPopup(popup_085fc4396d2ccaaa79727fb943704f32)
+        ;
+
+        
+    
+    
+            var poly_line_d21a2c4c613cebc875a3d2d59e2e43e1 = L.polyline(
+                [[24.9737, 121.5598], [31.0461, 34.8516]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_2e89ba0bdcce6875128224f60e406a29 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c826c711a8a8f4ad6d0b387d5b478b16 = $(`<div id="html_c826c711a8a8f4ad6d0b387d5b478b16" style="width: 100.0%; height: 100.0%;">台灣-台積電/Taiwan-TSMC → 以色列-拉斐爾導引/Israel-Rafael-Guidance</div>`)[0];
+                popup_2e89ba0bdcce6875128224f60e406a29.setContent(html_c826c711a8a8f4ad6d0b387d5b478b16);
+            
+        
+
+        poly_line_d21a2c4c613cebc875a3d2d59e2e43e1.bindPopup(popup_2e89ba0bdcce6875128224f60e406a29)
+        ;
+
+        
+    
+    
+            var poly_line_d7633b59e9cd4cc4a721607740a4233b = L.polyline(
+                [[40.656, 109.84], [36.2048, 138.2529]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_8bc1287d9fa1e595989a28413fb79fac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc6424fa4491f17d80b7cafabd01e252 = $(`<div id="html_dc6424fa4491f17d80b7cafabd01e252" style="width: 100.0%; height: 100.0%;">中國-包頭稀土/China-Baotou-RareEarth → 日本-松下感應器/Japan-Panasonic-Sensor</div>`)[0];
+                popup_8bc1287d9fa1e595989a28413fb79fac.setContent(html_dc6424fa4491f17d80b7cafabd01e252);
+            
+        
+
+        poly_line_d7633b59e9cd4cc4a721607740a4233b.bindPopup(popup_8bc1287d9fa1e595989a28413fb79fac)
+        ;
+
+        
+    
+    
+            var poly_line_20d47003b07ee1ca433e807a8a5d599e = L.polyline(
+                [[31.0461, 34.8516], [39.9042, 116.4074]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_fb3d3657b87146e89cc5286dd7f311f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cf953aec8e693dc43005d358651f371 = $(`<div id="html_0cf953aec8e693dc43005d358651f371" style="width: 100.0%; height: 100.0%;">以色列-埃爾比爾/Israel-Elbit-Propellant → 中國-北方工業導引/China-North-Industries-Guidance</div>`)[0];
+                popup_fb3d3657b87146e89cc5286dd7f311f9.setContent(html_0cf953aec8e693dc43005d358651f371);
+            
+        
+
+        poly_line_20d47003b07ee1ca433e807a8a5d599e.bindPopup(popup_fb3d3657b87146e89cc5286dd7f311f9)
+        ;
+
+        
+    
+    
+            var poly_line_eed74713eec41e731201e7a54c1fda2c = L.polyline(
+                [[37.0, -93.0], [37.7749, -122.4194]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_0e6d5b6462705bdb845d3978005f4cb0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df4f3e25f5c191186c5309d74751637d = $(`<div id="html_df4f3e25f5c191186c5309d74751637d" style="width: 100.0%; height: 100.0%;">美國- Albemarle鋰電池/USA-Albemarle-Lithium → 美國-特斯拉動力/USA-Tesla-PowerSystem</div>`)[0];
+                popup_0e6d5b6462705bdb845d3978005f4cb0.setContent(html_df4f3e25f5c191186c5309d74751637d);
+            
+        
+
+        poly_line_eed74713eec41e731201e7a54c1fda2c.bindPopup(popup_0e6d5b6462705bdb845d3978005f4cb0)
+        ;
+
+        
+    
+    
+            var poly_line_a82323b940015f3494da3f876c37f0ac = L.polyline(
+                [[-33.8688, 151.2152], [48.8566, 2.3522]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_4505c18d04c528762e88534dbcffd1d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d3b6c4004bab65856496d3db5c27765 = $(`<div id="html_2d3b6c4004bab65856496d3db5c27765" style="width: 100.0%; height: 100.0%;">澳洲-必和必拓/Australia-BHP-Aluminum → 法國-達索機翼/France-Dassault-Wing</div>`)[0];
+                popup_4505c18d04c528762e88534dbcffd1d7.setContent(html_2d3b6c4004bab65856496d3db5c27765);
+            
+        
+
+        poly_line_a82323b940015f3494da3f876c37f0ac.bindPopup(popup_4505c18d04c528762e88534dbcffd1d7)
+        ;
+
+        
+    
+    
+            var poly_line_bb6a9bbaec7a4c91e0650fc66f006fa7 = L.polyline(
+                [[50.1109, 8.6821], [39.3489, 95.235]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_dc131aed3790e02b9fe3f40f78a999e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef747ebea0bbf3fbfee1371b50db3f0f = $(`<div id="html_ef747ebea0bbf3fbfee1371b50db3f0f" style="width: 100.0%; height: 100.0%;">德國-萊茵金屬槍管/Germany-Rheinmetall-Barrel → 組裝-美國萊文沃思/US-Arsenal-Levenworth</div>`)[0];
+                popup_dc131aed3790e02b9fe3f40f78a999e5.setContent(html_ef747ebea0bbf3fbfee1371b50db3f0f);
+            
+        
+
+        poly_line_bb6a9bbaec7a4c91e0650fc66f006fa7.bindPopup(popup_dc131aed3790e02b9fe3f40f78a999e5)
+        ;
+
+        
+    
+    
+            var poly_line_859f06cec488c063e2bda3995ec37304 = L.polyline(
+                [[55.7558, 37.6173], [55.7558, 37.6173]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_fdbb443d81cc43251392eacb0fc6ec2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17e3a512a1549c071d201e81b3be2ab5 = $(`<div id="html_17e3a512a1549c071d201e81b3be2ab5" style="width: 100.0%; height: 100.0%;">俄羅斯-軍甲/Armor-Russia → 組裝-俄羅斯杜丁/USSR-Dudintsev</div>`)[0];
+                popup_fdbb443d81cc43251392eacb0fc6ec2e.setContent(html_17e3a512a1549c071d201e81b3be2ab5);
+            
+        
+
+        poly_line_859f06cec488c063e2bda3995ec37304.bindPopup(popup_fdbb443d81cc43251392eacb0fc6ec2e)
+        ;
+
+        
+    
+    
+            var poly_line_2219463863ef67d26e3287b4a1009299 = L.polyline(
+                [[48.8566, 2.3522], [36.2048, 138.2529]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_dbec47ce30b0137e50161aa60b80ac67 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c487616779e7ea714435fca629bfa4e = $(`<div id="html_8c487616779e7ea714435fca629bfa4e" style="width: 100.0%; height: 100.0%;">法國-空客機身/France-Airbus-Airframe → 組裝-日本三菱/Mitsubishi-Assembly</div>`)[0];
+                popup_dbec47ce30b0137e50161aa60b80ac67.setContent(html_8c487616779e7ea714435fca629bfa4e);
+            
+        
+
+        poly_line_2219463863ef67d26e3287b4a1009299.bindPopup(popup_dbec47ce30b0137e50161aa60b80ac67)
+        ;
+
+        
+    
+    
+            var poly_line_d99c75c72d58fd17e88759f37dd37a54 = L.polyline(
+                [[36.1627, -86.8025], [39.3489, 95.235]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_6505d54b29c9038ff8fa4951f840b0fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6820afdbb64475e78a577464a2831e63 = $(`<div id="html_6820afdbb64475e78a577464a2831e63" style="width: 100.0%; height: 100.0%;">美國-康明斯發動機/USA-Cummins-Engine → 組裝-美國萊文沃思/US-Arsenal-Levenworth</div>`)[0];
+                popup_6505d54b29c9038ff8fa4951f840b0fb.setContent(html_6820afdbb64475e78a577464a2831e63);
+            
+        
+
+        poly_line_d99c75c72d58fd17e88759f37dd37a54.bindPopup(popup_6505d54b29c9038ff8fa4951f840b0fb)
+        ;
+
+        
+    
+    
+            var poly_line_c4ba97a796293048d15bb6c84f695fdf = L.polyline(
+                [[32.7157, -117.1492], [36.2048, 138.2529]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_0cd9d1bbcc2c63a9a2cbe8589866ef13 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a1d1bb1f194ea01da6b763a21e258f5 = $(`<div id="html_1a1d1bb1f194ea01da6b763a21e258f5" style="width: 100.0%; height: 100.0%;">美國-通用原子/USA-General-Atomics-Engine → 組裝-日本三菱/Mitsubishi-Assembly</div>`)[0];
+                popup_0cd9d1bbcc2c63a9a2cbe8589866ef13.setContent(html_1a1d1bb1f194ea01da6b763a21e258f5);
+            
+        
+
+        poly_line_c4ba97a796293048d15bb6c84f695fdf.bindPopup(popup_0cd9d1bbcc2c63a9a2cbe8589866ef13)
+        ;
+
+        
+    
+    
+            var poly_line_7b7f097f24f6a8d76846a73b3231225b = L.polyline(
+                [[34.0522, -118.2437], [31.0461, 34.8516]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_97edf376fddf0dbe8f6ec52279f688ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_75e6384c6cc359169b074ecc2d120a29 = $(`<div id="html_75e6384c6cc359169b074ecc2d120a29" style="width: 100.0%; height: 100.0%;">美國-諾格導引/USA-Northrop-Guidance → 以色列-埃爾比爾/Israel-Elbit-Assembly</div>`)[0];
+                popup_97edf376fddf0dbe8f6ec52279f688ba.setContent(html_75e6384c6cc359169b074ecc2d120a29);
+            
+        
+
+        poly_line_7b7f097f24f6a8d76846a73b3231225b.bindPopup(popup_97edf376fddf0dbe8f6ec52279f688ba)
+        ;
+
+        
+    
+    
+            var poly_line_22d167c3205438e4d7e2168e36f01d28 = L.polyline(
+                [[31.0461, 34.8516], [31.0461, 34.8516]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_1e5afed9f358f8813e80ec992cfde8e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ae2014bc57198e413beba7c87e532c1 = $(`<div id="html_5ae2014bc57198e413beba7c87e532c1" style="width: 100.0%; height: 100.0%;">以色列-拉斐爾導引/Israel-Rafael-Guidance → 以色列-埃爾比爾/Israel-Elbit-Assembly</div>`)[0];
+                popup_1e5afed9f358f8813e80ec992cfde8e0.setContent(html_5ae2014bc57198e413beba7c87e532c1);
+            
+        
+
+        poly_line_22d167c3205438e4d7e2168e36f01d28.bindPopup(popup_1e5afed9f358f8813e80ec992cfde8e0)
+        ;
+
+        
+    
+    
+            var poly_line_7aa3bbdaaa209006356fae368713113b = L.polyline(
+                [[36.2048, 138.2529], [39.9042, 116.4074]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_dc0ceace5b32d922c6a6deca61cc3bd1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dea7f1e77b1eecde21a284bd372047e9 = $(`<div id="html_dea7f1e77b1eecde21a284bd372047e9" style="width: 100.0%; height: 100.0%;">日本-松下感應器/Japan-Panasonic-Sensor → 中國-北方工業導引/China-North-Industries-Guidance</div>`)[0];
+                popup_dc0ceace5b32d922c6a6deca61cc3bd1.setContent(html_dea7f1e77b1eecde21a284bd372047e9);
+            
+        
+
+        poly_line_7aa3bbdaaa209006356fae368713113b.bindPopup(popup_dc0ceace5b32d922c6a6deca61cc3bd1)
+        ;
+
+        
+    
+    
+            var poly_line_fea1987bce20ca42132f4d38f807e212 = L.polyline(
+                [[37.7749, -122.4194], [31.0461, 34.8516]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_f3a92afb474428767caf8b13e5994ddd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd97baa5a65a622d3cb604daaecd2d66 = $(`<div id="html_fd97baa5a65a622d3cb604daaecd2d66" style="width: 100.0%; height: 100.0%;">美國-特斯拉動力/USA-Tesla-PowerSystem → 以色列-埃爾比爾/Israel-Elbit-Assembly</div>`)[0];
+                popup_f3a92afb474428767caf8b13e5994ddd.setContent(html_fd97baa5a65a622d3cb604daaecd2d66);
+            
+        
+
+        poly_line_fea1987bce20ca42132f4d38f807e212.bindPopup(popup_f3a92afb474428767caf8b13e5994ddd)
+        ;
+
+        
+    
+    
+            var poly_line_600b177436f2ebee59e61028d4ed29c1 = L.polyline(
+                [[48.8566, 2.3522], [36.2048, 138.2529]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_90b8c95e5ff4666439c2372a38b41b5e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccd46c32fe8ba74a62a98417255b7f71 = $(`<div id="html_ccd46c32fe8ba74a62a98417255b7f71" style="width: 100.0%; height: 100.0%;">法國-達索機翼/France-Dassault-Wing → 組裝-日本三菱/Mitsubishi-Assembly</div>`)[0];
+                popup_90b8c95e5ff4666439c2372a38b41b5e.setContent(html_ccd46c32fe8ba74a62a98417255b7f71);
+            
+        
+
+        poly_line_600b177436f2ebee59e61028d4ed29c1.bindPopup(popup_90b8c95e5ff4666439c2372a38b41b5e)
+        ;
+
+        
+    
+    
+            var poly_line_b730a64a6ec962008f8bd3365dbf6a87 = L.polyline(
+                [[39.9042, 116.4074], [31.0461, 34.8516]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_ec0c74aaa147102e960716a883ca8942 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6fba73c305eda33a14acc3e9d7edec24 = $(`<div id="html_6fba73c305eda33a14acc3e9d7edec24" style="width: 100.0%; height: 100.0%;">中國-北方工業導引/China-North-Industries-Guidance → 以色列-埃爾比爾/Israel-Elbit-Assembly</div>`)[0];
+                popup_ec0c74aaa147102e960716a883ca8942.setContent(html_6fba73c305eda33a14acc3e9d7edec24);
+            
+        
+
+        poly_line_b730a64a6ec962008f8bd3365dbf6a87.bindPopup(popup_ec0c74aaa147102e960716a883ca8942)
+        ;
+
+        
+    
+    
+            var poly_line_06bdcf7f125454fb25f98fd35f33636f = L.polyline(
+                [[39.3489, 95.235], [61.218, -149.9]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_30b6d2acd742f547f5f13ea8533b9356 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90435f95956847cc11474ff835de605d = $(`<div id="html_90435f95956847cc11474ff835de605d" style="width: 100.0%; height: 100.0%;">組裝-美國萊文沃思/US-Arsenal-Levenworth → 部署-阿拉斯加/US-Alaska</div>`)[0];
+                popup_30b6d2acd742f547f5f13ea8533b9356.setContent(html_90435f95956847cc11474ff835de605d);
+            
+        
+
+        poly_line_06bdcf7f125454fb25f98fd35f33636f.bindPopup(popup_30b6d2acd742f547f5f13ea8533b9356)
+        ;
+
+        
+    
+    
+            var poly_line_40e45ca161a58ef359752349b69ab7d5 = L.polyline(
+                [[36.2048, 138.2529], [35.3228, 139.6386]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_39cf0fd948f64dd65a2d60679343d8a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a909447f2adfcd3e2dd062ee5d1a8c2 = $(`<div id="html_4a909447f2adfcd3e2dd062ee5d1a8c2" style="width: 100.0%; height: 100.0%;">組裝-日本三菱/Mitsubishi-Assembly → 部署-横須賀/US-Yokosuka</div>`)[0];
+                popup_39cf0fd948f64dd65a2d60679343d8a4.setContent(html_4a909447f2adfcd3e2dd062ee5d1a8c2);
+            
+        
+
+        poly_line_40e45ca161a58ef359752349b69ab7d5.bindPopup(popup_39cf0fd948f64dd65a2d60679343d8a4)
+        ;
+
+        
+    
+    
+            var poly_line_77e2335d379e59e31b663b69803b68fc = L.polyline(
+                [[36.2048, 138.2529], [26.5018, 127.678]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_d2e65aa747562c7af92f907a6d353490 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ab623d5f5edc9684f9cf5d14bbdd5766 = $(`<div id="html_ab623d5f5edc9684f9cf5d14bbdd5766" style="width: 100.0%; height: 100.0%;">組裝-日本三菱/Mitsubishi-Assembly → 部署-冲繩/US-Okinawa</div>`)[0];
+                popup_d2e65aa747562c7af92f907a6d353490.setContent(html_ab623d5f5edc9684f9cf5d14bbdd5766);
+            
+        
+
+        poly_line_77e2335d379e59e31b663b69803b68fc.bindPopup(popup_d2e65aa747562c7af92f907a6d353490)
+        ;
+
+        
+    
+    
+            var poly_line_a90bbc4a3de1ef3852c194c74b935b00 = L.polyline(
+                [[36.2048, 138.2529], [13.4443, 144.7937]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_05ec978a08bd3e712d4e99d8231f3599 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70381246aeb3135fde128279ce5a4333 = $(`<div id="html_70381246aeb3135fde128279ce5a4333" style="width: 100.0%; height: 100.0%;">組裝-日本三菱/Mitsubishi-Assembly → 部署-關島/US-Guam</div>`)[0];
+                popup_05ec978a08bd3e712d4e99d8231f3599.setContent(html_70381246aeb3135fde128279ce5a4333);
+            
+        
+
+        poly_line_a90bbc4a3de1ef3852c194c74b935b00.bindPopup(popup_05ec978a08bd3e712d4e99d8231f3599)
+        ;
+
+        
+    
+    
+            var poly_line_b1bd2b18a3a718fa39ac829b90143a2c = L.polyline(
+                [[31.0461, 34.8516], [61.218, -149.9]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_6ff5c36482d345b8178cc4769f74ff96 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_befceff4c120f4a2b5c378d5c74e6c10 = $(`<div id="html_befceff4c120f4a2b5c378d5c74e6c10" style="width: 100.0%; height: 100.0%;">組裝-以色列埃爾比爾/Israel-Elbit-Assembly → 部署-阿拉斯加/US-Alaska</div>`)[0];
+                popup_6ff5c36482d345b8178cc4769f74ff96.setContent(html_befceff4c120f4a2b5c378d5c74e6c10);
+            
+        
+
+        poly_line_b1bd2b18a3a718fa39ac829b90143a2c.bindPopup(popup_6ff5c36482d345b8178cc4769f74ff96)
+        ;
+
+        
+    
+    
+            var poly_line_b8f817c14a8972b3f34513916d757527 = L.polyline(
+                [[31.0461, 34.8516], [21.3069, -157.826]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_b409f184a1d5fe73226f5b1248aaa44b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_94b9c4b29f7a49878f7c101e15326f67 = $(`<div id="html_94b9c4b29f7a49878f7c101e15326f67" style="width: 100.0%; height: 100.0%;">組裝-以色列埃爾比爾/Israel-Elbit-Assembly → 部署-夏威夷/US-Hawaii</div>`)[0];
+                popup_b409f184a1d5fe73226f5b1248aaa44b.setContent(html_94b9c4b29f7a49878f7c101e15326f67);
+            
+        
+
+        poly_line_b8f817c14a8972b3f34513916d757527.bindPopup(popup_b409f184a1d5fe73226f5b1248aaa44b)
+        ;
+
+        
+    
+    
+            var poly_line_2cb6361fbd4803b4c99e73cc035c0f43 = L.polyline(
+                [[31.0461, 34.8516], [35.74, 139.36]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_0e94e721ac22b6eb1701894146066935 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24371273d63998fb40bced8e7d5b2f3c = $(`<div id="html_24371273d63998fb40bced8e7d5b2f3c" style="width: 100.0%; height: 100.0%;">組裝-以色列埃爾比爾/Israel-Elbit-Assembly → 部署-横田/US-Yokota</div>`)[0];
+                popup_0e94e721ac22b6eb1701894146066935.setContent(html_24371273d63998fb40bced8e7d5b2f3c);
+            
+        
+
+        poly_line_2cb6361fbd4803b4c99e73cc035c0f43.bindPopup(popup_0e94e721ac22b6eb1701894146066935)
+        ;
+
+        
+    
+    
+            var poly_line_45eafdeb0b95bd18008a33e9eab3e227 = L.polyline(
+                [[39.9042, 116.4074], [35.1798, 129.0403]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_101f41f7b182082a2aee068a044d01a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fdb35fde533a7287e0d1d16edabef230 = $(`<div id="html_fdb35fde533a7287e0d1d16edabef230" style="width: 100.0%; height: 100.0%;">組裝-中國北方工業/China-North-Assembly → 部署-釜山/US-Busan</div>`)[0];
+                popup_101f41f7b182082a2aee068a044d01a0.setContent(html_fdb35fde533a7287e0d1d16edabef230);
+            
+        
+
+        poly_line_45eafdeb0b95bd18008a33e9eab3e227.bindPopup(popup_101f41f7b182082a2aee068a044d01a0)
+        ;
+
+        
+    
+    
+            var poly_line_57e7b6e67e10cc7490b2e3566688caea = L.polyline(
+                [[39.9042, 116.4074], [35.87, 128.6]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_afb2ebf9353bedaea90146e584cf937d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eacdf0e6606485e6f8c1d192809729dd = $(`<div id="html_eacdf0e6606485e6f8c1d192809729dd" style="width: 100.0%; height: 100.0%;">組裝-中國北方工業/China-North-Assembly → 部署-大邱/US-Daegu</div>`)[0];
+                popup_afb2ebf9353bedaea90146e584cf937d.setContent(html_eacdf0e6606485e6f8c1d192809729dd);
+            
+        
+
+        poly_line_57e7b6e67e10cc7490b2e3566688caea.bindPopup(popup_afb2ebf9353bedaea90146e584cf937d)
+        ;
+
+        
+    
+    
+            var poly_line_7ab55c2b80a5709485de69a6d1a211a6 = L.polyline(
+                [[55.7558, 37.6173], [35.3228, 139.6386]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_b828f9d78e4f3e175197647f1e698833 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13675b9483d5d7765bd3164b0498a3c0 = $(`<div id="html_13675b9483d5d7765bd3164b0498a3c0" style="width: 100.0%; height: 100.0%;">組裝-俄羅斯杜丁/USSR-Dudintsev → 部署-横須賀/US-Yokosuka</div>`)[0];
+                popup_b828f9d78e4f3e175197647f1e698833.setContent(html_13675b9483d5d7765bd3164b0498a3c0);
+            
+        
+
+        poly_line_7ab55c2b80a5709485de69a6d1a211a6.bindPopup(popup_b828f9d78e4f3e175197647f1e698833)
+        ;
+
+        
+    
+    
+            var circle_marker_d0e199fc1b2c4b93b349a78a2b629c46 = L.circleMarker(
+                [41.1067, 122.9942],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_bd6d980f31d4bcf33fc4212d7a403dfa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ba94be7a6d8da027cf4e522d94a8727 = $(`<div id="html_1ba94be7a6d8da027cf4e522d94a8727" style="width: 100.0%; height: 100.0%;">中國-鞍鋼/China-Anshan-Steel</div>`)[0];
+                popup_bd6d980f31d4bcf33fc4212d7a403dfa.setContent(html_1ba94be7a6d8da027cf4e522d94a8727);
+            
+        
+
+        circle_marker_d0e199fc1b2c4b93b349a78a2b629c46.bindPopup(popup_bd6d980f31d4bcf33fc4212d7a403dfa)
+        ;
+
+        
+    
+    
+            var circle_marker_bd71e5510f902bfcff0d05207bccc53e = L.circleMarker(
+                [50.1109, 8.6821],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_d3d4590f51be33fc6d80c774178de480 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca590ad7a1212616381ecd425e82607f = $(`<div id="html_ca590ad7a1212616381ecd425e82607f" style="width: 100.0%; height: 100.0%;">德國-萊茵金屬槍管/Germany-Rheinmetall-Barrel</div>`)[0];
+                popup_d3d4590f51be33fc6d80c774178de480.setContent(html_ca590ad7a1212616381ecd425e82607f);
+            
+        
+
+        circle_marker_bd71e5510f902bfcff0d05207bccc53e.bindPopup(popup_d3d4590f51be33fc6d80c774178de480)
+        ;
+
+        
+    
+    
+            var circle_marker_9dec05b8c75193cebf83f15b5265cb70 = L.circleMarker(
+                [55.7558, 37.6173],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_a14cab0fc90bf6c433b9d67925827b66 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_745f4a65c3f53b7e1152f72bf5da5135 = $(`<div id="html_745f4a65c3f53b7e1152f72bf5da5135" style="width: 100.0%; height: 100.0%;">俄羅斯-軍甲/Armor-Russia</div>`)[0];
+                popup_a14cab0fc90bf6c433b9d67925827b66.setContent(html_745f4a65c3f53b7e1152f72bf5da5135);
+            
+        
+
+        circle_marker_9dec05b8c75193cebf83f15b5265cb70.bindPopup(popup_a14cab0fc90bf6c433b9d67925827b66)
+        ;
+
+        
+    
+    
+            var circle_marker_06ea451a1a2062b3be3f714c2eecc8f9 = L.circleMarker(
+                [-33.8688, 151.2152],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_384e7623fc744757d4a97e1ea8674669 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90ade0be6a465e8bde132480147e13d1 = $(`<div id="html_90ade0be6a465e8bde132480147e13d1" style="width: 100.0%; height: 100.0%;">澳洲-必和必拓/Australia-BHP-Aluminum</div>`)[0];
+                popup_384e7623fc744757d4a97e1ea8674669.setContent(html_90ade0be6a465e8bde132480147e13d1);
+            
+        
+
+        circle_marker_06ea451a1a2062b3be3f714c2eecc8f9.bindPopup(popup_384e7623fc744757d4a97e1ea8674669)
+        ;
+
+        
+    
+    
+            var circle_marker_f6397e5da42d94e0a4b3690484c264fb = L.circleMarker(
+                [48.8566, 2.3522],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_da21c8c6a0d2b72453d45ef0103a374b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ca03a82d10163444d4c8051d3681b9a = $(`<div id="html_6ca03a82d10163444d4c8051d3681b9a" style="width: 100.0%; height: 100.0%;">法國-空客機身/France-Airbus-Airframe</div>`)[0];
+                popup_da21c8c6a0d2b72453d45ef0103a374b.setContent(html_6ca03a82d10163444d4c8051d3681b9a);
+            
+        
+
+        circle_marker_f6397e5da42d94e0a4b3690484c264fb.bindPopup(popup_da21c8c6a0d2b72453d45ef0103a374b)
+        ;
+
+        
+    
+    
+            var circle_marker_82e79008f38c6464cdeecaeb79f4bd58 = L.circleMarker(
+                [54.895, 61.396],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_d577200b4d29eefe32f5f0c8a711a568 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_329ae83dbac1c58cf6503925a714569f = $(`<div id="html_329ae83dbac1c58cf6503925a714569f" style="width: 100.0%; height: 100.0%;">俄羅斯-VSMPO鈦合金/Russia-VSMPO-Titanium</div>`)[0];
+                popup_d577200b4d29eefe32f5f0c8a711a568.setContent(html_329ae83dbac1c58cf6503925a714569f);
+            
+        
+
+        circle_marker_82e79008f38c6464cdeecaeb79f4bd58.bindPopup(popup_d577200b4d29eefe32f5f0c8a711a568)
+        ;
+
+        
+    
+    
+            var circle_marker_de82be894dd1af1ad4c2fc3a434a3d9d = L.circleMarker(
+                [36.1627, -86.8025],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_9fb3c9855a7af40508ca4e2c2d2b75e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e77683e2661c1c516fb313d1c59441a3 = $(`<div id="html_e77683e2661c1c516fb313d1c59441a3" style="width: 100.0%; height: 100.0%;">美國-康明斯發動機/USA-Cummins-Engine</div>`)[0];
+                popup_9fb3c9855a7af40508ca4e2c2d2b75e5.setContent(html_e77683e2661c1c516fb313d1c59441a3);
+            
+        
+
+        circle_marker_de82be894dd1af1ad4c2fc3a434a3d9d.bindPopup(popup_9fb3c9855a7af40508ca4e2c2d2b75e5)
+        ;
+
+        
+    
+    
+            var circle_marker_432d705176292939c21dc9d3cb9ccb67 = L.circleMarker(
+                [35.6586, 139.7454],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_3f1cb049fe1814b715c5b4e16f0cacde = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_97a629e6e54878fec136bcdd4ca482f4 = $(`<div id="html_97a629e6e54878fec136bcdd4ca482f4" style="width: 100.0%; height: 100.0%;">日本-東京電子/Japan-Tokyo-Electron</div>`)[0];
+                popup_3f1cb049fe1814b715c5b4e16f0cacde.setContent(html_97a629e6e54878fec136bcdd4ca482f4);
+            
+        
+
+        circle_marker_432d705176292939c21dc9d3cb9ccb67.bindPopup(popup_3f1cb049fe1814b715c5b4e16f0cacde)
+        ;
+
+        
+    
+    
+            var circle_marker_f3625e9e9dc1c24119ad82693005d6d0 = L.circleMarker(
+                [34.0522, -118.2437],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_d93204ddc368a5e4752289cfe21e4a1a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cfacae2bfa6b6160234e53a537e085b5 = $(`<div id="html_cfacae2bfa6b6160234e53a537e085b5" style="width: 100.0%; height: 100.0%;">美國-諾格導引/USA-Northrop-Guidance</div>`)[0];
+                popup_d93204ddc368a5e4752289cfe21e4a1a.setContent(html_cfacae2bfa6b6160234e53a537e085b5);
+            
+        
+
+        circle_marker_f3625e9e9dc1c24119ad82693005d6d0.bindPopup(popup_d93204ddc368a5e4752289cfe21e4a1a)
+        ;
+
+        
+    
+    
+            var circle_marker_416ecd9ca7f7d6fb5e517829ef46c8bd = L.circleMarker(
+                [24.9737, 121.5598],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_84fdaf2008a31d633b27211a2098ed29 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51c9db891d1ba0af784584ae94f3b3d9 = $(`<div id="html_51c9db891d1ba0af784584ae94f3b3d9" style="width: 100.0%; height: 100.0%;">台灣-台積電/Taiwan-TSMC</div>`)[0];
+                popup_84fdaf2008a31d633b27211a2098ed29.setContent(html_51c9db891d1ba0af784584ae94f3b3d9);
+            
+        
+
+        circle_marker_416ecd9ca7f7d6fb5e517829ef46c8bd.bindPopup(popup_84fdaf2008a31d633b27211a2098ed29)
+        ;
+
+        
+    
+    
+            var circle_marker_c1a2bd25c4548b6efa6c7b14178f8fe1 = L.circleMarker(
+                [31.0461, 34.8516],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_0a78504f21027df82a0fb28f779b527f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_710a5c2d0e54f8113065e83d8990d1b4 = $(`<div id="html_710a5c2d0e54f8113065e83d8990d1b4" style="width: 100.0%; height: 100.0%;">以色列-拉斐爾導引/Israel-Rafael-Guidance</div>`)[0];
+                popup_0a78504f21027df82a0fb28f779b527f.setContent(html_710a5c2d0e54f8113065e83d8990d1b4);
+            
+        
+
+        circle_marker_c1a2bd25c4548b6efa6c7b14178f8fe1.bindPopup(popup_0a78504f21027df82a0fb28f779b527f)
+        ;
+
+        
+    
+    
+            var circle_marker_b8e336ee6feefe27c574fdd66fb4ccb3 = L.circleMarker(
+                [40.656, 109.84],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_864c775e397dc3cfd176f5b6115b77cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1357b04ea9c1940ad9b82658c4a6de8 = $(`<div id="html_e1357b04ea9c1940ad9b82658c4a6de8" style="width: 100.0%; height: 100.0%;">中國-包頭稀土/China-Baotou-RareEarth</div>`)[0];
+                popup_864c775e397dc3cfd176f5b6115b77cb.setContent(html_e1357b04ea9c1940ad9b82658c4a6de8);
+            
+        
+
+        circle_marker_b8e336ee6feefe27c574fdd66fb4ccb3.bindPopup(popup_864c775e397dc3cfd176f5b6115b77cb)
+        ;
+
+        
+    
+    
+            var circle_marker_8f036ba2478d2930a488ec09618842f8 = L.circleMarker(
+                [36.2048, 138.2529],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_668d9d7875181ea9cb2708dce4d97ae7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a30720413998feba2a849bf8f1ea4028 = $(`<div id="html_a30720413998feba2a849bf8f1ea4028" style="width: 100.0%; height: 100.0%;">日本-松下感應器/Japan-Panasonic-Sensor</div>`)[0];
+                popup_668d9d7875181ea9cb2708dce4d97ae7.setContent(html_a30720413998feba2a849bf8f1ea4028);
+            
+        
+
+        circle_marker_8f036ba2478d2930a488ec09618842f8.bindPopup(popup_668d9d7875181ea9cb2708dce4d97ae7)
+        ;
+
+        
+    
+    
+            var circle_marker_bdcef8ed2224012a8b16f75b110a2a0d = L.circleMarker(
+                [39.9042, 116.4074],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_02bb0ecaa6e9e1974d0873b4d0c3c042 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f841fc7867f9385b00a93fcedfff489 = $(`<div id="html_7f841fc7867f9385b00a93fcedfff489" style="width: 100.0%; height: 100.0%;">中國-北方工業導引/China-North-Industries-Guidance</div>`)[0];
+                popup_02bb0ecaa6e9e1974d0873b4d0c3c042.setContent(html_7f841fc7867f9385b00a93fcedfff489);
+            
+        
+
+        circle_marker_bdcef8ed2224012a8b16f75b110a2a0d.bindPopup(popup_02bb0ecaa6e9e1974d0873b4d0c3c042)
+        ;
+
+        
+    
+    
+            var circle_marker_8ac646c46164f449e93bbf9cb65d8f53 = L.circleMarker(
+                [37.0, -93.0],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_12faabec26187cfd5443266e5c103a80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6d64b67b1fea3d8a9fbad16d9e5a195 = $(`<div id="html_e6d64b67b1fea3d8a9fbad16d9e5a195" style="width: 100.0%; height: 100.0%;">美國- Albemarle鋰電池/USA-Albemarle-Lithium</div>`)[0];
+                popup_12faabec26187cfd5443266e5c103a80.setContent(html_e6d64b67b1fea3d8a9fbad16d9e5a195);
+            
+        
+
+        circle_marker_8ac646c46164f449e93bbf9cb65d8f53.bindPopup(popup_12faabec26187cfd5443266e5c103a80)
+        ;
+
+        
+    
+    
+            var circle_marker_a98bcd93cca6cca9b44a33a60115d1fe = L.circleMarker(
+                [37.7749, -122.4194],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_2b408f7f9c5dd6ab905da6fc1363d0f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af4c3ae22279051bd90b4611ea40b788 = $(`<div id="html_af4c3ae22279051bd90b4611ea40b788" style="width: 100.0%; height: 100.0%;">美國-特斯拉動力/USA-Tesla-PowerSystem</div>`)[0];
+                popup_2b408f7f9c5dd6ab905da6fc1363d0f7.setContent(html_af4c3ae22279051bd90b4611ea40b788);
+            
+        
+
+        circle_marker_a98bcd93cca6cca9b44a33a60115d1fe.bindPopup(popup_2b408f7f9c5dd6ab905da6fc1363d0f7)
+        ;
+
+        
+    
+    
+            var circle_marker_5ef813774b799f2621f40e5faf139392 = L.circleMarker(
+                [39.3489, 95.235],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_8dd2f5c27447794a80f617d5813e6df5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8f6896f33845dd6a6ba25c1696f132b8 = $(`<div id="html_8f6896f33845dd6a6ba25c1696f132b8" style="width: 100.0%; height: 100.0%;">組裝-美國萊文沃思/US-Arsenal-Levenworth</div>`)[0];
+                popup_8dd2f5c27447794a80f617d5813e6df5.setContent(html_8f6896f33845dd6a6ba25c1696f132b8);
+            
+        
+
+        circle_marker_5ef813774b799f2621f40e5faf139392.bindPopup(popup_8dd2f5c27447794a80f617d5813e6df5)
+        ;
+
+        
+    
+    
+            var circle_marker_05334fa7ac2494701f7bf6878deaca3f = L.circleMarker(
+                [32.7157, -117.1492],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_d4e6cffcfd85103518d06bec4b76c874 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_827dd970635aafd7db625abf1ba8ff96 = $(`<div id="html_827dd970635aafd7db625abf1ba8ff96" style="width: 100.0%; height: 100.0%;">美國-通用原子/USA-General-Atomics-Engine</div>`)[0];
+                popup_d4e6cffcfd85103518d06bec4b76c874.setContent(html_827dd970635aafd7db625abf1ba8ff96);
+            
+        
+
+        circle_marker_05334fa7ac2494701f7bf6878deaca3f.bindPopup(popup_d4e6cffcfd85103518d06bec4b76c874)
+        ;
+
+        
+    
+    
+            var circle_marker_6b9db7fe8639c308552b5f117c969828 = L.circleMarker(
+                [61.218, -149.9],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_4d6b8d70b1754ad448fc9bff22bc6612 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_994ce92966a43f7af565588c35c7f7cb = $(`<div id="html_994ce92966a43f7af565588c35c7f7cb" style="width: 100.0%; height: 100.0%;">部署-阿拉斯加/US-Alaska</div>`)[0];
+                popup_4d6b8d70b1754ad448fc9bff22bc6612.setContent(html_994ce92966a43f7af565588c35c7f7cb);
+            
+        
+
+        circle_marker_6b9db7fe8639c308552b5f117c969828.bindPopup(popup_4d6b8d70b1754ad448fc9bff22bc6612)
+        ;
+
+        
+    
+    
+            var circle_marker_59c27bd032fdf5d67f42962ea7f5eb53 = L.circleMarker(
+                [35.3228, 139.6386],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_28a4228166aa48f25ae9a42c09a9f601 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54cd09652be5ee4c1cd6747915f03009 = $(`<div id="html_54cd09652be5ee4c1cd6747915f03009" style="width: 100.0%; height: 100.0%;">部署-横須賀/US-Yokosuka</div>`)[0];
+                popup_28a4228166aa48f25ae9a42c09a9f601.setContent(html_54cd09652be5ee4c1cd6747915f03009);
+            
+        
+
+        circle_marker_59c27bd032fdf5d67f42962ea7f5eb53.bindPopup(popup_28a4228166aa48f25ae9a42c09a9f601)
+        ;
+
+        
+    
+    
+            var circle_marker_854e0dfc4f0212eaa361be527c256a22 = L.circleMarker(
+                [26.5018, 127.678],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_0e0d9eb21b068809e382ec3a804ebaf8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b3f28785bc2fa7099a9b374a3966f25 = $(`<div id="html_0b3f28785bc2fa7099a9b374a3966f25" style="width: 100.0%; height: 100.0%;">部署-冲繩/US-Okinawa</div>`)[0];
+                popup_0e0d9eb21b068809e382ec3a804ebaf8.setContent(html_0b3f28785bc2fa7099a9b374a3966f25);
+            
+        
+
+        circle_marker_854e0dfc4f0212eaa361be527c256a22.bindPopup(popup_0e0d9eb21b068809e382ec3a804ebaf8)
+        ;
+
+        
+    
+    
+            var circle_marker_4ed112f04c0ee4929fcb7307e398317a = L.circleMarker(
+                [13.4443, 144.7937],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_fcfbaf60b3b4a3e15cba75c304411dfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2c5c6882f87ab5a318838c1ad5b00fb1 = $(`<div id="html_2c5c6882f87ab5a318838c1ad5b00fb1" style="width: 100.0%; height: 100.0%;">部署-關島/US-Guam</div>`)[0];
+                popup_fcfbaf60b3b4a3e15cba75c304411dfb.setContent(html_2c5c6882f87ab5a318838c1ad5b00fb1);
+            
+        
+
+        circle_marker_4ed112f04c0ee4929fcb7307e398317a.bindPopup(popup_fcfbaf60b3b4a3e15cba75c304411dfb)
+        ;
+
+        
+    
+    
+            var circle_marker_bf5dae7482901757f46264bf87ee5168 = L.circleMarker(
+                [21.3069, -157.826],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_f0b41ed21869e0b52545c39cd8f77965 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b9bd8bec427e0e65769a8c3537a144a = $(`<div id="html_6b9bd8bec427e0e65769a8c3537a144a" style="width: 100.0%; height: 100.0%;">部署-夏威夷/US-Hawaii</div>`)[0];
+                popup_f0b41ed21869e0b52545c39cd8f77965.setContent(html_6b9bd8bec427e0e65769a8c3537a144a);
+            
+        
+
+        circle_marker_bf5dae7482901757f46264bf87ee5168.bindPopup(popup_f0b41ed21869e0b52545c39cd8f77965)
+        ;
+
+        
+    
+    
+            var circle_marker_2f80ffeae66a0f90bc0c8c069787f48d = L.circleMarker(
+                [35.74, 139.36],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_f97840b3cbc2a19cfa578433dc7c9287 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63171479b27430b009b5fea588e686a5 = $(`<div id="html_63171479b27430b009b5fea588e686a5" style="width: 100.0%; height: 100.0%;">部署-横田/US-Yokota</div>`)[0];
+                popup_f97840b3cbc2a19cfa578433dc7c9287.setContent(html_63171479b27430b009b5fea588e686a5);
+            
+        
+
+        circle_marker_2f80ffeae66a0f90bc0c8c069787f48d.bindPopup(popup_f97840b3cbc2a19cfa578433dc7c9287)
+        ;
+
+        
+    
+    
+            var circle_marker_6a00b892836ee63aaf385a1f242057af = L.circleMarker(
+                [35.1798, 129.0403],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_2a81cbf2164cbf71e8a7b08bb9bd1ebf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4aacf3cf9e0cc70076cc8a43c9e05e36 = $(`<div id="html_4aacf3cf9e0cc70076cc8a43c9e05e36" style="width: 100.0%; height: 100.0%;">部署-釜山/US-Busan</div>`)[0];
+                popup_2a81cbf2164cbf71e8a7b08bb9bd1ebf.setContent(html_4aacf3cf9e0cc70076cc8a43c9e05e36);
+            
+        
+
+        circle_marker_6a00b892836ee63aaf385a1f242057af.bindPopup(popup_2a81cbf2164cbf71e8a7b08bb9bd1ebf)
+        ;
+
+        
+    
+    
+            var circle_marker_6a14cbe40a71db19650e6a48ac89b1ae = L.circleMarker(
+                [35.87, 128.6],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+        var popup_5dde3fc0e769c6e1a87f16705e5c1441 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b60d48ef19b0c77bdf41a5da52ab4156 = $(`<div id="html_b60d48ef19b0c77bdf41a5da52ab4156" style="width: 100.0%; height: 100.0%;">部署-大邱/US-Daegu</div>`)[0];
+                popup_5dde3fc0e769c6e1a87f16705e5c1441.setContent(html_b60d48ef19b0c77bdf41a5da52ab4156);
+            
+        
+
+        circle_marker_6a14cbe40a71db19650e6a48ac89b1ae.bindPopup(popup_5dde3fc0e769c6e1a87f16705e5c1441)
+        ;
+
+        
+    
+    
+            var marker_077c98e650531ee8723e01260ad11c2e = L.marker(
+                [41.387, -73.958],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_469573843511eaa223f325abd2709ca4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e4f45cbd5770ad004e766ad4fbdf7dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dfac5a53d976d9e34ec98b9626563b6e = $(`<div id="html_dfac5a53d976d9e34ec98b9626563b6e" style="width: 100.0%; height: 100.0%;">⚔️ West Point (1776)</div>`)[0];
+                popup_7e4f45cbd5770ad004e766ad4fbdf7dd.setContent(html_dfac5a53d976d9e34ec98b9626563b6e);
+            
+        
+
+        marker_077c98e650531ee8723e01260ad11c2e.bindPopup(popup_7e4f45cbd5770ad004e766ad4fbdf7dd)
+        ;
+
+        
+    
+    
+                marker_077c98e650531ee8723e01260ad11c2e.setIcon(icon_469573843511eaa223f325abd2709ca4);
+            
+    
+            var marker_9f0f1b12109f92a0579a1c84922105f2 = L.marker(
+                [37.237, -76.509],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_9a500ab99fc9acc63febeb9672035522 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6737fcb2375ffffc6d026673d0433b5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1540aa525eedafbbdb160c783ac4075c = $(`<div id="html_1540aa525eedafbbdb160c783ac4075c" style="width: 100.0%; height: 100.0%;">⚔️ Yorktown (1776)</div>`)[0];
+                popup_6737fcb2375ffffc6d026673d0433b5f.setContent(html_1540aa525eedafbbdb160c783ac4075c);
+            
+        
+
+        marker_9f0f1b12109f92a0579a1c84922105f2.bindPopup(popup_6737fcb2375ffffc6d026673d0433b5f)
+        ;
+
+        
+    
+    
+                marker_9f0f1b12109f92a0579a1c84922105f2.setIcon(icon_9a500ab99fc9acc63febeb9672035522);
+            
+    
+            var marker_d14cacfcb4680c6a83ffe17d7e71dcd6 = L.marker(
+                [42.3601, -71.0589],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_446c67150f8c06c740934d54569f5fb3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ebbcd236ffc42283b8d3be5998037940 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_219f13130417fd93ba7f829dce3d12dc = $(`<div id="html_219f13130417fd93ba7f829dce3d12dc" style="width: 100.0%; height: 100.0%;">⚔️ Boston (1776)</div>`)[0];
+                popup_ebbcd236ffc42283b8d3be5998037940.setContent(html_219f13130417fd93ba7f829dce3d12dc);
+            
+        
+
+        marker_d14cacfcb4680c6a83ffe17d7e71dcd6.bindPopup(popup_ebbcd236ffc42283b8d3be5998037940)
+        ;
+
+        
+    
+    
+                marker_d14cacfcb4680c6a83ffe17d7e71dcd6.setIcon(icon_446c67150f8c06c740934d54569f5fb3);
+            
+    
+            var marker_3bfcdb803556ae24fb208f280763563d = L.marker(
+                [24.75, 141.3],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_61971837e76f964a533d829f47c3b3a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_83ca2e3d22899c2a8b7d4cf3dff28492 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5a56cfdf458dabef4cddaa73021bf83b = $(`<div id="html_5a56cfdf458dabef4cddaa73021bf83b" style="width: 100.0%; height: 100.0%;">💥 Iwo Jima (WWII Pacific)</div>`)[0];
+                popup_83ca2e3d22899c2a8b7d4cf3dff28492.setContent(html_5a56cfdf458dabef4cddaa73021bf83b);
+            
+        
+
+        marker_3bfcdb803556ae24fb208f280763563d.bindPopup(popup_83ca2e3d22899c2a8b7d4cf3dff28492)
+        ;
+
+        
+    
+    
+                marker_3bfcdb803556ae24fb208f280763563d.setIcon(icon_61971837e76f964a533d829f47c3b3a6);
+            
+    
+            var marker_bb4e30ab81175671f8258d5ba4bab156 = L.marker(
+                [26.5018, 127.678],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_bdb595566af90f9b13d665b7e5d7db98 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6461d80a13c647a5248b4361d83b1663 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb71efbcdc8b2f21bef4e475d05659ec = $(`<div id="html_bb71efbcdc8b2f21bef4e475d05659ec" style="width: 100.0%; height: 100.0%;">💥 Okinawa (WWII Pacific)</div>`)[0];
+                popup_6461d80a13c647a5248b4361d83b1663.setContent(html_bb71efbcdc8b2f21bef4e475d05659ec);
+            
+        
+
+        marker_bb4e30ab81175671f8258d5ba4bab156.bindPopup(popup_6461d80a13c647a5248b4361d83b1663)
+        ;
+
+        
+    
+    
+                marker_bb4e30ab81175671f8258d5ba4bab156.setIcon(icon_bdb595566af90f9b13d665b7e5d7db98);
+            
+    
+            var marker_daec18531037eddc31cec79ce7b0abfc = L.marker(
+                [-9.43, 159.95],
+                {
+}
+            ).addTo(map_a2f3c7559504f7d540cedb324288efd7);
+        
+    
+            var icon_4c1ff9daa0755b88771740920a9580a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c17b159a98721287020020fffbe2bb3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_218653173667f841394a9ba0c592ea43 = $(`<div id="html_218653173667f841394a9ba0c592ea43" style="width: 100.0%; height: 100.0%;">💥 Guadalcanal (WWII Pacific)</div>`)[0];
+                popup_5c17b159a98721287020020fffbe2bb3.setContent(html_218653173667f841394a9ba0c592ea43);
+            
+        
+
+        marker_daec18531037eddc31cec79ce7b0abfc.bindPopup(popup_5c17b159a98721287020020fffbe2bb3)
+        ;
+
+        
+    
+    
+                marker_daec18531037eddc31cec79ce7b0abfc.setIcon(icon_4c1ff9daa0755b88771740920a9580a3);
+            
+</script>
+</html>
