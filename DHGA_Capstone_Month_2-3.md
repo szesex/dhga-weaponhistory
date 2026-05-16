@@ -1,9 +1,9 @@
 # DHGA Capstone — Month 2–3（2026-04-01 → 2026-05-01）
 
-**Capstone Date:** 2026-05-01 → Updated 2026-05-13  
+**Capstone Date:** 2026-05-01  
 **Period Covered:** Week 1–5, Month 2–3  
 **Prepared by:** DHGA_Python_Gephi cron (auto-generated)  
-**Status:** 🟡 Operational — Gephi CSV refreshed | ✅ Obsidian write confirmed
+**Status:** 🟡 Operational — Data Infrastructure Complete | ⚠️ QGIS / Git Push Pending
 
 ---
 
@@ -11,7 +11,7 @@
 
 Month 2–3 represents the **infrastructure completion phase** of the DHGA weapon history project. By end of period:
 - ✅ Full 27-weapon timeline (1776–2026) operationalized as Gephi network
-- ✅ **59-edge enhanced graph** with Pacific_Link, data_quality, and era-cluster annotations
+- ✅ 59-edge enhanced graph with Pacific_Link, data_quality, and era-cluster annotations
 - ✅ Georeferenced supply chain CSVs with Plotly HTML map alternatives
 - ✅ Interactive battlefield markers map (1776 Revolution + Pacific WWII)
 - ⏸️ QGIS Desktop overlay (blocked: headless server, requires local GUI)
@@ -25,10 +25,10 @@ Month 2–3 represents the **infrastructure completion phase** of the DHGA weapo
 | Metric | Month 1 | Month 2–3 | Δ |
 |--------|----------|-----------|---|
 | Weapons in timeline | 20 | 27 | +7 |
-| Gephi edges | 22 | **59** | +37 |
+| Gephi edges | 22 | 59 | +37 |
 | Network density (E/N) | 1.10 | 2.18 | +1.08 |
-| Edge types | 2 | **4** | +2 (Era_Cluster, Pacific_Link) |
-| Data quality annotated | No | **Yes** | ✅ |
+| Edge types | 2 | 4 | +2 (Era_Cluster, Pacific_Link) |
+| Data quality annotated | No | Yes (verified/primary/estimated) | ✅ |
 | Supply chain geocoded | No | Yes (38 nodes, lat/lon) | ✅ |
 | HTML maps | No | Yes (3 interactive) | ✅ |
 | Battlefield markers | No | Yes (1776 + Pacific WWII) | ✅ |
@@ -42,7 +42,7 @@ Month 2–3 represents the **infrastructure completion phase** of the DHGA weapo
 | File | Contents |
 |------|----------|
 | `weapons_nodes_month2_enhanced.csv` | 27 weapons + data_quality + war_era |
-| `weapons_gephi_month2_enhanced.csv` | 59 edges — Timeline_Evolves(26) + Same_War(18) + Era_Cluster(5) + **Pacific_Link(10)** |
+| `weapons_gephi_month2_enhanced.csv` | 59 edges — Timeline_Evolves(26) + Same_War(18) + Era_Cluster(5) + Pacific_Link(10) |
 
 ### Supply Chain (Geocoded)
 | File | Contents |
@@ -54,7 +54,7 @@ Month 2–3 represents the **infrastructure completion phase** of the DHGA weapo
 
 ### Visualization Summary
 | Artifact | Format | Interactive | Use Case |
-|----------|--------|-------------|----------|
+|----------|--------|-------------|---------|
 | Gephi network graph | CSV (Gephi input) | Via Gephi Desktop | Cluster detection, community analysis |
 | Supply chain map | HTML/Plotly | ✅ | Stakeholder presentation, spatial pattern reading |
 | Battlefield markers | HTML/Plotly | ✅ | Historical event correlation |
@@ -80,26 +80,9 @@ Abrams + F-117 + Tomahawk → 3-node cluster
 Gorgon/Stare ISR → Switchblade → LAWS Lethal Autonomy → AI ethics gap  
 *Interpretation: Policy/ethical frameworks lag 2–3 years behind lethal technology deployment*
 
-### 5. Pacific Link Signals (10 edges) ← NEW IN MONTH 2-3
+### 5. Pacific Link Signals (10 edges)
 Doubled the Indo-Pacific strategic relevance score vs Month 1 baseline  
 *Key pairs: Atomic Bomb ↔ Pacific_Theater_WWII, F-35 ↔ Indo-Pacific_Modern, Switchblade ↔ Ukraine_Pacific_Era*
-
----
-
-## 🌍 Pacific_Link Edge Breakdown (10 edges)
-
-| Source Weapon | Target | Weight | Quality | Pacific Context |
-|--------------|--------|--------|---------|----------------|
-| Krag-Jorgensen | Pacific_Foothold_1898 | 2 | verified | Spanish-American War → Philippines occupation |
-| M1918 BAR | Pacific_Foothold_1898 | 1 | verified | WWII Pacific Theater: Guam, Okinawa, Philippines |
-| M1 Garand | Pacific_Theater_WWII | 3 | primary | M1 Garand in Pacific island campaigns (NARA) |
-| Atomic Bomb | Pacific_Theater_WWII | 2 | verified | Hiroshima (6 Aug 1945), Nagasaki (9 Aug 1945) |
-| M14 Rifle | Korean_War_Pacific | 2 | primary | US weapons to South Korean forces |
-| M16 Rifle | Vietnam_War_Pacific | 3 | primary | M16 standard issue for US forces in Vietnam |
-| M1A1 Abrams Tank | Indo-Pacific_Modern | 2 | estimated | Abrams exports to Japan, Taiwan |
-| F-35 Lightning | Indo-Pacific_Modern | 3 | estimated | F-35J to Japan, South Korea, Australia |
-| Switchblade | Ukraine_Pacific_Era | 1 | estimated | Drone-era Pacific deterrence; Taiwan, Philippines |
-| LAWS Lethal | AI_Pacific_Future | 2 | estimated | Japan, S.Korea, Australia reviewing LAWS ethics |
 
 ---
 
@@ -154,8 +137,8 @@ dhga-weaponhistory/
 ├── weapons_timeline.py                # Generator script
 ├── enhance_gephi.py                   # Enhancement + Pacific_Link annotator
 ├── enhance_gephi_iran2026.py          # Iran 2026 scenario variant
-├── weapons_gephi_month2_enhanced.csv  # 59 edges (primary deliverable) ← THIS FILE
-├── weapons_nodes_month2_enhanced.csv  # 27 nodes + data_quality       ← THIS FILE
+├── weapons_gephi_month2_enhanced.csv  # 59 edges (primary deliverable)
+├── weapons_nodes_month2_enhanced.csv  # 27 nodes + data_quality
 ├── enhanced_supply_chain_with_coordinates.csv  # 38 geocoded supply nodes
 ├── supply_chain_edges_georeferenced.csv       # 32 supply chain edges
 ├── supply_chain_map.html              # Basic Plotly map
@@ -178,5 +161,4 @@ dhga-weaponhistory/
 
 ---
 
-*Generated 2026-05-01 09:00 UTC by DHGA_Monthly_Capstone cron*  
-*Updated 2026-05-13 14:00 UTC — DHGA_Python_Gephi cron refresh*
+*Generated 2026-05-01 09:00 UTC by DHGA_Monthly_Capstone cron*
