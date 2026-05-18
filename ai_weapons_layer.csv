@@ -1,0 +1,17 @@
+Source,Target,Weight,Type,Source_Lon,Source_Lat,Target_Lon,Target_Lat
+Nvidia-H100-GPU/USA-Nvidia-H100,美國-通用原子-MQ9/USA-General-Atomics-MQ9,10,ai_chip,-121.9544,37.4058,-116.9728,32.8345
+AMD-MI300-GPU/USA-AMD-MI300,美國-雷神AI導引/USA-Raytheon-AI-Guidance,9,ai_chip,-121.9544,37.4058,-97.7519,30.2672
+Google-TPU/USA-Google-TPU,美國-諾斯羅普AI系統/USA-Northrop-AI-System,8,ai_chip,-122.0644,37.4219,-118.2437,34.0522
+Samsung-HBM/南韓-Samsung-HBM,美國-英偉達GPU封裝/USA-Nvidia-GPU-Packaging,10,ai_memory,127.1447,37.5311,-121.9544,37.4058
+SK-Hynix-HBM/南韓-SK-Hynix-HBM,美國-AMD-GPU封裝/USA-AMD-GPU-Packaging,9,ai_memory,128.7386,35.9074,-121.9544,37.4058
+Micron-HBM/美國-Micron-HBM,美國-通用原子AI/USA-General-Atomics-AI,8,ai_memory,-113.4938,43.6823,-116.9728,32.8345
+TSMC-3nm/台灣-台積電3nm,美國-Nvidia-H100/USA-Nvidia-H100,10,ai_fabrication,121.5598,24.9737,-121.9544,37.4058
+TSMC-3nm/台灣-台積電3nm,美國-AMD-MI300/USA-AMD-MI300,9,ai_fabrication,121.5598,24.9737,-121.9544,37.4058
+Qualcomm-AI-Edge/美國-Qualcomm-AI,美國-雷神精確打擊/USA-Raytheon-Precision-Strike,7,ai_chip,-117.1608,32.7792,-97.7519,30.2672
+Ambarella-CV/美國-Ambarella-CV,美國-通用原子无人机/USA-General-Atomics-Drone,8,ai_chip,-121.8951,37.3382,-116.9728,32.8345
+Intel-Loihi/美國-Intel-Loihi,美國-諾斯羅普神經形態/USA-Northrop-Neuromorphic,7,ai_chip,-122.1810,37.4862,-118.2437,34.0522
+美國-Nvidia-H100/USA-Nvidia-H100,部署-AI作戰中心/Deploy-AI-Command,8,ai_deploy,-121.9544,37.4058,-149.9000,61.2180
+美國-AMD-MI300/USA-AMD-MI300,部署-AI作戰中心/Deploy-AI-Command,7,ai_deploy,-121.9544,37.4058,-157.8260,21.3069
+美國-Google-TPU/USA-Google-TPU,部署-Pacific-AI/Deploy-Pacific-AI,8,ai_deploy,-122.0644,37.4219,139.6386,35.3228
+美國-Nvidia-H100/USA-Nvidia-H100,部署-Pacific-AI/Deploy-Pacific-AI,9,ai_deploy,-121.9544,37.4058,144.7937,13.4443
+美國-AMD-MI300/USA-AMD-MI300,部署-Pacific-AI/Deploy-Pacific-AI,7,ai_deploy,-121.9544,37.4058,127.6780,26.5018
