@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHGA Supply Chain + Historical Battlefields | 1776→2026</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; }
+        #map { width: 100vw; height: 100vh; }
+        .title { 
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%); 
+            z-index: 1000; background: rgba(13,17,23,0.95); color: white; 
+            padding: 14px 28px; border-radius: 12px; text-align: center; 
+            box-shadow: 0 4px 24px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .title h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .title p { font-size: 11px; opacity: 0.7; }
+        .legend-btn {
+            position: absolute; bottom: 20px; right: 20px; z-index: 1000;
+            background: rgba(13,17,23,0.95); color: #e6edf3; border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 12px;
+        }
+        .legend-btn:hover { background: rgba(22,27,34,0.95); }
+        .info-panel {
+            position: absolute; top: 80px; right: 20px; z-index: 1000;
+            background: rgba(13,17,23,0.95); color: #e6edf3; border: 1px solid rgba(255,255,255,0.15);
+            padding: 14px 18px; border-radius: 10px; max-width: 260px; font-size: 11px; line-height: 1.6;
+        }
+        .info-panel h3 { margin-bottom: 8px; font-size: 13px; color: #58a6ff; }
+        .info-panel .stat { display: flex; justify-content: space-between; margin: 4px 0; }
+        .info-panel .stat span:first-child { opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>🪖 DHGA Supply Chain + Historical Battlefields</h1>
+        <p>1776 Flintlock → 2026 AI Weapons | Pacific Georeference</p>
+    </div>
+    <div class="info-panel" id="info">
+        <h3>📊 Network Stats</h3>
+        <div class="stat"><span>Nodes:</span><span id="node-count">-</span></div>
+        <div class="stat"><span>Edges:</span><span id="edge-count">-</span></div>
+        <div class="stat"><span>Pacific Links:</span><span id="pacific-count">-</span></div>
+        <div class="stat"><span>Middle East:</span><span id="me-count">-</span></div>
+        <div class="stat"><span>Control/Other:</span><span id="ctrl-count">-</span></div>
+    </div>
+    <button class="legend-btn" onclick="toggleLegend()">Toggle Legend</button>
+    <div id="map"></div>
+
+    <script>
+    // =====================
+    // FULL CSV DATA (31 edges)
+    // =====================
+    const edges = [
+        // supply edges
+        {src_lon:122.9942,src_lat:41.1067,tgt_lon:8.6821,tgt_lat:50.1109,weight:5,type:"supply",link:"control",src:"中國鞍鋼",tgt:"德國萊茵金屬"},
+        {src_lon:122.9942,src_lat:41.1067,tgt_lon:37.6173,tgt_lat:55.7558,weight:8,type:"supply",link:"control",src:"中國鞍鋼",tgt:"俄羅斯軍甲"},
+        {src_lon:151.2152,src_lat:-33.8688,tgt_lon:2.3522,tgt_lat:48.8566,weight:7,type:"supply",link:"control",src:"澳洲必和必拓",tgt:"法國空客"},
+        {src_lon:61.3960,src_lat:54.8950,tgt_lon:-86.8025,tgt_lat:36.1627,weight:9,type:"supply",link:"control",src:"俄羅斯VSMPO",tgt:"美國康明斯"},
+        {src_lon:139.7454,src_lat:35.6586,tgt_lon:-118.2437,tgt_lat:34.0522,weight:10,type:"supply",link:"pacific",src:"日本東京電子",tgt:"美國諾格"},
+        {src_lon:121.5598,src_lat:24.9737,tgt_lon:34.8516,tgt_lat:31.0461,weight:10,type:"supply",link:"middleeast",src:"台灣台積電",tgt:"以色列拉斐爾"},
+        {src_lon:109.8400,src_lat:40.6560,tgt_lon:138.2529,tgt_lat:36.2048,weight:8,type:"supply",link:"pacific",src:"中國包頭稀土",tgt:"日本松下"},
+        {src_lon:34.8516,src_lat:31.0461,tgt_lon:116.4074,tgt_lat:39.9042,weight:6,type:"supply",link:"middleeast",src:"以色列埃爾比爾",tgt:"中國北方工業"},
+        {src_lon:-93.0000,src_lat:37.0000,tgt_lon:-122.4194,tgt_lat:37.7749,weight:7,type:"supply",link:"control",src:"美國Albemarle",tgt:"美國特斯拉"},
+        {src_lon:151.2152,src_lat:-33.8688,tgt_lon:2.3522,tgt_lat:48.8566,weight:6,type:"supply",link:"control",src:"澳洲必和必拓",tgt:"法國達索"},
+        // assembly edges
+        {src_lon:8.6821,src_lat:50.1109,tgt_lon:95.2350,tgt_lat:39.3489,weight:5,type:"assembly",link:"control",src:"德國萊茵金屬",tgt:"美國萊文沃思"},
+        {src_lon:37.6173,src_lat:55.7558,tgt_lon:37.6173,tgt_lat:55.7558,weight:9,type:"assembly",link:"control",src:"俄羅斯軍甲",tgt:"俄羅斯杜丁"},
+        {src_lon:2.3522,src_lat:48.8566,tgt_lon:138.2529,tgt_lat:36.2048,weight:8,type:"assembly",link:"pacific",src:"法國空客",tgt:"日本三菱"},
+        {src_lon:-86.8025,src_lat:36.1627,tgt_lon:95.2350,tgt_lat:39.3489,weight:7,type:"assembly",link:"control",src:"美國康明斯",tgt:"美國萊文沃思"},
+        {src_lon:-117.1492,src_lat:32.7157,tgt_lon:138.2529,tgt_lat:36.2048,weight:8,type:"assembly",link:"pacific",src:"美國通用原子",tgt:"日本三菱"},
+        {src_lon:-118.2437,src_lat:34.0522,tgt_lon:34.8516,tgt_lat:31.0461,weight:10,type:"assembly",link:"middleeast",src:"美國諾格",tgt:"以色列埃爾比爾"},
+        {src_lon:34.8516,src_lat:31.0461,tgt_lon:34.8516,tgt_lat:31.0461,weight:10,type:"assembly",link:"middleeast",src:"以色列拉斐爾",tgt:"以色列埃爾比爾"},
+        {src_lon:138.2529,src_lat:36.2048,tgt_lon:116.4074,tgt_lat:39.9042,weight:8,type:"assembly",link:"pacific",src:"日本松下",tgt:"中國北方工業"},
+        {src_lon:-122.4194,src_lat:37.7749,tgt_lon:34.8516,tgt_lat:31.0461,weight:7,type:"assembly",link:"control",src:"美國特斯拉",tgt:"以色列埃爾比爾"},
+        {src_lon:2.3522,src_lat:48.8566,tgt_lon:138.2529,tgt_lat:36.2048,weight:7,type:"assembly",link:"pacific",src:"法國達索",tgt:"日本三菱"},
+        {src_lon:116.4074,src_lat:39.9042,tgt_lon:34.8516,tgt_lat:31.0461,weight:6,type:"assembly",link:"pacific",src:"中國北方工業",tgt:"以色列埃爾比爾"},
+        // deploy edges
+        {src_lon:95.2350,src_lat:39.3489,tgt_lon:-149.9000,tgt_lat:61.2180,weight:4,type:"deploy",link:"pacific",src:"美國萊文沃思",tgt:"阿拉斯加"},
+        {src_lon:138.2529,src_lat:36.2048,tgt_lon:139.6386,tgt_lat:35.3228,weight:9,type:"deploy",link:"pacific",src:"日本三菱",tgt:"横須賀"},
+        {src_lon:138.2529,src_lat:36.2048,tgt_lon:127.6780,tgt_lat:26.5018,weight:8,type:"deploy",link:"pacific",src:"日本三菱",tgt:"冲繩"},
+        {src_lon:138.2529,src_lat:36.2048,tgt_lon:144.7937,tgt_lat:13.4443,weight:8,type:"deploy",link:"pacific",src:"日本三菱",tgt:"關島"},
+        {src_lon:34.8516,src_lat:31.0461,tgt_lon:-149.9000,tgt_lat:61.2180,weight:10,type:"deploy",link:"pacific",src:"以色列埃爾比爾",tgt:"阿拉斯加"},
+        {src_lon:34.8516,src_lat:31.0461,tgt_lon:-157.8260,tgt_lat:21.3069,weight:8,type:"deploy",link:"pacific",src:"以色列埃爾比爾",tgt:"夏威夷"},
+        {src_lon:34.8516,src_lat:31.0461,tgt_lon:139.3600,tgt_lat:35.7400,weight:9,type:"deploy",link:"pacific",src:"以色列埃爾比爾",tgt:"横田"},
+        {src_lon:116.4074,src_lat:39.9042,tgt_lon:129.0403,tgt_lat:35.1798,weight:7,type:"deploy",link:"pacific",src:"中國北方工業",tgt:"釜山"},
+        {src_lon:116.4074,src_lat:39.9042,tgt_lon:128.6000,tgt_lat:35.8700,weight:6,type:"deploy",link:"pacific",src:"中國北方工業",tgt:"大邱"},
+        {src_lon:37.6173,src_lat:55.7558,tgt_lon:139.6386,tgt_lat:35.3228,weight:8,type:"deploy",link:"pacific",src:"俄羅斯杜丁",tgt:"横須賀"},
+    ];
+
+    // All unique nodes extracted from edges
+    const nodes = [
+        // Raw materials
+        {name:"中國鞍鋼",lon:122.9942,lat:41.1067,type:"RawMaterial",cat:"原料-鋼鐵"},
+        {name:"俄羅斯VSMPO",lon:61.3960,lat:54.8950,type:"RawMaterial",cat:"原料-鈦合金"},
+        {name:"澳洲必和必拓",lon:151.2152,lat:-33.8688,type:"RawMaterial",cat:"原料-鋁合金"},
+        {name:"日本東京電子",lon:139.7454,lat:35.6586,type:"RawMaterial",cat:"原料-電子元件"},
+        {name:"台灣台積電",lon:121.5598,lat:24.9737,type:"RawMaterial",cat:"原料-半導體"},
+        {name:"中國包頭稀土",lon:109.8400,lat:40.6560,type:"RawMaterial",cat:"原料-稀土"},
+        {name:"美國Albemarle",lon:-93.0000,lat:37.0000,type:"RawMaterial",cat:"原料-鋰電池"},
+        {name:"以色列埃爾比爾(原料)",lon:34.8516,lat:31.0461,type:"RawMaterial",cat:"原料-推進劑"},
+        // Parts
+        {name:"德國萊茵金屬",lon:8.6821,lat:50.1109,type:"Parts",cat:"零件-槍管"},
+        {name:"俄羅斯軍甲",lon:37.6173,lat:55.7558,type:"Parts",cat:"零件-裝甲"},
+        {name:"法國空客",lon:2.3522,lat:48.8566,type:"Parts",cat:"零件-機身"},
+        {name:"美國康明斯",lon:-86.8025,lat:36.1627,type:"Parts",cat:"零件-發動機"},
+        {name:"美國通用原子",lon:-117.1492,lat:32.7157,type:"Parts",cat:"零件-發動機"},
+        {name:"美國諾格",lon:-118.2437,lat:34.0522,type:"Parts",cat:"零件-導引系統"},
+        {name:"以色列拉斐爾",lon:34.8516,lat:31.0461,type:"Parts",cat:"零件-導引系統"},
+        {name:"日本松下",lon:138.2529,lat:36.2048,type:"Parts",cat:"零件-感應器"},
+        {name:"美國特斯拉",lon:-122.4194,lat:37.7749,type:"Parts",cat:"零件-動力系統"},
+        {name:"法國達索",lon:2.3522,lat:48.8566,type:"Parts",cat:"零件-機翼"},
+        {name:"中國北方工業",lon:116.4074,lat:39.9042,type:"Parts",cat:"零件-導引系統"},
+        // Assembly
+        {name:"美國萊文沃思",lon:95.2350,lat:39.3489,type:"Assembly",cat:"組裝-美國"},
+        {name:"俄羅斯杜丁",lon:37.6173,lat:55.7558,type:"Assembly",cat:"組裝-俄羅斯"},
+        {name:"日本三菱",lon:138.2529,lat:36.2048,type:"Assembly",cat:"組裝-日本"},
+        {name:"以色列埃爾比爾(組裝)",lon:34.8516,lat:31.0461,type:"Assembly",cat:"組裝-以色列"},
+        // Deployment
+        {name:"阿拉斯加",lon:-149.9000,lat:61.2180,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"横須賀",lon:139.6386,lat:35.3228,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"冲繩",lon:127.6780,lat:26.5018,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"關島",lon:144.7937,lat:13.4443,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"夏威夷",lon:-157.8260,lat:21.3069,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"横田",lon:139.3600,lat:35.7400,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"釜山",lon:129.0403,lat:35.1798,type:"Deploy",cat:"部署-美軍太平洋"},
+        {name:"大邱",lon:128.6000,lat:35.8700,type:"Deploy",cat:"部署-美軍太平洋"},
+    ];
+
+    // Historical battlefields
+    const battlefields1776 = [
+        {name:"West Point",lon:-73.9580,lat:41.3870,year:"1776-1783",desc:"Continental Army HQ"},
+        {name:"Yorktown",lon:-76.5090,lat:37.2370,year:"1781",desc:"British surrender"},
+        {name:"Boston",lon:-71.0589,lat:42.3601,year:"1775-1776",desc:"Siege of Boston"},
+        {name:"Saratoga",lon:-73.7810,lat:43.0030,year:"1777",desc:"Turning point"},
+        {name:"Philadelphia",lon:-75.1652,lat:39.9526,year:"1777-1778",desc:"Continental Congress"},
+    ];
+
+    const battlefieldsPacific = [
+        {name:"Iwo Jima",lon:141.3000,lat:24.7500,year:"1945",desc:"Intensive combat"},
+        {name:"Okinawa",lon:127.6780,lat:26.5018,year:"1945",desc:"Last battle"},
+        {name:"Midway",lon:-177.3800,lat:28.2100,year:"1942",desc:"Naval turning point"},
+        {name:"Guadalcanal",lon:159.9500,lat:-9.4300,year:"1942-1943",desc:"First major offensive"},
+        {name:"Peleliu",lon:134.6900,lat:7.0100,year:"1944",desc:"Brutal assault"},
+    ];
+
+    // Update stats
+    document.getElementById('node-count').textContent = nodes.length;
+    document.getElementById('edge-count').textContent = edges.length;
+    const pacificEdges = edges.filter(e=>e.link==='pacific').length;
+    const meEdges = edges.filter(e=>e.link==='middleeast').length;
+    const ctrlEdges = edges.filter(e=>e.link==='control').length;
+    document.getElementById('pacific-count').textContent = pacificEdges;
+    document.getElementById('me-count').textContent = meEdges;
+    document.getElementById('ctrl-count').textContent = ctrlEdges;
+
+    // Colors - matching user's request: Pacific=green, MiddleEast=orange, Control=red
+    const linkColors = {
+        pacific: '#2ecc71',    // green
+        middleeast: '#e67e22', // orange
+        control: '#e74c3c'     // red
+    };
+
+    const typeColors = {
+        RawMaterial: '#9b59b6',  // purple
+        Parts: '#3498db',         // blue
+        Assembly: '#1abc9c',      // teal
+        Deploy: '#f39c12'         // gold
+    };
+
+    const typeNames = {
+        RawMaterial: 'Raw Materials',
+        Parts: 'Parts & Components',
+        Assembly: 'Assembly',
+        Deploy: 'Deployment'
+    };
+
+    let showLegend = true;
+
+    function toggleLegend() {
+        showLegend = !showLegend;
+        Plotly.relayout('map', {showlegend: showLegend});
+    }
+
+    // =====================
+    // Build traces
+    // =====================
+    const traces = [];
+
+    // 1. Supply chain edges by link type
+    ['pacific', 'middleeast', 'control'].forEach(linkType => {
+        const filtered = edges.filter(e => e.link === linkType);
+        if (filtered.length === 0) return;
+        
+        const lats = [], lons = [], texts = [], sizes = [];
+        filtered.forEach(e => {
+            lats.push(e.src_lat, e.tgt_lat, null);
+            lons.push(e.src_lon, e.tgt_lon, null);
+            texts.push(`<b>${e.src} → ${e.tgt}</b><br>Type: ${e.type}<br>Weight: ${e.weight}`, '', null);
+            sizes.push(e.weight, e.weight, 0);
+        });
+
+        traces.push({
+            lat: lats, lon: lons,
+            text: texts,
+            mode: 'lines',
+            type: 'scattergeo',
+            line: { color: linkColors[linkType], width: 2.5 },
+            name: linkType === 'pacific' ? '🌏 Pacific Link' : (linkType === 'middleeast' ? '🟠 Middle East Link' : '🔴 Control/Comparison'),
+            hoverinfo: 'text',
+            showlegend: true
+        });
+    });
+
+    // 2. Node markers by type
+    const types = ['RawMaterial', 'Parts', 'Assembly', 'Deploy'];
+    types.forEach(type => {
+        const filtered = nodes.filter(n => n.type === type);
+        if (filtered.length === 0) return;
+        
+        traces.push({
+            lat: filtered.map(n => n.lat),
+            lon: filtered.map(n => n.lon),
+            text: filtered.map(n => `<b>${n.name}</b><br>${n.cat}`),
+            mode: 'markers',
+            type: 'scattergeo',
+            marker: {
+                size: type === 'Deploy' ? 14 : (type === 'Assembly' ? 11 : 8),
+                color: typeColors[type],
+                line: { color: 'white', width: 1.5 }
+            },
+            name: typeNames[type],
+            hoverinfo: 'text',
+            showlegend: true
+        });
+    });
+
+    // 3. 1776 Revolutionary War battlefields
+    traces.push({
+        lat: battlefields1776.map(b => b.lat),
+        lon: battlefields1776.map(b => b.lon),
+        text: battlefields1776.map(b => `<b>⚔️ ${b.name}</b><br>${b.year}<br>${b.desc}<br><i>1776 Revolutionary War</i>`),
+        mode: 'markers',
+        type: 'scattergeo',
+        marker: {
+            size: 18,
+            color: '#c0392b',
+            symbol: 'star',
+            line: { color: '#f1c40f', width: 3 }
+        },
+        name: '⚔️ 1776 Revolutionary War',
+        hoverinfo: 'text',
+        showlegend: true
+    });
+
+    // 4. Pacific WWII battlefields
+    traces.push({
+        lat: battlefieldsPacific.map(b => b.lat),
+        lon: battlefieldsPacific.map(b => b.lon),
+        text: battlefieldsPacific.map(b => `<b>💥 ${b.name}</b><br>${b.year}<br>${b.desc}<br><i>Pacific Theater WWII</i>`),
+        mode: 'markers',
+        type: 'scattergeo',
+        marker: {
+            size: 18,
+            color: '#8e44ad',
+            symbol: 'star',
+            line: { color: '#e74c3c', width: 3 }
+        },
+        name: '💥 Pacific WWII Battlefields',
+        hoverinfo: 'text',
+        showlegend: true
+    });
+
+    // Layout
+    const layout = {
+        title: {
+            text: '🪖 DHGA Supply Chain Map: 1776 Flintlock → 2026 AI Weapons<br><sub>Supply Chain Georeference + Historical Battlefields</sub>',
+            font: { size: 16, color: '#e6edf3' },
+            x: 0.5, xanchor: 'center'
+        },
+        font: { family: 'Segoe UI, sans-serif', color: '#e6edf3' },
+        paper_bgcolor: '#0d1117',
+        plot_bgcolor: '#0d1117',
+        showlegend: showLegend,
+        legend: {
+            x: 0.01, y: 0.99,
+            bgcolor: 'rgba(13,17,23,0.92)',
+            borderColor: 'rgba(255,255,255,0.15)',
+            borderWidth: 1,
+            font: { color: '#e6edf3', size: 11 },
+            traceorder: 'normal'
+        },
+        geo: {
+            scope: 'world',
+            projection: { type: 'natural earth' },
+            landcolor: '#1c2128',
+            oceancolor: '#0d1117',
+            showocean: true,
+            showland: true,
+            showcountries: true,
+            countrycolor: '#30363d',
+            showlakes: true,
+            lakecolor: '#0d1117',
+            coastlinecolor: '#30363d',
+            resolution: 110,
+            lataxis: { range: [-70, 85] },
+            lonaxis: { range: [-180, 180] },
+            bgcolor: '#0d1117',
+            framecolor: '#30363d',
+            framewidth: 1
+        },
+        margin: { t: 90, b: 0, l: 0, r: 0 }
+    };
+
+    const config = {
+        responsive: true,
+        displayModeBar: true,
+        modeBarButtonsToRemove: ['lasso2d', 'select2d']
+    };
+
+    Plotly.newPlot('map', traces, layout, config);
+    </script>
+</body>
+</html>

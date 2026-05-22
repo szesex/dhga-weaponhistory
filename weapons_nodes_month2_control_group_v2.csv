@@ -1,0 +1,33 @@
+Id,Label,Year,War,Tech_Key,data_quality,Control_Group
+Flintlock,Flintlock Musket (Brown Bess),1776,American Revolution,Smoothbore muzzle-loading; 50-100 yards,verified,FALSE
+Flintlock_Pistol,Flintlock Pistol & Cavalry Carbines,1783,American Revolution,Cavalry weapon specialization begins,verified,FALSE
+Springfield_1841,Springfield Model 1841 Rifle,1846,Mexican-American War,First widespread rifled musket adoption,verified,FALSE
+Rifled_Musket,Rifled Musket (Springfield/Enfield),1861,Civil War,Minié ball ammo; 300+ yards effective range,verified,FALSE
+Gatling_1861,Gatling Gun Model 1861,1861,Civil War,First recoil-operated machine gun,verified,FALSE
+Ironclad,Ironclad Warships,1863,Civil War,Steam-powered ironclads debut,verified,FALSE
+Krag_Jorgensen,Krag-Jorgensen & M1893 Springfield,1898,Spanish-American War,Magazine-fed rifles; 5-round capacity,verified,FALSE
+M1917_Enfield,M1917 Enfield / M1903 Springfield,1917,WWI,Massive production; trench warfare dominant,verified,FALSE
+M1918_BAR,M1918 BAR,1918,WWI,First portable automatic rifle; 20-round mag,verified,FALSE
+M1_Garand,M1 Garand,1941,WWII,Semi-automatic; standard US Army issue,verified,FALSE
+M3_Grease_Gun,M3 Grease Gun Submachine Gun,1942,WWII,.45 ACP; cheap mass production,verified,FALSE
+M1_Carbine,M1 Carbine,1944,WWII,Lightweight; paratrooper & support troops,verified,FALSE
+Atomic_Bomb,Atomic Bomb,1945,WWII,Nuclear weapons era; strategic bombing,verified,FALSE
+M14_Rifle,M14 Rifle,1950,Korean War,7.62mm NATO; selective fire capability,primary,FALSE
+Hydrogen_Bomb,Hydrogen Bomb,1952,Cold War,Thermonuclear weapons; megaton yield,primary,FALSE
+M16_Rifle,M16 Rifle,1964,Vietnam War,5.56mm NATO; plastic stock; lightweight,primary,FALSE
+M60_GPMG,M60 General Purpose Machine Gun,1967,Vietnam War,7.62mm; belt-fed; 600-700 rpm,primary,FALSE
+AGM45_Shrike,AGM-45 Shrike Anti-radiation Missile,1970,Vietnam War,First operationally successful anti-radiation missile,primary,FALSE
+M1_Abrams,M1A1 Abrams Tank,1991,Gulf War,120mm gun; composite armor; thermal sighting,verified,FALSE
+F117_Nighthawk,F-117 Nighthawk Stealth Aircraft,1991,Gulf War,First stealth aircraft; precision bombing,verified,FALSE
+Tomahawk,Tomahawk Cruise Missile,1991,Gulf War,Land-attack cruise missile; 1500+ km range,verified,FALSE
+MQ1_Predator,MQ-1 Predator Drone,2001,War on Terror,UAV for ISR & strike; Hellfire missiles,verified,FALSE
+M4_Carbine,M4 Carbine Modernized,2003,War on Terror,Modular; picatinny rail; fully automatic,verified,FALSE
+F35_Lightning,F-35 Lightning II Block 4,2020,Near-peer competition,Stealth + sensor fusion; network-centric,estimated,FALSE
+Switchblade_600,Switchblade 600 Kamikaze Drone,2022,Ukraine War,Loitering munition; man-portable; 40+ km range,estimated,FALSE
+AI_ISR_Gorgon,AI-Powered ISR (Gorgon/Stare),2024,Global,Computer vision; multiple drone tracking,estimated,FALSE
+LAWS,LAWS Lethal Autonomous Weapon Systems,2026,AI Era,AI selects & engages targets; no human in loop,estimated,FALSE
+AK47,AK-47 Kalashnikov Rifle,1947,Cold War,7.62x39mm; gas-operated; 30-round mag; 600 rpm,primary,TRUE
+Mosin_Nagant,Mosin-Nagant Rifle,1891,Russo-Japanese War,Bolt-action; 5-round; 540 yards effective,verified,TRUE
+HQ17,HQ-17 (Chinese Tor-M1 clone),1990s,Modern,Short-range SAM; tracked vehicle; 12km range,primary,TRUE
+TOR_M1,TOR-M1 Air Defense System,1991,Gulf War,Self-propelled SAM; 12 missiles; 12km range,verified,TRUE
+Patriot_PAC3,Patriot PAC-3 Missile,2014,Modern,Hit-to-kill SAM; 20km range; US system,primary,FALSE

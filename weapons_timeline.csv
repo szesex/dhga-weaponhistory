@@ -1,0 +1,27 @@
+Source,Target,Weight,Type
+Flintlock Musket (Br,Flintlock Pistol & C,1,Evolves
+Flintlock Pistol & C,Springfield Model 18,1,Evolves
+Springfield Model 18,Rifled Musket (Sprin,1,Evolves
+Rifled Musket (Sprin,Gatling Gun Model 18,1,Evolves
+Gatling Gun Model 18,Ironclad Warships,1,Evolves
+Ironclad Warships,Krag-Jorgensen & M18,1,Evolves
+Krag-Jorgensen & M18,M1917 Enfield / M190,1,Evolves
+M1917 Enfield / M190,M1918 BAR,1,Evolves
+M1918 BAR,M1 Garand,1,Evolves
+M1 Garand,M3 Grease Gun Submac,1,Evolves
+M3 Grease Gun Submac,M1 Carbine,1,Evolves
+M1 Carbine,Atomic Bomb,1,Evolves
+Atomic Bomb,M14 Rifle,1,Evolves
+M14 Rifle,Hydrogen Bomb,1,Evolves
+Hydrogen Bomb,M16 Rifle,1,Evolves
+M16 Rifle,M60 General Purpose ,1,Evolves
+M60 General Purpose ,AGM-45 Shrike Anti-r,1,Evolves
+AGM-45 Shrike Anti-r,M1A1 Abrams Tank,1,Evolves
+M1A1 Abrams Tank,F-117 Nighthawk Stea,1,Evolves
+F-117 Nighthawk Stea,Tomahawk Cruise Miss,1,Evolves
+Tomahawk Cruise Miss,MQ-1 Predator Drone,1,Evolves
+MQ-1 Predator Drone,M4 Carbine Modernize,1,Evolves
+M4 Carbine Modernize,F-35 Lightning II Bl,1,Evolves
+F-35 Lightning II Bl,Switchblade 600 Kami,1,Evolves
+Switchblade 600 Kami,AI-Powered ISR (Gorg,1,Evolves
+AI-Powered ISR (Gorg,LAWS Lethal Autonomo,1,Evolves

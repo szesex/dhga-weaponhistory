@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Military Weapons Supply Chain - Plotly Map</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; }
+        #map { width: 100vw; height: 100vh; }
+        .title { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(26,26,46,0.95); color: white; padding: 12px 25px; border-radius: 25px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .title h1 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+        .title p { font-size: 10px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>🪖 US Military Weapons Supply Chain Map</h1>
+        <p>1776 Flintlock → 2026 AI Weapons | Global Asia Georeference</p>
+    </div>
+    <div id="map"></div>
+
+    <script>
+    // Node data
+    const nodes = [
+        { name: "中國-鞍鋼", name_en: "China-Anshan-Steel", lon: 122.9942, lat: 41.1067, type: "RawMaterial", category: "原料-鋼鐵" },
+        { name: "中國-包頭稀土", name_en: "China-Baotou-RareEarth", lon: 109.8400, lat: 40.6560, type: "RawMaterial", category: "原料-稀土" },
+        { name: "澳洲-必和必拓", name_en: "Australia-BHP", lon: 151.2152, lat: -33.8688, type: "RawMaterial", category: "原料-鋁合金" },
+        { name: "俄羅斯-VSMPO", name_en: "Russia-VSMPO-Titanium", lon: 61.3960, lat: 54.8950, type: "RawMaterial", category: "原料-鈦合金" },
+        { name: "日本-東京電子", name_en: "Japan-Tokyo-Electron", lon: 139.7454, lat: 35.6586, type: "RawMaterial", category: "原料-電子元件" },
+        { name: "台灣-台積電", name_en: "Taiwan-TSMC", lon: 121.5598, lat: 24.9737, type: "RawMaterial", category: "原料-半導體" },
+        { name: "美國-Albemarle", name_en: "USA-Albemarle-Lithium", lon: -93.0000, lat: 37.0000, type: "RawMaterial", category: "原料-鋰電池" },
+        { name: "以色列-埃爾比爾", name_en: "Israel-Elbit", lon: 34.8516, lat: 31.0461, type: "RawMaterial", category: "原料-推進劑" },
+        { name: "德國-萊茵金屬", name_en: "Germany-Rheinmetall", lon: 8.6821, lat: 50.1109, type: "Parts", category: "零件-槍管" },
+        { name: "美國-諾格", name_en: "USA-Northrop", lon: -118.2437, lat: 34.0522, type: "Parts", category: "零件-導引系統" },
+        { name: "以色列-拉斐爾", name_en: "Israel-Rafael", lon: 34.8516, lat: 31.0461, type: "Parts", category: "零件-導引系統" },
+        { name: "日本-松下", name_en: "Japan-Panasonic", lon: 138.2529, lat: 36.2048, type: "Parts", category: "零件-感應器" },
+        { name: "美國-特斯拉", name_en: "USA-Tesla", lon: -122.4194, lat: 37.7749, type: "Parts", category: "零件-動力系統" },
+        { name: "中國-北方工業", name_en: "China-North-Industries", lon: 116.4074, lat: 39.9042, type: "Parts", category: "零件-導引系統" },
+        { name: "法國-空客", name_en: "France-Airbus", lon: 2.3522, lat: 48.8566, type: "Parts", category: "零件-機身" },
+        { name: "法國-達索", name_en: "France-Dassault", lon: 2.3522, lat: 48.8566, type: "Parts", category: "零件-機翼" },
+        { name: "美國-康明斯", name_en: "USA-Cummins", lon: -86.8025, lat: 36.1627, type: "Parts", category: "零件-發動機" },
+        { name: "美國-萊文沃思", name_en: "US-Arsenal-Levenworth", lon: -95.2350, lat: 39.3489, type: "Assembly", category: "組裝" },
+        { name: "日本-三菱", name_en: "Mitsubishi", lon: 138.2529, lat: 36.2048, type: "Assembly", category: "組裝" },
+        { name: "中國-北方工業組裝", name_en: "China-North-Assembly", lon: 116.4074, lat: 39.9042, type: "Assembly", category: "組裝" },
+        { name: "以色列-埃爾比爾組裝", name_en: "Israel-Elbit-Assembly", lon: 34.8516, lat: 31.0461, type: "Assembly", category: "組裝" },
+        { name: "俄羅斯-杜丁", name_en: "USSR-Dudintsev", lon: 37.6173, lat: 55.7558, type: "Assembly", category: "組裝" },
+        { name: "關島", name_en: "US-Guam", lon: 144.7937, lat: 13.4443, type: "Deploy", category: "部署" },
+        { name: "横須賀", name_en: "US-Yokosuka", lon: 139.6386, lat: 35.3228, type: "Deploy", category: "部署" },
+        { name: "冲繩", name_en: "US-Okinawa", lon: 127.6780, lat: 26.5018, type: "Deploy", category: "部署" },
+        { name: "阿拉斯加", name_en: "US-Alaska", lon: -149.9000, lat: 61.2180, type: "Deploy", category: "部署" },
+        { name: "夏威夷", name_en: "US-Hawaii", lon: -157.8260, lat: 21.3069, type: "Deploy", category: "部署" },
+        { name: "横田", name_en: "US-Yokota", lon: 139.3600, lat: 35.7400, type: "Deploy", category: "部署" },
+        { name: "釜山", name_en: "US-Busan", lon: 129.0403, lat: 35.1798, type: "Deploy", category: "部署" },
+    ];
+
+    // Edge data with coordinates
+    const edges = [
+        { source_lon: 122.9942, source_lat: 41.1067, target_lon: 8.6821, target_lat: 50.1109, weight: 5, type: "supply" },
+        { source_lon: 61.3960, source_lat: 54.8950, target_lon: -86.8025, target_lat: 36.1627, weight: 9, type: "supply" },
+        { source_lon: 139.7454, source_lat: 35.6586, target_lon: -118.2437, target_lat: 34.0522, weight: 10, type: "supply" },
+        { source_lon: 121.5598, source_lat: 24.9737, target_lon: 34.8516, target_lat: 31.0461, weight: 10, type: "supply" },
+        { source_lon: 109.8400, source_lat: 40.6560, target_lon: 138.2529, target_lat: 36.2048, weight: 8, type: "supply" },
+        { source_lon: 34.8516, source_lat: 31.0461, target_lon: 116.4074, target_lat: 39.9042, weight: 6, type: "supply" },
+        { source_lon: -93.0000, source_lat: 37.0000, target_lon: -122.4194, target_lat: 37.7749, weight: 7, type: "supply" },
+        { source_lon: 151.2152, source_lat: -33.8688, target_lon: 2.3522, target_lat: 48.8566, weight: 7, type: "supply" },
+        { source_lon: 8.6821, source_lat: 50.1109, target_lon: -95.2350, target_lat: 39.3489, weight: 5, type: "assembly" },
+        { source_lon: 2.3522, source_lat: 48.8566, target_lon: 138.2529, target_lat: 36.2048, weight: 8, type: "assembly" },
+        { source_lon: -86.8025, source_lat: 36.1627, target_lon: -95.2350, target_lat: 39.3489, weight: 7, type: "assembly" },
+        { source_lon: -118.2437, source_lat: 34.0522, target_lon: 34.8516, target_lat: 31.0461, weight: 10, type: "assembly" },
+        { source_lon: 34.8516, source_lat: 31.0461, target_lon: 34.8516, target_lat: 31.0461, weight: 10, type: "assembly" },
+        { source_lon: 138.2529, source_lat: 36.2048, target_lon: 116.4074, target_lat: 39.9042, weight: 8, type: "assembly" },
+        { source_lon: -122.4194, source_lat: 37.7749, target_lon: 34.8516, target_lat: 31.0461, weight: 7, type: "assembly" },
+        { source_lon: 2.3522, source_lat: 48.8566, target_lon: 138.2529, target_lat: 36.2048, weight: 7, type: "assembly" },
+        { source_lon: 116.4074, source_lat: 39.9042, target_lon: 34.8516, target_lat: 31.0461, weight: 6, type: "assembly" },
+        { source_lon: -95.2350, source_lat: 39.3489, target_lon: -149.9000, target_lat: 61.2180, weight: 4, type: "deploy" },
+        { source_lon: 138.2529, source_lat: 36.2048, target_lon: 139.6386, target_lat: 35.3228, weight: 9, type: "deploy" },
+        { source_lon: 138.2529, source_lat: 36.2048, target_lon: 127.6780, target_lat: 26.5018, weight: 8, type: "deploy" },
+        { source_lon: 138.2529, source_lat: 36.2048, target_lon: 144.7937, target_lat: 13.4443, weight: 8, type: "deploy" },
+        { source_lon: 34.8516, source_lat: 31.0461, target_lon: -149.9000, target_lat: 61.2180, weight: 10, type: "deploy" },
+        { source_lon: 34.8516, source_lat: 31.0461, target_lon: -157.8260, target_lat: 21.3069, weight: 8, type: "deploy" },
+        { source_lon: 34.8516, source_lat: 31.0461, target_lon: 139.3600, target_lat: 35.7400, weight: 9, type: "deploy" },
+        { source_lon: 116.4074, source_lat: 39.9042, target_lon: 129.0403, target_lat: 35.1798, weight: 7, type: "deploy" },
+    ];
+
+    // Color mapping
+    const colors = {
+        RawMaterial: '#e74c3c',
+        Parts: '#3498db',
+        Assembly: '#2ecc71',
+        Deploy: '#9b59b6'
+    };
+
+    const edgeColors = {
+        supply: '#e74c3c',
+        assembly: '#3498db',
+        deploy: '#2ecc71'
+    };
+
+    // Prepare node traces by type
+    const types = ['RawMaterial', 'Parts', 'Assembly', 'Deploy'];
+    const traces = [];
+
+    types.forEach(type => {
+        const filtered = nodes.filter(n => n.type === type);
+        traces.push({
+            lat: filtered.map(n => n.lat),
+            lon: filtered.map(n => n.lon),
+            text: filtered.map(n => `<b>${n.name}</b><br>${n.category}<br><span style="color:#999">${n.name_en}</span>`),
+            mode: 'markers',
+            type: 'scattergeo',
+            marker: {
+                size: type === 'Deploy' ? 14 : (type === 'Assembly' ? 11 : 8),
+                color: colors[type],
+                line: { color: 'white', width: 2 }
+            },
+            name: type === 'RawMaterial' ? 'Raw Materials' : (type === 'Parts' ? 'Parts' : (type === 'Assembly' ? 'Assembly' : 'Deployment')),
+            hoverinfo: 'text'
+        });
+    });
+
+    // Prepare edge traces
+    const edgeTraces = ['supply', 'assembly', 'deploy'];
+    edgeTraces.forEach(type => {
+        const filtered = edges.filter(e => e.type === type);
+        const lats = [];
+        const lons = [];
+        
+        filtered.forEach(e => {
+            lats.push(e.source_lat);
+            lats.push(e.target_lat);
+            lats.push(null);
+            lons.push(e.source_lon);
+            lons.push(e.target_lon);
+            lons.push(null);
+        });
+
+        traces.push({
+            lat: lats,
+            lon: lons,
+            mode: 'lines',
+            type: 'scattergeo',
+            line: { color: edgeColors[type], width: 2 },
+            name: type === 'supply' ? 'Supply Chain' : (type === 'assembly' ? 'Assembly Flow' : 'Deployment Route'),
+            hoverinfo: 'skip'
+        });
+    });
+
+    const layout = {
+        title: {
+            text: '🪖 US Military Weapons Supply Chain<br><sub>1776 Flintlock → 2026 AI Weapons | Global Asia</sub>',
+            font: { size: 18, color: 'white' },
+            x: 0.5,
+            xanchor: 'center'
+        },
+        font: { family: 'Segoe UI, sans-serif' },
+        paper_bgcolor: '#1a1a2e',
+        plot_bgcolor: '#1a1a2e',
+        showlegend: true,
+        legend: {
+            x: 0.02,
+            y: 0.98,
+            bgcolor: 'rgba(26,26,46,0.9)',
+            borderColor: '#333',
+            borderWidth: 1,
+            font: { color: 'white', size: 11 },
+            traceorder: 'normal'
+        },
+        geo: {
+            scope: 'world',
+            projection: { type: 'natural earth' },
+            landcolor: '#2a2a4a',
+            oceancolor: '#0a0a1a',
+            showocean: true,
+            showland: true,
+            showcountries: true,
+            countrycolor: '#444',
+            showlakes: true,
+            lakecolor: '#0a0a1a',
+            resolution: 110,
+            lataxis: { range: [-60, 80] },
+            lonaxis: { range: [-180, 180] },
+            bgcolor: '#1a1a2e'
+        },
+        margin: { t: 80, b: 0, l: 0, r: 0 }
+    };
+
+    const config = {
+        responsive: true,
+        displayModeBar: true,
+        modeBarButtonsToRemove: ['lasso2d', 'select2d']
+    };
+
+    Plotly.newPlot('map', traces, layout, config);
+    </script>
+</body>
+</html>
