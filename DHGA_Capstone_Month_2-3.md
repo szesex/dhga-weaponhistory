@@ -1,9 +1,9 @@
 # DHGA Capstone — Month 2–3（2026-04-01 → 2026-05-01）
 
-**Capstone Date:** 2026-05-01  
+**Capstone Date:** 2026-05-27 (Monthly Update)  
 **Period Covered:** Week 1–5, Month 2–3  
 **Prepared by:** DHGA_Python_Gephi cron (auto-generated)  
-**Status:** 🟡 Operational — Data Infrastructure Complete | ⚠️ QGIS / Git Push Pending
+**Status:** ✅ Operational — Python DARPA Analysis Complete | Network Regenerated
 
 ---
 
@@ -161,4 +161,50 @@ dhga-weaponhistory/
 
 ---
 
+## 🕐 2026-05-27 Monthly Update — Python DARPA Analysis Run
+
+**Ran:** `capstone_network_visualization.py` (Louvain community detection + Spring Layout)
+
+### Run Results
+| Metric | Value |
+|--------|-------|
+| Nodes analyzed | 32 |
+| Edges analyzed | 41 |
+| Communities detected | 7 |
+| Modularity score | 0.5271 |
+| Output PNG | `capstone_network_graph.png` (1.09 MB) |
+
+### Community Breakdown
+| Community | Weapons | Era Focus |
+|-----------|---------|-----------|
+| 0 | Abrams, F-117, Tomahawk, Predator, F-35, HQ17, TOR_M1, HQ9, TOR_M2, J20, Bayraktar_TB2 | Gulf War → Modern / Control Group |
+| 1 | Gorgon_Stare, Switchblade, LAWS | AI/Drone Era |
+| 2 | Flintlock_Musket, Rifled_Musket, Springfield_Rifle, Gatling_Gun, Ironclad, Krag_Jorgensen, M1903_Springfield, BAR, M1_Garand, Atomic_Bomb | Revolutionary → WWII |
+| 3 | M14, M16, M60, AK47, AK74, M4_Carbine | Vietnam → Cold War |
+| 4 | Mosin_Nagant | Imperial Russia |
+| 5 | Leopard2 | Cold War (Western) |
+
+### Key Insights from This Run
+1. **Community 2 dominates** (10 weapons, Revolutionary→WWII) — early US weapons cluster tightly
+2. **Community 0 is largest** (11 weapons) — Gulf War + Modern + Control Group weapons mix together
+3. **AI/Drone cluster (Community 1)** is small but coherent — Gorgon_Stare → Switchblade → LAWS chain is clean
+4. **Modularity 0.527** indicates moderate community structure — meaningful but not perfectly separated
+5. **Control Group (China/Russia) weapons** are distributed across communities 0, 3, 4, 5 — not a single cluster
+
+### Updated File States
+- `capstone_network_graph.png` — Regenerated 2026-05-27 14:03 UTC (replaces old version)
+- `louvain_community_result.csv` — Re-annotated with community assignments
+- Gephi CSVs unchanged (already at latest state from Month 2–3)
+
+### Remaining Blockers (unchanged)
+| Issue | Severity | Resolution Path |
+|-------|----------|-----------------|
+| QGIS Desktop requires GUI (headless server) | Medium | Manual: run QGIS on local machine |
+| Git push pending | Low | Manual: `cd dhga-weaponhistory && git push origin main` |
+| NARA primary source scan not started | Medium | Manual: Visit NARA digital archive |
+
+---
+
 *Generated 2026-05-01 09:00 UTC by DHGA_Monthly_Capstone cron*
+
+*Updated 2026-05-27 14:03 UTC by DHGA_Python_Gephi cron*
