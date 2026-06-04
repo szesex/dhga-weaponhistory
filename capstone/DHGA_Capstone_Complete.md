@@ -222,6 +222,20 @@ These findings not only deepen historical training but also demonstrate the prac
 
 ---
 
+## Code and Data Availability
+
+All data, code, and visualizations supporting this study are publicly available in the project repository:
+
+- **Network data** (32 weapon nodes, 41 edges): `data/nodes/gephi_weapons_network_nodes.csv` and `data/edges/gephi_weapons_network_edges.csv`
+- **Louvain community output**: `data/louvain_community_result.csv`
+- **Analysis script** (Python, NetworkX, python-louvain): `code/capstone_network_visualization.py`
+- **Network visualization** (300 dpi): `visualizations/capstone_network_graph.png`
+- **Repository**: https://github.com/szesex/dhga-weaponhistory
+
+The analysis can be reproduced by running `python code/capstone_network_visualization.py` after installing the dependencies listed in the README (pandas, networkx, python-louvain, matplotlib).
+
+---
+
 ## References
 
 Blondel, V. D., Guillaume, J.-L., Lambiotte, R., & Lefebvre, E. (2008). Fast unfolding of communities in large networks. *Journal of Statistical Mechanics: Theory and Experiment*, 2008(10), P10008.
@@ -238,6 +252,6 @@ Winner, L. (1977). *The Whale and the Reactor: A Search for Limits in an Age of 
 
 ---
 
-*Word count: ~2,650 words (English)*
+*Word count: ~2,710 words (English, including Code and Data Availability)*
 
-*Capstone Final – June 2026 (after consistency review)*
+*Capstone Final – June 2026 (after consistency review and reproducibility metadata)*
