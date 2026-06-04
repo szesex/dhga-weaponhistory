@@ -4,10 +4,12 @@ import community as community_louvain
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-# ==================== 檔案路徑 ====================
-NODES_PATH = "/home/node/.openclaw/workspace/gephi_weapons_network_nodes.csv"
-EDGES_PATH = "/home/node/.openclaw/workspace/gephi_weapons_network_edges.csv"
-OUTPUT_PATH = "/home/node/.openclaw/workspace/capstone_network_graph.png"
+# ==================== 檔案路徑 (relative to repo root) ====================
+import os
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+NODES_PATH = os.path.join(REPO_ROOT, "data", "nodes", "gephi_weapons_network_nodes.csv")
+EDGES_PATH = os.path.join(REPO_ROOT, "data", "edges", "gephi_weapons_network_edges.csv")
+OUTPUT_PATH = os.path.join(REPO_ROOT, "visualizations", "capstone_network_graph.png")
 
 # 讀取數據
 nodes_df = pd.read_csv(NODES_PATH)

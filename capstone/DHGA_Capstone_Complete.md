@@ -47,12 +47,10 @@ Recent advances in digital history methods offer new tools to challenge these na
 
 ### 3.1 Research Design
 
-This study employs a quantitative network analysis approach to examine the relationships between weapon systems across time and geopolitical boundaries. The dataset comprises 32 weapon systems spanning from the 1776 flintlock musket to projected 2026 LAWS (Lethal Autonomous Weapon Systems), coded with 41 edges capturing four types of technological relationships:
+This study employs a quantitative network analysis approach to examine the relationships between weapon systems across time and geopolitical boundaries. The dataset comprises 32 weapon systems spanning from the 1776 flintlock musket to projected 2026 LAWS (Lethal Autonomous Weapon Systems), coded with 41 edges capturing two types of technological relationships:
 
-1. **Timeline_Evolves**: Direct technological succession between weapon systems
+1. **Timeline_Evolves**: Direct technological succession between weapon systems (intra-platform evolution)
 2. **Pacific_Link**: Cross-Pacific competitive relationships between U.S. and challenger systems
-3. **ISR_Chain**: Intelligence, Surveillance, and Reconnaissance system connections
-4. **Autonomous_Evolves**: Progression toward autonomous weapons
 
 ### 3.2 Network Construction
 
@@ -133,7 +131,7 @@ Community 3 provides the most direct evidence of **technological learning** in t
 
 **The M14 to M16 Transition as Case Study:**
 
-The US Army's adoption of the M16 rifle in 1964 directly responded to battlefield conditions in Vietnam, where the AK-47's reliability in humid tropical environments had been documented and studied. Internal US Army evaluations explicitly referenced Ak-47 performance characteristics during the M14 to M16 transition—precisely the pattern of "technological learning" that network analysis reveals structurally.
+The US Army's adoption of the M16 rifle in 1964 directly responded to battlefield conditions in Vietnam, where the AK-47's reliability in humid tropical environments had been documented and studied. Internal US Army evaluations explicitly referenced AK-47 performance characteristics during the M14 to M16 transition—precisely the pattern of "technological learning" that network analysis reveals structurally.
 
 **Challenging "Unidirectional Innovation" Narratives:**
 
@@ -240,6 +238,6 @@ Winner, L. (1977). *The Whale and the Reactor: A Search for Limits in an Age of 
 
 ---
 
-*Word count: ~2,800 words*
+*Word count: ~2,650 words (English)*
 
-*Capstone Draft – May 2026*
+*Capstone Final – June 2026 (after consistency review)*
