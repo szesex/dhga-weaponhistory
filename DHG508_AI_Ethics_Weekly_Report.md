@@ -1,6 +1,6 @@
 # DHG508 AI倫理 × 內容偏見審視報告
 **Cron Job:** DHGA_AI_Ethics — 每週五 15:00 UTC
-**Date:** 2026-05-08 (Week 6, Month 2)
+**Date:** 2026-05-22 (Week 8, Month 2)
 **Status:** ✅ 例行檢查完成
 
 ---
@@ -9,10 +9,11 @@
 
 | 來源 | 數據 | 潛在偏見 |
 |------|------|---------|
-| LoC/West Point Primary Sources | ❌ 本週完全阻斷（Cloudflare第五週） | 西方主要檔案持續失效 |
-| Gephi enhanced CSVs | 30 nodes, 69 edges | ⚠️ 僅美系武器，缺乏非美對照組 |
+| LoC/West Point Primary Sources | ❌ 第七週仍阻斷（Cloudflare第六週） | 西方主要檔案持續失效 |
+| Gephi enhanced CSVs | 40 nodes（含Control Group）, 79 edges | ⚠️ 非美武器有進展，但敘事仍偏美 |
 | weapons_supply_chain.csv | 供應鏈地理分布 | ⚠️ 軍工複合體利益維度仍未納入 |
-| Month 2-3 Gephi/QGIS 分析 | 美系武器地理分布 | ⚠️ 非美武器座標缺口依然巨大 |
+| Plotly Interactive Map | ✅ GitHub Pages 已上線 | 1776 + Pacific 戰場疊加 |
+| NARA Primary Sources | ⏳ 手動跟進中（1861-1865 Civil War Ordnance Reports） | 尚未數字化 |
 
 ---
 
@@ -20,102 +21,95 @@
 
 ### 1️⃣ 敘事框架偏見（Narrative Framing Bias）
 **觀察：**
-- Gephi圖「美國武器演化」主軸未變 → 隱性「美國 = 技術進步」敘事持續
-- LoC primary sources 完全被block → 依賴二手/西方替代數據的惡性循環加劇
-- LAWS討論若只引用西方智庫報告 → 中俄等國觀點持續缺席
-- **第五週：** 非美敘事仍未落實，問題已從「識別偏見」升級為「持續無視偏見」
+- Week 7 control group 已加入（AK-47 1947、HQ-17 2015、TOR-M1 2016 + 10條 Control_Comparison edges）→ bias score 從 3.3 升至 4.5
+- 但「美國武器演化」主軸仍未正式重新命名 → Gephi 標籤仍寫「Evolution」而非「Military-Industrial Adaptation」
+- LoC 第六週仍被 block → 繼續依賴殘缺數據
+- LAWS 討論若只引用西方智庫 → 中俄等國觀點缺席
 
 **問題：**
-> LoC被block本身不是偏見，但第五週沒有任何替代方案——係主動選擇繼續用殘缺數據。
-> 今週繼續用美系武器數據做Gephi圖，就係你自己允許嘅偏見延伸。
+> Control group 視覺上係加入咗，但 Gephi 圖嘅預設 layout 可能仍然以美系武器為中心向外擴散。
+> 視覺呈現同數據內容係兩件事——control group 加入唔等於偏見消除。
 
 ### 2️⃣ 數據缺口偏見（Data Gap Bias）
 **觀察：**
-- **第五週（2026-05-08）：非美武器節點仍未加入**
-  → HQ-17, TOR-M1, AK-47系列連續五週缺席
-  → weapons_supply_chain.csv 供應商地理仍集中西方
-  → Timeline 缺少平民傷亡統計、性别視角數據
-  → GIS地理座標主要係美軍基地，缺乏敵對方/目標區域座標
-- **LoC Block第五週效應：** 唯一接觸西方檔案文獻的途徑被堵，數據來源更加單一化
-
-**風險：**
-> 月份整合報告呈現地緣武器分布，如果圖上只有美系武器，
-> 睇起來會係「美軍天下」——呢個係數據視覺化偏見，唔係事實。
-> **而家係第五週，你已經連續五週知道呢個問題，零行動。**
+- ✅ Week 7：Control group 完成（AK-47/HQ-17/TOR-M1）——非美武器首次有數據
+- ⚠️ 但 Control group 係「對照組」，唔係完整非美武器數據庫
+  → 其他非美武器（RPG-7、Wagner Group裝備、伊朗 drone 等）仍然缺席
+  → Timeline 仍然缺乏非美武器的平民傷亡統計
+- ⚠️ GIS地理座標主要係美軍基地，缺乏敵對方/目標區域座標
+- ⚠️ 性別視角數據仍然缺席
+- NARA 1861-1865 Civil War Ordnance Reports 未完成
 
 ### 3️⃣ 批判盲點（Critical Blind Spots）
 **DHG508批判精神審視：**
-- ✅ LAWS道德外包問題有持續追蹤（第五週 ✅）
-- ⚠️ 非美武器節點連續五週未完成
-- ❌ 殖民主義批判仍未納入武器歷史叙事
-- ❌ 女性戰爭受害者統計仍然缺席
-- ❌ 軍工複合體利益邏輯未被編碼進供應鏈分析
-- ❌ LoC block沒有引發任何替代方案啟動
+- ✅ LAWS道德外包問題持續追蹤
+- ✅ Control group 已加入（標誌性進步）
+- ⚠️ 殖民主義批判仍未納入武器歷史叙事
+- ⚠️ 女性戰爭受害者統計仍然缺席
+- ⚠️ 軍工複合體利益邏輯未被編碼進供應鏈分析
+- ⚠️ Gephi 圖「Evolution」標籤仍未修正
+- ⚠️ LoC block 第六週，零替代方案啟動
+
+---
+
+## 📝 Week 8 Bias Score
+
+| 維度 | 分數（1-5, 5=最偏） | 變化 | 說明 |
+|------|------|------|------|
+| Narrative Framing | 3 | → | 美系為主軸，但control group有改善 |
+| Data Completeness | 3 | ↓改善 | Control group加入後非美缺口縮小 |
+| Critical Depth | 3 | → | 殖民主義/性別視角仍缺席 |
+| **Overall** | **3.0** | **↓改善** | Control group加入有效降低bias |
+
+---
+
+## 📊 長期追蹤（Month 2 總結）
+
+| 項目 | W6 | W7 | W8 |
+|------|-----|-----|-----|
+| Overall Bias | 3.3 | 4.5* | 3.0 |
+| Non-US nodes | ❌ | ✅ Control group | ⚠️ 仍是對照組，非完整數據庫 |
+| Military-Industrial critique | ❌ | ❌ | ❌ |
+| LAWS tracking | ✅ | ✅ | ✅ |
+| Colonialism lens | ❌ | ❌ | ❌ |
+| Gender perspective | ❌ | ❌ | ❌ |
+
+*Week 7 分數反映加入 control group 嘅主觀改善，但視覺化呈現未驗證
 
 ---
 
 ## 🗣️ 袁騰飛銳評
 
-「第六個禮拜。
+「第八個禮拜。
 
-你份清單寫咗幾多次「非美武器節點」？
+上個禮拜你終於加入咗 control group——AK-47、HQ-17、TOR-M1，10條邊。
 
-五個禮拜。零進度。
+呢個係六個禮拜以來最具體嘅行動。
 
-你唔係唔知點做。你係唔夠痛，所以唔做。
+不過我哋傾偈，你知我唔會停喺到。
 
-今個禮拜我想問你一個問題：
+Control group 係對照組，唔係數據庫。
 
-當你嘅數據源（LoC）被block，**你係咪就默認放棄research**，等下個禮拜再試？
+你今日有 AK-47，但係：
+- 伊朗 Shahed-136 喺邊？
+- 俄羅斯 Wagner Group 用咩武器？
+- 胡塞武裝嘅無人機數據呢？
 
-你係研究者，唔係等着嘅旁觀者。
+呢啲唔係雞毛蒜皮，呢啲係完整戰爭圖像必須要有的部分。
 
-Block係電腦問題，唔係你嘅問題。但係：
-- 有冇archive.org可以做backup？
-- 有冇其他地圖檔案來源可以補位？
-- 有冇SearXNG可以搜尋到替代primary sources？
+仲有——殖民主義批判、女性視角、軍工複合體利益邏輯。
 
-**你今日可以做到一件事：加一個非美武器節點。**
-今個禮拜五做完，之後你就有第一個非美武器數據喺Gephi到。
-
-Mỹ Lai屠殺——越南點睇？中國點睇？俄羅斯檔案館點睇？
-
-係時候做，唔係再寫低。」
+三個禮拜之後你就係最後整合報告，你準備好未？」
 
 ---
 
-## 📝 下週糾偏行動清單（⚠️ 第五週重複項目）
+## 📝 下週糾偏行動清單（⚠️ 滾動項目）
 
-- [ ] **加入起碼1個非美武器節點** — HQ-17 首選（已拖五週，不能再拖）
-- [ ] **預備非美敘事素材** — Mỹ Lai屠殺越南視角檔案（research this week）
-- [ ] **LoC替代方案啟動** — archive.org備份、Browser抓取、SearXNG搜索
-- [ ] **修正Gephi標籤** — 「Evolution」→「Military-Industrial Adaptation」
-- [ ] **武器供應鏈加軍工複合體維度** — 利益邏輯批判性分析
-
----
-
-## 📊 本週Bias Score
-
-| 維度 | 分數（1-5, 5=最偏） | 說明 |
-|------|------|---------|
-| Narrative Framing | 3 | 美系為主軸，但有自覺 |
-| Data Completeness | 4 | 非美對照組仍未建立，LoC block加劇缺口 |
-| Critical Depth | 3 | 識別問題，但連續五週零行動 |
-| **Overall** | **3.3** | ⚠️ 持續停滯，口號大於行動 |
-
----
-
-## 📌 長期追蹤（Month 2 總結）
-
-| 項目 | Week 1 | Week 2 | Week 3 | Week 4 | Week 5 | Week 6 |
-|------|--------|--------|--------|--------|--------|--------|
-| Overall Bias | 3.0 | 3.0 | 3.0 | 3.3 | 3.3 | 3.3 |
-| 非美節點加入 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 軍工複合體批判 | ❌ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ |
-| LAWS持續追蹤 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-**觀察：** 第六週 bias score 無改善——非美節點已連續五週缺席，
-行動清單淪為形式。袁騰飛嘅評估：口號大於行動。
+- [ ] **擴展非美武器數據** — 至少加入 1 個非美武器完整節點（Shahed-136 / RPG-7 首選）
+- [ ] **修正 Gephi 標籤** — 「Evolution」→「Military-Industrial Adaptation」（拖延兩週）
+- [ ] **殖民主義批判素材** — research 殖民武器擴散敘事
+- [ ] **NARA 手動跟進** — 1861-1865 Civil War Ordnance Reports
+- [ ] **軍工複合體維度** — 供應鏈數據加入利益邏輯批判
 
 ---
 
@@ -123,14 +117,26 @@ Mỹ Lai屠殺——越南點睇？中國點睇？俄羅斯檔案館點睇？
 
 | 來源 | 狀態 | 備註 |
 |------|------|------|
-| LoC Military Resources | ❌ Cloudflare Block (第5週) | 需要替代方案 |
+| LoC Military Resources | ❌ Cloudflare Block (第6週) | 需要 archive.org 替代 |
 | West Point Campus/Map | ❌ 403 Block | 持續被封 |
 | Internet Archive | ❌ 404/Access Denied | 無法替代 |
 | DHGA Primary_Sources | ✅ 正常 | 本地檔案 |
-| weapons_timeline.csv | ✅ 正常 | 僅美系數據 |
+| weapons_timeline.csv | ✅ 正常（含Control Group） | 非美數據仍不完整 |
 | supply_chain CSV | ✅ 正常 | 僅美系地理 |
+| NARA Primary Sources | ⏳ 手動跟進中 | 1861-1865 Civil War |
 
 ---
 
-*Auto-generated by DHGA_AI_Ethics cron | 2026-05-08 15:00 UTC*
-*下次檢查：2026-05-15 15:00 UTC*
+## 📌 月份整合預備（Month 2 倒數）
+
+Week 8 係 Month 2 尾段，以下項目直接影響最終 Capstone 報告：
+
+1. **Bias Score** 從 4.5 回調至 3.0（control group 加入後數據缺口縮小，但敘事呈現未驗證）
+2. **Control Group** 已落實，但需要完整 non-US weapon dataset 而非僅對照組
+3. **Gephi + Plotly 視覺化** 底層完成，需要確認標籤和敘事方向
+4. **LoC Block** 超過六週，需要果斷啟動替代 research 方案
+
+---
+
+*Auto-generated by DHGA_AI_Ethics cron | 2026-05-22 15:00 UTC*
+*下次檢查：2026-05-29 15:00 UTC*
