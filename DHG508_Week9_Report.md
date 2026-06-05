@@ -2,7 +2,6 @@
 **Cron Job:** DHGA_AI_Ethics — 每週五 15:00 UTC
 **Date:** 2026-06-05 (Week 9, Month 3 尾 / Month 4 整合期)
 **Status:** ✅ 例行檢查完成
-**Latest Snapshot:** [[DHG508_Week9_Report.md]] · Previous: [[DHG508_Week8_Report.md]]
 
 ---
 

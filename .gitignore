@@ -46,3 +46,5 @@ env/
 
 # Logs
 *.log
+# Local manual backup folders (not source)
+*.bak/
