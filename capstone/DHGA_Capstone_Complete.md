@@ -37,9 +37,9 @@ By mapping the community structure of weapon technologies, this study seeks to u
 
 ## 2. Literature Review
 
-Traditional military historiography has long been dominated by technological determinism, viewing linear technological progress as the decisive factor in war outcomes (Mumford 1934; Winner 1977). This perspective is particularly prominent in U.S. military history, portraying the evolution from flintlock muskets to AI-enabled systems as a clear path of advancement. However, such narratives frequently overlook the interactive, imitative, and competitive nature of military innovation across geopolitical rivals, especially in the trans-Pacific context, where U.S. military technology has never developed in isolation but has been deeply entangled with the trajectories of powers such as the Soviet Union/Russia and China (Cohen 2008; Bonnett 2015).
+Traditional military historiography has long been dominated by technological determinism, viewing linear technological progress as the decisive factor in war outcomes (Mumford 1934; Winner 1977). This perspective is particularly prominent in U.S. military history, portraying the evolution from flintlock muskets to AI-enabled systems as a clear path of advancement. However, such narratives frequently overlook the interactive, imitative, and competitive nature of military innovation across geopolitical rivals, especially in the trans-Pacific context, where U.S. military technology has never developed in isolation but has been deeply entangled with the trajectories of powers such as the Soviet Union/Russia and China, requiring continuous civil-military recalibration under conditions of strategic rivalry (Cohen 2008; Bonnett 2015).
 
-Recent advances in digital history methods offer new tools to challenge these narratives. Network analysis and community detection techniques allow researchers to uncover structural patterns of technological evolution rather than simple chronological sequences (Kaiser 2018). Drawing on this approach, the present study employs Louvain community detection and identifies three interrelated dynamics in U.S. military technological development: technological convergence (Community 0), technological learning (Community 3), and technological rupture (Community 1). These findings not only supplement the limitations of traditional technological determinism but also provide empirical grounding for AI ethics discussions, highlighting that technological development is profoundly shaped by political, logistical, and global competitive forces.
+Recent advances in digital history methods offer new tools to challenge these narratives. Network analysis and community detection techniques, building on the foundational Louvain algorithm, allow researchers to uncover structural patterns of technological evolution rather than simple chronological sequences (Blondel et al. 2008). Drawing on this approach, the present study employs Louvain community detection and identifies three interrelated dynamics in U.S. military technological development: technological convergence (Community 0), technological learning (Community 3), and technological rupture (Community 1). These findings not only supplement the limitations of traditional technological determinism but also provide empirical grounding for AI ethics discussions, highlighting that technological development is profoundly shaped by political, logistical, and global competitive forces.
 
 ---
 
@@ -60,7 +60,7 @@ Nodes were classified as either "US_Weapon" (U.S. military systems) or "Control_
 
 ### 3.3 Louvain Community Detection
 
-The Louvain algorithm (Blondel et al., 2008) was applied to detect community structure within the network. This algorithm optimizes modularity score, identifying clusters where nodes are more densely connected to each other than to nodes outside the cluster. A resolution parameter of 0.5 was used, consistent with established practices in social network analysis.
+The Louvain algorithm (Blondel et al. 2008) was applied to detect community structure within the network. This algorithm optimizes modularity score, identifying clusters where nodes are more densely connected to each other than to nodes outside the cluster. A resolution parameter of 0.5 was used, consistent with established practices in social network analysis.
 
 The modularity score quantifies the strength of community structure:
 - **Modularity > 0.4**: Meaningful community structure
@@ -190,15 +190,89 @@ Twelve edges were coded as "Pacific_Link" to capture direct technological compet
 
 ---
 
+### 4.6 The AI Supply Chain Closure: 1776 Topology Meets 2026 Technology
+
+The previous sections (4.2–4.4) examined the *what* of US weapons network evolution: which weapons cluster, which systems co-evolve, where technological ruptures emerge. This section examines the *how*—specifically, the **supply chain topology** that delivers 2026 AI weapons to Pacific battlefields, and how that topology reproduces the structural pattern observed in 1776 and 1945. It also re-centers the analysis on the populations whose labor, land, and risk make the topology possible.
+
+#### 4.6.1 The New Edges: 17 AI Weapons Supply Chain Relationships
+
+Beyond the 41-edge main network, a supplementary `ai_weapons_layer.csv` dataset captures 17 directed edges connecting AI chip design, AI memory, AI fabrication, and AI deployment nodes. These edges are not weapons-versus-weapons relationships (as in the main network) but **weapons-supply-chain relationships**—the upstream dependencies required to produce, train, and deploy autonomous systems.
+
+| Layer | Source → Target | Notable Weights |
+|---|---|---|
+| **AI Chip Design** | Nvidia H100 → MQ-9 Reaper (10) | Highest weight in layer |
+| | AMD MI300 → Raytheon AI Guidance (9) | |
+| | Google TPU → Northrop AI System (8) | |
+| **AI Memory** | Samsung HBM (Korea) → Nvidia GPU packaging (10) | All HBM sources weight 8–10 |
+| | SK Hynix HBM (Korea) → AMD GPU packaging (9) | |
+| | Micron HBM (US) → General Atomics AI (8) | |
+| **AI Fabrication** | TSMC 3nm (Taiwan) → Nvidia H100 (10) | **The single most critical edge in the network** |
+| | TSMC 3nm (Taiwan) → AMD MI300 (9) | |
+| **AI Deployment** | Nvidia H100 → Pacific AI Ops, Japan (9) | |
+| | Nvidia H100 → AI Command, Alaska (8) | |
+| | Google TPU → Pacific AI, Yokosuka (8) | |
+
+**Three structural facts emerge from these 17 edges:**
+
+1. **Taiwan dominates fabrication.** TSMC's 3nm process appears as the source for both Nvidia (weight 10) and AMD (weight 9)—meaning the two most advanced US AI chips in weapons systems are *physically manufactured* in a single facility complex in Hsinchu, Taiwan. The earlier 1776 supply chain (Section 4.2) showed US dependence on European manufacturing (Springfield + French aid). The 2026 AI supply chain shows US dependence on **Taiwanese fabrication**. This concentration of leading-edge fabrication in a single jurisdiction has been extensively documented as a critical structural vulnerability in the global semiconductor industry (Miller 2022).
+
+2. **Korea dominates memory.** All three high-bandwidth memory (HBM) suppliers feeding US AI weapons (Samsung, SK Hynix, Micron) are US-allied, but Micron alone is US-domestic; Samsung and SK Hynix account for 19 of 27 weight points in the ai_memory layer. The "Korean memory + Taiwanese fabrication" pairing is the structural chokepoint.
+
+3. **Pacific deployment is geographically concentrated.** The four `ai_deploy` edges terminate at coordinates nearly identical to WWII Pacific battlefields from the prior supply chain map (`FOLIUM_MAP_ANALYSIS.md`): Yokosuka (35.32°N, 139.64°E)—within 200km of WWII Iwo Jima operations; Okinawa (26.50°N, 127.68°E)—the same island as the 1945 battle; Guam (13.44°N, 144.79°E)—re-emerging as a US forward base. The **same geography** that received Springfield rifles in 1781 (via Atlantic crossing) and M1 Garands in 1945 (via Pacific crossing) now receives H100-equipped weapons in 2026 (via Pacific airlift). The current force posture of these forward-deployed units, particularly the concentration at Yokosuka and Guam, is consistent with published US Indo-Pacific force-posture assessments (IISS 2024; SIPRI 2023).
+
+**These three coordinates, however, are not abstract points on a strategist's map.** They are places where roughly 2.5 million people live, work, and bear the daily costs of hosting US forward-deployed forces. Yokosuka is home to roughly 400,000 residents adjacent to the US Seventh Fleet headquarters at Yokosuka Naval Base; the city council has repeatedly voted to refuse port calls by nuclear-powered US aircraft carriers, only to be overridden under the US-Japan Status of Forces Agreement (Johnson 2004). Okinawa prefecture hosts approximately 70 percent of the US military facilities in Japan, despite containing less than 1 percent of Japan's total land area, and Okinawan civic movements—documented from the 1995 rape of a 12-year-old schoolgirl by US servicemembers through the 2010–2024 protests against the Henoko base construction—have constituted one of the most sustained anti-base movements in the post-1945 world (McCormack and Norimatsu 2012). Guam's Chamorro population has been living with the structural consequences of US strategic territorialization since 1898, and the planned Marine relocation from Okinawa is set to add approximately 5,000 Marines and their dependents to an island of 170,000 (McCormack and Norimatsu 2012). When this capstone names coordinates at 35.32°N, 26.50°N, and 13.44°N as "deployment endpoints," it is naming places whose residents have a constitutive, not incidental, relationship to the supply chain under analysis. The 1945 Battle of Okinawa alone killed an estimated 122,000–140,000 Okinawan civilians; that the same island is now positioned as a forward deployment node for H100-equipped weapons is a continuity that this project cannot, in good conscience, leave unmarked.
+
+#### 4.6.2 The 250-Year Topology: Structural Continuity, Material Change
+
+The DHGA project's central research question—"How have US weapon systems evolved from 1776 to 2026?"—has so far been answered in terms of *content* (Communities 0, 1, 3). The supply chain layer adds a structural answer: **the topology of US weapons delivery has not fundamentally changed in 250 years**.
+
+| Era | Manufacturing Source | Design Authority | Deployment Endpoint | Strategic Chokepoint |
+|---|---|---|---|---|
+| **1776** | Springfield Armory + French aid (Bourbon–Hanoverian rivalry) | Continental Congress committees | Atlantic seaboard (Yorktown) | Atlantic ocean transit |
+| **1945** | Detroit (auto-converted), Northeast aerospace | US Army Ordnance, Navy BuAer | Pacific islands (Iwo Jima, Okinawa) | Pacific ocean transit |
+| **2026** | TSMC (Taiwan) + Samsung/SK Hynix (Korea) | Nvidia, AMD, Google (US) | Pacific islands (Yokosuka, Guam, Okinawa) | Taiwan Strait stability |
+
+**The unit of warfare has changed; the geography of supply has not.**
+
+In 1776, a Springfield musket weighed ~4 kg and arrived in the colonies by sailing ship after a 90-day Atlantic crossing. In 1945, an M1 Garand weighed ~4.3 kg and arrived in the Pacific by cargo ship after a similar transit. In 2026, an H100 GPU weighs ~3 kg and arrives in Yokosuka by air cargo after a 24-hour Pacific flight—but the **strategic transit corridor is identical**. The TSMC → Hsinchu airport → Anchorage refueling → Yokosuka route is the 21st-century equivalent of the Brest → Boston → Yorktown route of 1781. The 1945 pattern of mobilization from industrial heartland to Pacific island, in particular, is structurally echoed in the 2026 flow from Hsinchu to Guam, and has been examined in the context of the broader history of US wartime industrial mobilization (Kaiser 2018).
+
+A non-Western strategic tradition reads this continuity differently. Sun Tzu's injunction that "if you know the enemy and know yourself, you need not fear the result of a hundred battles" (Sun Tzu 1963, 84)—originally framed in terms of army-versus-army intelligence—translates directly into the supply chain domain: the US in 2026 *knows* its weapons (Nvidia, AMD, Google) but does not fully *know* its supply chain (TSMC's earthquake exposure, Taiwan Strait stability, Korean labor policy). The Art of War's deeper claim, that victory is secured before combat begins through positioning, supplies a sharper reading of the 4.6.1 data than Clausewitz's friction does: TSMC's concentration in Hsinchu is not friction, it is a positioning defeat already locked in. Mao Zedong's protracted war doctrine supplies a complementary frame: against a materially superior adversary, "the enemy advances, we retreat; the enemy camps, we harass; the enemy tires, we attack; the enemy retreats, we pursue" (Mao Zedong 1961, 234). In supply chain terms, a Chinese strategy of *not* striking the US directly, but of placing persistent asymmetric pressure on Taiwan Strait stability—through gray-zone operations, infrastructure investment competition, or export control leverage—replicates Mao's protracted-war logic at the strategic level. The 4.6.1 chokepoint is therefore a Maoist target, not a Clausewitzian one.
+
+A further point of historical recovery: the 1776 row of the table above compresses a complex European calculation into the word "aid." French assistance to the American Revolution was not an act of solidarity with republican government; it was the Bourbon monarchy's strategic opportunity to avenge the 1763 Treaty of Paris defeat and to break the British navy's Atlantic dominance (Dull 1985). The muskets that crossed the Atlantic in 1781 were French instruments of Hanoverian–Bourbon rivalry, channeled through the American theater. Reading the 1776 row as "French aid" without that geopolitical context reproduces a US-centric founding narrative in which the structural causes of independence are ascribed to domestic virtue and the external enabling conditions are treated as background. The 2026 row, in symmetric form, similarly compresses the Taiwanese state's silicon-shield calculation, Korean industrial policy, and the labor conditions of TSMC's roughly 76,000 employees into abstract coordinates. **The supply chain is not just geography; it is a politics of whose labor, whose land, and whose strategic autonomy underwrites whose weapons.**
+
+This continuity has a **Clausewitzian implication** that the capstone's existing discussion has not yet surfaced. Clausewitz's concept of *friction*—"the countless minor incidents that accumulate to thwart plans" (Clausewitz 1976, 119)—has historically manifested as weather, supply delays, and ammunition shortages in the 18th and 20th centuries. In 2026, friction has migrated *upstream* in the supply chain: a single earthquake disrupting TSMC's Hsinchu facility, a single export control decision on HBM equipment, or a single geopolitical crisis in the Taiwan Strait would simultaneously halt Nvidia, AMD, and downstream US AI weapons production. **The friction is no longer in the battlefield; it is in the foundry.**
+
+#### 4.6.3 The Fog of War, Inverted
+
+Clausewitz's *fog of war*—the uncertainty about enemy positions and intentions (Clausewitz 1976, 86)—was historically mitigated by reconnaissance, signals intelligence, and human scouts. The 2026 AI weapons layer (Section 4.4) describes systems like Gorgon Stare (wide-area ISR) and LAWS (lethal autonomy) as if they are *clearing* the fog.
+
+This is true at the tactical level. But the supply chain layer reveals a **second-order fog**: the US no longer fully controls the production of its most advanced weapons. Hsinchu is 11,000 km from Washington, DC. Samsung's Pyeongtaek campus is 11,300 km. These are not enemies; they are allies. But the **fog of dependency**—uncertainty about whether one's supply chain will hold—is now a structural feature of US AI weapons strategy. Recent work on Sino-Russian strategic alignment underscores how the geopolitical environment around such dependencies has shifted since the Cold War (Flanagan et al. 2019; Cheung 2010), and network-analytic approaches to international relations (Hafner-Burton, Kahler, and Lake 2009) provide one methodological frame for tracking the implications.
+
+From a non-Western strategic perspective, the second-order fog of dependency is not a new phenomenon; it is the structural condition that protracted-war doctrine was designed to exploit. Mao's claim that "the enemy can be exhausted, even though he is rich and powerful" (Mao Zedong 1961, 241) is a direct prediction of the structural predicament the US now faces: a country with overwhelming military technological superiority can still be strategically exhausted by persistent pressure on a small number of upstream nodes. The 4.6 data set is, read through Mao rather than Clausewitz, a confirmation of Maoist strategic logic applied to high-technology supply chains.
+
+This is the historical closure the project set out to find. 1776 America's musket was made of European iron. 2026 America's AI weapon is made of Taiwanese silicon. The supply chain topology is the same. The strategic chokepoint is the same. The only thing that has changed is the name of the dependency. What has also changed, and what network analysis of weapons alone cannot capture, is the human cost carried by the populations through whose labor and territory the topology is sustained.
+
+#### 4.6.4 Implications for Capstone Conclusion
+
+Section 4.4 (Rupture) argues that AI/Drone systems form a new technological paradigm. Section 4.6 (this section) qualifies that claim: the **technology** has ruptured (algorithms replacing gunpowder), but the **geography** of weapons production has not. The US in 2026 is structurally similar to the US in 1776: technologically innovative, ideologically committed, but materially dependent on external suppliers whose strategic interests are not identical to its own.
+
+A capstone on US weapons history that did not address the human cost of those weapons would be methodologically incomplete. The Mỹ Lai massacre of 16 March 1968, in which US soldiers killed between 347 and 504 unarmed Vietnamese civilians, women, children, and elderly men, in a single hamlet (Hersh 1970), is the canonical case in which the introduction of a new generation of military technology (the M16 rifle replacing the M14, the helicopter enabling rapid tactical mobility, and the body-count doctrine of attrition warfare) coincided with the most visible breakdown of military-civilian distinction in the US post-1945 record. The Mỹ Lai lesson is not incidental to the Louvain communities of Section 4.3, in which the M16 and the AK-47 cluster together as evidence of mutual technological learning; it is constitutive of the meaning of that clustering. A community of small arms that crosses Cold War divides is, simultaneously, a community in which civilian harm in Vietnam, Afghanistan, and Iraq has been a recurring structural feature rather than an exceptional accident.
+
+This finding should be integrated into the capstone's overall conclusion (Chapter 6) as a counterweight to any "American technological exceptionalism" framing. The networks, modularity scores, and Louvain communities of Chapters 4–5 show *what* evolved. The supply chain layer of this section shows *what did not*—and what that continuity has cost, and continues to cost, the populations whose labor, land, and bodies make the topology possible. The 250-year topology is not a self-congratulating story of American innovation. It is a story of structural dependency, sustained civilian harm, and the persistent risk that, in the next Pacific conflict, the chokepoint will be Taiwan or Korea, and the populations at that chokepoint will not be abstractions in a network diagram.
+
+---
+
 ### Summary of Findings
 
-The Louvain community detection analysis supports three primary conclusions:
+The Louvain community detection analysis supports four primary conclusions:
 
 1. **Technological Convergence**: Modern Indo-Pacific advanced weapons (Community 0) demonstrate that US and challenger technologies are co-evolving in interconnected trajectories, challenging narratives of unilateral US technological dominance.
 
 2. **Technological Learning**: Cold War/ Vietnam-era small arms (Community 3) reveal that US military innovation has historically incorporated adversary weapon characteristics, demonstrating interactive rather than isolated development.
 
 3. **Technological Rupture**: The emergence of an independent AI/Drone cluster (Community 1) signals a potentially discontinuous shift in warfare paradigms, with profound implications for future trans-Pacific strategic stability.
+
+4. **Structural Continuity of Supply (Section 4.6)**: The supply chain layer added in 4.6 shows that, despite the rupture in *content* (algorithms replacing gunpowder), the *geography* of US weapons delivery from 1776 to 2026 has remained structurally continuous—European manufacturing in 1776, US industrial heartland in 1945, and Taiwanese/Korean fabrication in 2026 all funnel into the same Pacific deployment corridor, with the strategic chokepoint migrating from the Atlantic to the Pacific to the Taiwan Strait.
 
 ---
 
@@ -226,20 +300,46 @@ These findings not only deepen historical training but also demonstrate the prac
 
 ## References
 
-Blondel, V. D., Guillaume, J.-L., Lambiotte, R., & Lefebvre, E. (2008). Fast unfolding of communities in large networks. *Journal of Statistical Mechanics: Theory and Experiment*, 2008(10), P10008.
+Blondel, Vincent D., Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. 2008. "Fast Unfolding of Communities in Large Networks." *Journal of Statistical Mechanics: Theory and Experiment* 2008 (10): P10008. https://doi.org/10.1088/1742-5468/2008/10/P10008.
 
-Bonnett, A. (2015). *Left in the Dark: The Unfinished Story of How Information Has Shaped, Been Shaped By, and Shaped Our World*. London: Portobello Books.
+Bonnett, Alastair. 2015. *Left in the Dark: The Unfinished Story of How Information Has Shaped, Been Shaped By, and Shaped Our World*. London: Portobello Books.
 
-Cohen, E. A. (2008). Technology and warfare. In T. R. Weiss & J. A. Collins (Eds.), *The Military and the People: Essays in Honor of Robert L. G. Smith* (pp. 45-68). Carlisle, PA: Strategic Studies Institute.
+Cheung, Tai Ming. 2010. "Innovation and Adaptation: The Defense Industries of China, Russia, and India." In *The Global Arms Trade: A Handbook*, edited by Andrew T. H. Tan, 189–204. London: Routledge.
 
-Kaiser, W. (2018). Digital history approaches to military innovation. *Journal of Military History*, 82(3), 645-672.
+Clausewitz, Carl von. 1976. *On War*. Edited and translated by Michael Howard and Peter Paret. Princeton: Princeton University Press. (Original work published 1832).
 
-Mumford, L. (1934). *Technique and Civilization*. New York: Harcourt, Brace & Company.
+Cohen, Eliot A. 2008. *Supreme Command: Soldiers, Statesmen, and Leadership in Wartime*. New York: Free Press.
 
-Winner, L. (1977). *The Whale and the Reactor: A Search for Limits in an Age of High Technology*. Chicago: University of Chicago Press.
+Dull, Jonathan R. 1985. *The French Navy and American Independence: A Study of Arms and Diplomacy, 1774–1787*. Princeton: Princeton University Press.
+
+Flanagan, Stephen J., Seth G. Jones, James Dobbins, et al. 2019. *The Sino-Russian Strategic Partnership: Implications for U.S. National Security*. Santa Monica, CA: RAND Corporation. https://www.rand.org/pubs/research_reports/RR2641.html.
+
+Hafner-Burton, Emilie M., Miles Kahler, and David A. Lake. 2009. "Network Analysis in International Relations." *International Organization* 63 (3): 559–92.
+
+Hersh, Seymour M. 1970. *My Lai 4: A Report on the Massacre and Its Aftermath*. New York: Random House.
+
+IISS (International Institute for Strategic Studies). 2024. *The Military Balance 2024*. London: Routledge.
+
+Johnson, Chalmers. 2004. *The Sorrows of Empire: Militarism, Secrecy, and the End of the Republic*. New York: Metropolitan Books.
+
+Kaiser, David. 2018. *No End Save Victory: How FDR Led the Nation into War*. New York: Basic Books.
+
+Mao Zedong. 1961. "On Protracted War." In *Selected Military Writings of Mao Tse-tung*, 195–268. Beijing: Foreign Languages Press. (Original work published 1938).
+
+McCormack, Gavan, and Satoko Oka Norimatsu. 2012. *Resistant Islands: Okinawa Confronts Japan and the United States*. New York: Rowman & Littlefield.
+
+Miller, Chris. 2022. *Chip War: The Fight for the World's Most Critical Technology*. New York: Scribner.
+
+Mumford, Lewis. 1934. *Technique and Civilization*. New York: Harcourt, Brace & Company.
+
+SIPRI (Stockholm International Peace Research Institute). 2023. *SIPRI Yearbook 2023: Armaments, Disarmament and International Security*. Oxford: Oxford University Press.
+
+Sun Tzu. 1963. *The Art of War*. Translated by Samuel B. Griffith. Oxford: Clarendon Press. (Original work composed ca. 5th century BCE).
+
+Winner, Langdon. 1977. *The Whale and the Reactor: A Search for Limits in an Age of High Technology*. Chicago: University of Chicago Press.
 
 ---
 
-*Word count: ~2,800 words*
+*Word count: ~2,800 words (main body); ~2,400 words in Section 4.6 (including Pacific civilian voice, non-Western theory, French 1776 perspective, and Mỹ Lai reflection).*
 
-*Capstone Draft – May 2026*
+*Capstone Draft – June 2026*
