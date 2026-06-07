@@ -260,6 +260,16 @@ A capstone on US weapons history that did not address the human cost of those we
 
 This finding should be integrated into the capstone's overall conclusion (Chapter 6) as a counterweight to any "American technological exceptionalism" framing. The networks, modularity scores, and Louvain communities of Chapters 4–5 show *what* evolved. The supply chain layer of this section shows *what did not*—and what that continuity has cost, and continues to cost, the populations whose labor, land, and bodies make the topology possible. The 250-year topology is not a self-congratulating story of American innovation. It is a story of structural dependency, sustained civilian harm, and the persistent risk that, in the next Pacific conflict, the chokepoint will be Taiwan or Korea, and the populations at that chokepoint will not be abstractions in a network diagram.
 
+#### 4.6.5 The Profit Layer: The Military-Industrial Complex as Supply Chain Driver
+
+A network analysis of weapons that treats the supply chain as a purely technical or geographic phenomenon is, in Dwight Eisenhower's 1961 framing, an analysis that has not yet "seen" the system that "we must guard against" (Eisenhower 1961). The 17 supply chain edges of Section 4.6.1 are not neutral relationships between equally weighted actors: each edge from AI chip design (Nvidia, AMD, Google) to weapons platforms (MQ-9 Reaper, Raytheon AI Guidance, Northrop AI System) is mediated by defense prime contractors whose corporate structure and profitability are themselves constitutive features of the network.
+
+According to the SIPRI Top 100 arms-producing and military services companies dataset, the five largest US-based defense contractors—Lockheed Martin, RTX (formerly Raytheon Technologies), Northrop Grumman, Boeing Defense, and General Dynamics—collectively accounted for approximately $238 billion in arms sales in 2022, representing more than half of the total SIPRI Top 100 revenue (SIPRI 2023). Each of these five firms maintains dedicated AI and autonomous systems divisions that are direct participants in the supply chain layer of this study. Lockheed Martin's Sikorsky subsidiary produces the autonomy stacks for the F-35, which is the bridge node connecting Communities 0 and 1 in Section 4.5; RTX's Raytheon Missiles & Defense unit produces the AI guidance systems receiving the AMD MI300 chip in the 4.6.1 dataset; Northrop Grumman's autonomous systems division receives the Google TPU edge. The edges of the supply chain are, in dollar terms, the revenue lines of these five firms.
+
+The structural alignment of profit incentives with the topology of supply is not accidental. Andrew Bacevich has argued that post-1945 US defense policy has been characterized by a "new American militarism" in which "the rise of the military-industrial complex, the transformation of the armed services into a standing volunteer force, and the advent of a national security state" have together produced a self-reinforcing political economy of permanent arms production (Bacevich 2005, 6). In the supply chain terms of this study, Bacevich's claim translates into a specific prediction: when the upstream nodes (TSMC, Samsung, SK Hynix) are concentrated, when the downstream deployment endpoints (Yokosuka, Okinawa, Guam) are politically fixed, and when the prime contractors enjoy the pricing power of a five-firm oligopoly, the supply chain will not diversify in peacetime. The structural pressure runs in the other direction: there is more profit in maintaining the 4.6.1 topology than in disrupting it, and the firms whose revenue depends on that topology have a structural interest in opposing any policy that would weaken it. The network of edges in this study is, in short, a network of profit, and the inertia of the topology is partly a profit-driven inertia.
+
+This finding has two implications for the capstone's argument. First, it explains why the "fog of dependency" of Section 4.6.3 persists even when it is well known: knowing that TSMC's Hsinchu complex is a single point of failure does not produce a diversified alternative supply chain, because the existing supply chain is the revenue base of firms with strong political and structural incentives to maintain it. Second, it complicates the "US control" framing that the 4.6 critique has been trying to escape. The US does not fully control its supply chain—but neither is the supply chain controlled by accident. It is the working product of a specific political economy of arms production that has, since at least 1945, been organized to make US weapons depend on a small number of upstream nodes, and that has, in the AI era, extended that pattern to TSMC and the Korean HBM producers. The supply chain is, in this sense, a *choice*—made collectively, indirectly, and reinforced by structural profit incentives—not merely a *condition*.
+
 ---
 
 ### Summary of Findings
@@ -273,6 +283,8 @@ The Louvain community detection analysis supports four primary conclusions:
 3. **Technological Rupture**: The emergence of an independent AI/Drone cluster (Community 1) signals a potentially discontinuous shift in warfare paradigms, with profound implications for future trans-Pacific strategic stability.
 
 4. **Structural Continuity of Supply (Section 4.6)**: The supply chain layer added in 4.6 shows that, despite the rupture in *content* (algorithms replacing gunpowder), the *geography* of US weapons delivery from 1776 to 2026 has remained structurally continuous—European manufacturing in 1776, US industrial heartland in 1945, and Taiwanese/Korean fabrication in 2026 all funnel into the same Pacific deployment corridor, with the strategic chokepoint migrating from the Atlantic to the Pacific to the Taiwan Strait.
+
+5. **Profit-Driven Inertia of the Supply Chain (Section 4.6.5)**: The 17 supply chain edges are mediated by a five-firm oligopoly of US defense prime contractors whose collective arms revenues exceed $238 billion (SIPRI 2023). The topology of supply is not merely a technical or geographic condition but a working product of a specific political economy of arms production, in which the firms whose revenue depends on the existing topology have structural incentives to maintain it. This explains why the "fog of dependency" persists even when it is well known: the supply chain is, in this sense, a *choice* reinforced by profit, not merely a *condition*.
 
 ---
 
@@ -302,6 +314,8 @@ These findings not only deepen historical training but also demonstrate the prac
 
 Blondel, Vincent D., Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. 2008. "Fast Unfolding of Communities in Large Networks." *Journal of Statistical Mechanics: Theory and Experiment* 2008 (10): P10008. https://doi.org/10.1088/1742-5468/2008/10/P10008.
 
+Bacevich, Andrew. 2005. *The New American Militarism: How Americans Are Seduced by War*. New York: Oxford University Press.
+
 Bonnett, Alastair. 2015. *Left in the Dark: The Unfinished Story of How Information Has Shaped, Been Shaped By, and Shaped Our World*. London: Portobello Books.
 
 Cheung, Tai Ming. 2010. "Innovation and Adaptation: The Defense Industries of China, Russia, and India." In *The Global Arms Trade: A Handbook*, edited by Andrew T. H. Tan, 189–204. London: Routledge.
@@ -311,6 +325,8 @@ Clausewitz, Carl von. 1976. *On War*. Edited and translated by Michael Howard an
 Cohen, Eliot A. 2008. *Supreme Command: Soldiers, Statesmen, and Leadership in Wartime*. New York: Free Press.
 
 Dull, Jonathan R. 1985. *The French Navy and American Independence: A Study of Arms and Diplomacy, 1774–1787*. Princeton: Princeton University Press.
+
+Eisenhower, Dwight D. 1961. "Farewell Address to the Nation." January 17, 1961. Public Papers of the Presidents of the United States.
 
 Flanagan, Stephen J., Seth G. Jones, James Dobbins, et al. 2019. *The Sino-Russian Strategic Partnership: Implications for U.S. National Security*. Santa Monica, CA: RAND Corporation. https://www.rand.org/pubs/research_reports/RR2641.html.
 
@@ -340,6 +356,6 @@ Winner, Langdon. 1977. *The Whale and the Reactor: A Search for Limits in an Age
 
 ---
 
-*Word count: ~2,800 words (main body); ~2,400 words in Section 4.6 (including Pacific civilian voice, non-Western theory, French 1776 perspective, and Mỹ Lai reflection).*
+*Word count: ~2,800 words (main body); ~3,100 words in Section 4.6 (Pacific civilian voice, non-Western theory, French 1776 perspective, Mỹ Lai reflection, and military-industrial complex profit layer).*
 
 *Capstone Draft – June 2026*
