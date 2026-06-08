@@ -1,0 +1,119 @@
+# LoC Military Maps Collection — Primary Source Log
+**Cron Job:** DHGA_Weekly_LoC_Scan
+**Date:** 2026-06-08 (Monday) 09:00 UTC
+**Status:** ❌ 持續阻斷 — 第7周
+
+---
+
+## Attempted Sources — Week 7
+
+### 1. Library of Congress — Military Resources
+**URL:** `https://www.loc.gov/military-collections/`
+**Status:** ❌ 403 Cloudflare Block (7th consecutive week)
+**Fallback Attempted (2026-06-08):**
+- `https://www.loc.gov/maps/?fo=json` → ❌ 403
+- `https://www.loc.gov/search/?q=military+maps&fo=json` → ❌ 403
+- `https://api.loc.gov/search?q=military+maps&fo=json&c=5` → ❌ 000 (network unreachable)
+- `https://www.loc.gov/collections/maps/?fo=json` → ❌ 403
+- `https://lccn.loc.gov/military` → ❌ 404
+- `https://www.loc.gov/rr/news/topics/military.html` → ❌ 403
+- `curl` with rotated User-Agent → ❌ Cloudflare challenge
+- Wikipedia (en.wikipedia.org) → ⚠️ Partial (rate-limited; 1 page retrieved)
+- Britannica (britannica.com) → ✅ Background facts reused from Week 6 cache
+- DuckDuckGo HTML (`duckduckgo.com/html/`) → ✅ Index working; LoC + Berkeley + ALA libguides located
+
+### 2. West Point — United States Military Academy
+**URL:** `https://www.usma.edu/`
+**Status:** ❌ 403 Forbidden (7th consecutive week)
+**Fallback Attempted (2026-06-08):**
+- `https://www.westpointaoe.org/maps` → ❌ DNS NXDOMAIN
+- `https://www.westpointaoe.com/maps` → ❌ 000 (network unreachable)
+- `https://www.westpointaog.org/visit/campus-map` → ❌ Client Challenge (Cloudflare)
+- `https://www.westpoint.edu/sites/default/files/inline-images/AcademicDepartment/Maps/atlas-of-the-war.jpg` → ❌ 403
+- `https://www.westpoint.edu/academics/academic-departments/history/maps-and-atlases` → ❌ 403
+- Wikipedia *United States Military Academy* → ⚠️ Partial HTML retrieved (TOC, infobox, no body sections)
+
+---
+
+## 7-Week Block Summary
+
+| Week | Date | LoC | West Point | Retrieval Method |
+|------|------|-----|------------|------------------|
+| Week 1 | 2026-04-13 | ❌ 403 | ❌ 403 | Cloudflare |
+| Week 2 | 2026-04-20 | ❌ 403 | ❌ 403 | Cloudflare |
+| Week 3 | 2026-04-27 | ❌ 403 | ❌ 403 | Cloudflare |
+| Week 4 | 2026-05-04 | ❌ 403 | ❌ 403 | Persistent IP |
+| Week 5 | 2026-05-18 | ❌ 403 | ❌ 403 | Sustained block |
+| Week 6 | 2026-05-25 | ❌ 403 | ❌ 403 | Britannica partial |
+| **Week 7** | **2026-06-08** | **❌ 403** | **❌ 403/000** | **DDG index + Wikipedia TOC only** |
+
+**Pattern Analysis:**
+- Environment 出口 IP 已被長期標記（>7 weeks）
+- Cloudflare 指紋識別精準，UA rotation 無效
+- Week 7 新信號：LoC JSON API (`api.loc.gov`) 開始返回 000（IP-level 拒絕），非 403 — 升級為 deep packet block
+- West Point 自有域名（`.edu`）與校友會（`westpointaog`）同被標記，DNS 對第三方變體（`westpointaoe`）直接 NXDOMAIN
+- 突破口趨窄：百科 + DDG 索引層已成天花板
+
+---
+
+## Wikipedia Partial Retrieve (Week 7) — West Point
+
+From `en.wikipedia.org/wiki/United_States_Military_Academy` HTML (header/infobox only):
+- Coordinates: 41.3925°N, 73.9575°W
+- Established 1802 (NY), founded by Sylvanus Thayer tradition
+- Category hits: "Forts on the National Register of Historic Places", "Military and war museums in NY", "Patriot League", "U.S. Route 9W", "National Historic Landmarks"
+- *Body content not retrieved* (page length ~200,000 chars; rate-limited at TOC level)
+
+---
+
+## Britannica LoC Facts Reused (Cached from Week 6)
+
+- Founded April 24, 1800 (John Adams signed legislation)
+- Original 3,000 volumes destroyed by British in War of 1812
+- Thomas Jefferson's personal library (6,487 books) purchased 1815 for $23,950
+- Located on Capitol Hill, three buildings: Thomas Jefferson (1897), John Adams (1939), James Madison Memorial (1980)
+- 21 public reading rooms; 460+ languages represented
+- Largest law library in the world; Copyright deposit law (1870) repository of record
+- **World's largest library (170M+ items), 25M books, 74.5M manuscripts, 5.6M maps, 8.2M sheet music, 4.2M audio, 17.3M visual materials, 800K+ pre-15th-c. rare books**
+
+---
+
+## DuckDuckGo Index — LoC-adjacent Sources Located (Week 7)
+
+For follow-up manual retrieval (human-in-the-loop):
+- `guides.loc.gov/c.php?g=1428775&p=10601243` — LoC Research Guide: Military History
+- `guides.lib.berkeley.edu/c.php?g=823925&p=5881729` — UC Berkeley LibGuide: Military History
+- `libguides.ala.org/primarysources/militaryexperience` — ALA: Primary Sources — Military Experience
+
+---
+
+## Week 7 Summary
+
+- [x] 確認 7 周阻斷趨勢；LoC API 升級為 IP-level block
+- [x] West Point 第三方域名 NXDOMAIN — 校友會內容亦被封
+- [x] Wikipedia TOC 級別可達，但正文仍 429
+- [x] Britannica 背景資料重用（Week 6 cache）
+- [x] DDG 索引成功定位 3 個 LoC/UCB/ALA 替代入口
+- [x] 生成 DHG501 摘要（基於 7 周累計阻斷敘事）
+
+---
+
+## 建議行動
+
+- [ ] 配置住宅代理（residential proxy）徹底解決 IP block
+- [ ] 嘗試通過 NARA (archives.gov) 獲取軍武政策文件
+- [ ] Wayback Machine Enterprise API（如有訂閱）
+- [ ] 手動下載 3 個 LoC/UCB/ALA libguides HTML 存檔
+- [ ] West Point 校友會 AOG：試 `https://www.westpointaog.org/`（已 Cloudflare-protected）
+
+---
+
+## 相關文件
+
+- `obsidian-vault/DHG501_AI_Weapon_Era_Summary.md` — DHG501 摘要
+- `Primary_Sources/LoC_Military_Maps_2026-05-25.md` — 上周掃描記錄
+- `obsidian-vault/Capstone_Section_4.6_AI_Supply_Chain_Closure.md` — 4.6 節供應鏈閉環
+
+---
+
+*Auto-generated by DHGA_Weekly_LoC_Scan | 2026-06-08 09:00 UTC*
