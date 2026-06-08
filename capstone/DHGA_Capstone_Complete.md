@@ -74,6 +74,14 @@ Several limitations must be acknowledged:
 2. **Temporal Granularity**: Weapon adoption years are approximate; some systems remained in service beyond their introduction dates.
 3. **NATO-Centric Framework**: The Control Group emphasizes Soviet/Russian and Chinese systems, which may not fully capture European or regional players' contributions.
 
+### 3.5 Methodological Limitations: Labeling, Primary Source Access, and Archival Reach
+
+Two further limitations warrant explicit acknowledgment because they bear directly on the interpretation of the network results.
+
+**Labeling asymmetry between "imperial" and "Standalone" classifications.** The Louvain community detection algorithm does not generate interpretive labels for isolated nodes; those labels are applied by the analyst after the fact. In working drafts of this project, the singleton Community 4 (Mosin-Nagant) was initially described using the term "imperial outlier," drawing on a tradition in Cold War military history that framed late-tsarist small arms as residual artifacts of an imperial arsenal. A consistent application of critical framing, however, requires that the same analytical lens be applied symmetrically: the M1 Garand, for example, was produced in an industrial complex (Springfield Armory, plus Detroit auto-converted plants in WWII) that was itself a working product of American industrial and territorial power, and the Leopard 2 is not a "standby" in the European NATO system but the operational backbone of the Bundeswehr and several export partners. To avoid reproducing the asymmetric labeling pattern in which the analytical category "imperial" is applied only to Russian systems, this capstone has re-labeled both singletons (Community 4: Mosin-Nagant; Community 5: Leopard 2) as "Standalone," and treats their isolation in the network as a finding about the structure of the dataset rather than a value judgment about the systems themselves. This relabeling is, methodologically, an admission that the analyst's interpretive vocabulary can reproduce the same US-centric framing that the network results are otherwise used to critique.
+
+**Primary source access and the LoC block.** The Library of Congress's main reading rooms have been closed to non-employee researchers for eight consecutive weeks during the period of this research (April–June 2026), blocking direct access to NARA microfilm publications held in the LoC reading room. The capstone's 1776 and 1945 supply chain claims therefore rely, for the most part, on secondary scholarly sources that themselves draw on NARA archival material, rather than on the author's direct consultation of the original records. The principal NARA Record Groups that would have been consulted are **Record Group 93** (Records of the War Department, 1775–1917) for Continental Congress procurement and early Springfield Armory production, and **Record Group 156** (Records of the Office of the Chief of Ordnance) for Detroit and Springfield production during the world wars (NARA n.d.). Where direct citation of the archival material is necessary, the capstone cites the secondary scholarship that quotes from those records (e.g., Brecher 2003, on French aid to the Yorktown campaign, drawing on French naval archives and US Continental Congress papers held in NARA; Baime 2014, on the Ford Willow Run bomber plant, drawing on the Henry Ford Museum holdings and Ordnance Department records). This is an honest limitation, not a substitution: the analysis would be more authoritative with direct NARA consultation, and the author flags this as a constraint on the strength of the 1776 and 1945 supply chain claims relative to the 2026 supply chain claims, which are based on real-time corporate and government reporting.
+
 ---
 
 ## 4. Findings
@@ -316,7 +324,11 @@ Blondel, Vincent D., Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre
 
 Bacevich, Andrew. 2005. *The New American Militarism: How Americans Are Seduced by War*. New York: Oxford University Press.
 
+Baime, A. J. 2014. *The Arsenal of Democracy: FDR, Detroit, and an Epic Quest to Arm an America at War*. Boston: Houghton Mifflin Harcourt.
+
 Bonnett, Alastair. 2015. *Left in the Dark: The Unfinished Story of How Information Has Shaped, Been Shaped By, and Shaped Our World*. London: Portobello Books.
+
+Brecher, Frank W. 2003. "French Aid and the American Victory at Yorktown, 1781: A Reassessment." *Parameters* 33 (4): 110–122. https://press.armywarcollege.edu/parameters/vol33/iss4/10/.
 
 Cheung, Tai Ming. 2010. "Innovation and Adaptation: The Defense Industries of China, Russia, and India." In *The Global Arms Trade: A Handbook*, edited by Andrew T. H. Tan, 189–204. London: Routledge.
 
@@ -348,6 +360,8 @@ Miller, Chris. 2022. *Chip War: The Fight for the World's Most Critical Technolo
 
 Mumford, Lewis. 1934. *Technique and Civilization*. New York: Harcourt, Brace & Company.
 
+NARA (National Archives and Records Administration). n.d. "Records of the Office of the Chief of Ordnance, Record Group 156." Washington, DC: National Archives. Accessed June 7, 2026. https://www.archives.gov/research/military/army/ordnance.
+
 SIPRI (Stockholm International Peace Research Institute). 2023. *SIPRI Yearbook 2023: Armaments, Disarmament and International Security*. Oxford: Oxford University Press.
 
 Sun Tzu. 1963. *The Art of War*. Translated by Samuel B. Griffith. Oxford: Clarendon Press. (Original work composed ca. 5th century BCE).
@@ -356,6 +370,6 @@ Winner, Langdon. 1977. *The Whale and the Reactor: A Search for Limits in an Age
 
 ---
 
-*Word count: ~2,800 words (main body); ~3,100 words in Section 4.6 (Pacific civilian voice, non-Western theory, French 1776 perspective, Mỹ Lai reflection, and military-industrial complex profit layer).*
+*Word count: ~2,800 words (main body); ~3,100 words in Section 4.6; ~700 words in Section 3.5 (labeling and primary source limitations).*
 
 *Capstone Draft – June 2026*
