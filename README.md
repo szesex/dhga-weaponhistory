@@ -1,155 +1,150 @@
-# DHGA-WeaponHistory
+# U.S. Military Technological Evolution and Trans-Pacific Conflict Outcomes (1776–2026)
 
-## Network Analysis of U.S. Military Technology Evolution (1776–2026)
+**A Network Analysis Approach**
 
-**Digital History & Global Affairs (DHGA) Capstone** · Submitted June 2026  
-*Author: Saba* · *GitHub: [@szesex](https://github.com/szesex)*
+This repository documents a digital history research project examining how U.S. military technology evolved from flintlock muskets in 1776 to AI-enabled lethal autonomous weapons systems (LAWS) in 2026, and how these technological changes shaped outcomes in trans-Pacific conflicts.
 
-[![Repo size](https://img.shields.io/github/repo-size/szesex/dhga-weaponhistory?style=flat-square)](https://github.com/szesex/dhga-weaponhistory)
-[![Commits](https://img.shields.io/github/commit-activity/m/szesex/dhga-weaponhistory?style=flat-square)](https://github.com/szesex/dhga-weaponhistory/commits/master)
-[![Last commit](https://img.shields.io/github/last-commit/szesex/dhga-weaponhistory?style=flat-square)](https://github.com/szesex/dhga-weaponhistory/commits/master)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Made with: Python](https://img.shields.io/badge/made%20with-Python%203-3776AB?style=flat-square&logo=python&logoColor=white)](#-methods--tools)
-
-> 🌐 **Live project site:** *(enable GitHub Pages on `master` / `/docs` to publish → [setup instructions](docs/))*
+The project integrates historical training, network analysis, and critical historiography to challenge linear narratives of technological progress and U.S.-centric interpretations of military innovation.
 
 ---
 
-## 🎯 Research Question
+## Research Question
 
-> *How has the evolution of U.S. military weapons — from the 1776 flintlock musket to 2026 AI-enabled systems — influenced the outcomes of trans-Pacific conflicts?*
-
-This study treats military technology as a **relational network**, not a linear timeline. By applying **Louvain community detection** to 32 weapon systems and 41 technological relationships, it uncovers structural patterns of convergence, learning, rupture, and profit-driven inertia across 250 years of military innovation.
+How did U.S. military technological change from 1776 to 2026 influence trans-Pacific war outcomes? What structural patterns of technological convergence, learning, and rupture can be identified through network analysis of weapon systems and their supply chains?
 
 ---
 
-## 📊 Key Findings
+## Key Findings
 
-The Louvain analysis (modularity **0.5362**) identifies **six communities**, four of which carry the main interpretive load:
+Using Louvain community detection on a 32-node weapon system network (41 edges, modularity 0.5362), the project identifies three core dynamics:
 
-| Community | Theme | Diagnostic Pattern |
-|:---------:|-------|--------------------|
-| **C0** | 🛰️ *Indo-Pacific Convergence* | Modern U.S., Chinese, and Russian weapons cluster together — Cold War bipolarity has dissolved into a multipolar techno-strategic field. |
-| **C1** | 🤖 *AI/Autonomy Rupture* | LAWS, Gorgon Stare, Switchblade, Reaper form an isolated paradigm — the first community with no analog-era ancestry. |
-| **C3** | 🔁 *Cold-War Learning* | Soviet small arms (AK-47, AK-74) integrate into U.S. weapon communities — proof of bidirectional technological transfer. |
-| **(C0+) 💰** | *Profit-Driven Inertia* | A military–industrial complex layer (Lockheed / Raytheon / General Dynamics → F-35, Patriot, JASSM) explains why some legacy platforms survive past their technological relevance. *(see §4.6.5)* |
+| Community | Dynamic | Key Insight |
+|-----------|----------------------------|-------------|
+| **0** | Technological Convergence | Partial functional convergence between U.S., Chinese, and Russian systems in stealth, integrated air defence, precision strike, and unmanned/AI technologies since the mid-2010s |
+| **3** | Technological Learning | Evidence of structural learning, with U.S. systems showing relational proximity to challenger systems (e.g. M16 near AK-47/AK-74) |
+| **1** | Technological Rupture | AI and drone systems (Gorgon Stare, Switchblade, LAWS) form a distinct new community, indicating a potential paradigm shift |
 
-**Headline numbers:** 32 nodes · 41 edges · 6 communities · modularity 0.5362 · span 1776–2026 (250 years).
+**Additional Critical Dimension**:
+- **Profit-Driven Inertia**: Supply chain topology is reinforced by the profit logic of the U.S. military-industrial complex, creating structural lock-in and concentrated geographic risk (particularly in Taiwan and South Korea).
+
+The analysis incorporates civilian perspectives from Okinawa, Guam, and Taiwan, non-Western strategic frameworks, and critiques of technological determinism.
 
 ---
 
-## 🗂️ Repository Structure
+## Methodology
+
+- **Network Construction**: 32-node weapon system network (U.S. systems + control group challengers)
+- **Community Detection**: Louvain algorithm (resolution = 0.5)
+- **Data Sources**: Secondary synthesis of military-technical history with control group comparison
+- **Visualization**: Gephi, Python (NetworkX + python-louvain), Folium interactive maps
+- **Critical Framework**: Clausewitzian friction + Maoist protracted war logic + structural coupling analysis
+- **Ethics Review**: Ongoing auditing addressing Western-centrism, victor's history, and civilian costs
+
+---
+
+## Project Structure
 
 ```
 dhga-weaponhistory/
+├── README.md
 ├── capstone/
-│   └── DHGA_Capstone_Complete.md       # Full thesis (~2,800 words, English, Chicago)
+│   └── DHGA_Capstone_Complete.md
+├── courses/
+│   └── HKU_History/
+│       ├── README.md
+│       └── HKU_History_Courses.md   # 72 courses (official 2025-26)
 ├── data/
-│   ├── nodes/                          # Gephi node CSVs
-│   ├── edges/                          # Gephi edge CSVs
-│   ├── supply_chain/                   # Georeferenced supply chain data
-│   ├── timeline/                       # Weapon timeline CSVs
-│   └── louvain_community_result.csv    # Community assignment output
+│   ├── edges/
+│   ├── nodes/
+│   ├── timeline/
+│   ├── supply_chain/
+│   └── louvain_community_result.csv
+├── visualizations/
+│   ├── supply_chain_folium.html
+│   └── capstone_community_graph.png
 ├── code/
 │   ├── capstone_network_visualization.py
 │   ├── gen_folium_map.py
 │   ├── gen_map.py
-│   ├── generate_map.py
-│   ├── enhance_gephi.py
-│   ├── enhance_gephi_iran2026.py
-│   └── weapons_timeline.py
-├── visualizations/
-│   ├── capstone_network_graph.png      # Static 300 dpi network graph
-│   ├── supply_chain_folium.html        # Interactive Folium map
-│   ├── supply_chain_plotly.html        # Interactive Plotly map
-│   ├── supply_chain_ai_weapons.html    # AI weapons overlay
-│   └── supply_chain_with_battlefields.html
-├── Primary_Sources/                    # NARA, LOC, DOD reference material
-├── docs/                               # GitHub Pages landing site
+│   └── enhance_gephi.py
+├── Primary_Sources/
+├── docs/
 │   └── index.html
-└── README.md
+└── OpenClaw_Vault_Backup_*.md
 ```
 
 ---
 
-## 🛠️ Methods & Tools
+## Key Outputs
 
-| Layer | Tool | Purpose |
-|-------|------|---------|
-| Network construction | `NetworkX` | Build directed multigraph of weapons & relations |
-| Community detection | `python-louvain` | Louvain modularity optimization |
-| Visualization (static) | `Matplotlib` | Final 300 dpi network graph |
-| Visualization (geo) | `Folium` + `Plotly` | Interactive supply-chain & battle maps |
-| Georeferencing | `QGIS` | Battlefield / supply-line coordinates |
-| Network exploration | `Gephi` | Layout + filtering, CSV in/out |
-| Versioning | `Git` + `GitHub` | Audit trail for every analytical step |
-
-### Methodological notes
-
-- Edge coding captures **four relation types**: direct descent, technical lineage, doctrinal inheritance, and adversarial imitation.
-- Modularity is reported at the resolution that maximises the *interpretive* separation of C0/C1/C3 (not a one-shot default).
-- All weapon selection decisions and date ranges are documented in `capstone/DHGA_Capstone_Complete.md` §3.
+- Full research paper with Discussion and Conclusion
+- Interactive supply chain visualization (Folium)
+- Weapon network community detection graph
+- Curated HKU History undergraduate courses list (72 courses) aligned with project themes
 
 ---
 
-## 🔭 Visualizations
+## Supporting Resources
 
-| Artifact | Type | File |
-|----------|------|------|
-| Network graph (300 dpi) | Static PNG | [`visualizations/capstone_network_graph.png`](visualizations/capstone_network_graph.png) |
-| Supply chain map | Interactive HTML (Folium) | [`supply_chain_folium.html`](supply_chain_folium.html) |
-| Supply chain + battlefields | Interactive HTML (Folium) | [`supply_chain_with_battlefields.html`](supply_chain_with_battlefields.html) |
-| AI weapons overlay | Interactive HTML (Folium) | [`supply_chain_ai_weapons.html`](supply_chain_ai_weapons.html) |
-| Plotly network | Interactive HTML (Plotly) | [`supply_chain_plotly.html`](supply_chain_plotly.html) |
-| Map generator | Python | [`code/gen_folium_map.py`](code/gen_folium_map.py) |
+### HKU History Undergraduate Courses (2025-26)
 
----
+A curated selection of **72 undergraduate courses** from the University of Hong Kong History Department and cross-listed programmes has been added to support the Historical Training component.
 
-## 📖 How to Reproduce
+- **Location**: [`courses/HKU_History/HKU_History_Courses.md`](courses/HKU_History/HKU_History_Courses.md)
+- Courses are categorized thematically with relevance assessments and Tier recommendations (Tier 1 = highest relevance to the capstone).
+- Includes History-coded courses and cross-listed Survey/Seminar courses from other departments.
 
-```bash
-# 1. Clone
-git clone https://github.com/szesex/dhga-weaponhistory.git
-cd dhga-weaponhistory
-
-# 2. Environment
-python3 -m venv .venv && source .venv/bin/activate
-pip install pandas networkx python-louvain matplotlib folium plotly
-
-# 3. Re-run network analysis
-python code/capstone_network_visualization.py
-
-# 4. Re-render any interactive map
-python code/gen_folium_map.py
-python code/gen_map.py
-```
-
-Outputs land in `visualizations/`. CSV in `/data` is the single source of truth — all scripts read from it.
+This resource strengthens comparative analysis (e.g. Atlantic vs Pacific systems) and critical approaches to empire, technology, race, gender, and global historical methods.
 
 ---
 
-## 📚 Selected References
+## Technical Stack
 
-- Blondel, V. D., Guillaume, J.-L., Lambiotte, R., & Lefebvre, E. (2008). Fast unfolding of communities in large networks. *JSTAT*.
-- Bonnett, A. (2015). *The Geographies of Historical Militarism.*
-- Cohen, E. A. (2008). *Technology and Warfare.*
-- Mumford, L. (1934). *Technics and Civilization.*
-- Winner, L. (1977). *The Whale and the Reactor.*
-
-Full bibliography (Chicago Author-Date) is in the capstone document.
+- **Network Analysis**: Python (NetworkX, python-louvain), Gephi
+- **Visualization**: Folium, Matplotlib
+- **Workflow Automation**: OpenClaw multi-agent system
+- **Version Control & Documentation**: Git, Markdown, Obsidian
 
 ---
 
-## ⚖️ Ethics Statement
+## Current Status
 
-This work studies weapon systems as *historical and technological artifacts*, not as operational guides. AI weapons are analyzed at the systems level (LAWS doctrine, Gorgon Stare sensor architecture, Switchblade loitering munitions) — not at the level of targeting solutions. All primary sources are public-record (NARA, Library of Congress, DoD publications). See `DHG508_AI_Ethics_Weekly_Report.md` for the running ethics-review log.
+**Completion**: ~93%
+
+**Completed**:
+- Network analysis and community detection
+- Full Discussion chapter with theoretical implications
+- Integration of ethics critique (civilian perspectives, non-Western frameworks, profit-driven inertia)
+- Curated HKU History courses list (official 2025-26)
+- Interactive visualizations and landing page (`docs/index.html`)
+
+**Remaining**:
+- Final embedding of visualizations into the capstone document
+- GitHub Pages activation (Settings → Pages)
+- Minor final proofreading
 
 ---
 
-## 📜 License
+## How to Use This Repository
 
-MIT — see [`LICENSE`](LICENSE).
+1. Review `capstone/DHGA_Capstone_Complete.md` for the complete argument and findings.
+2. Explore `data/` for network data and Louvain results.
+3. Open visualizations in `visualizations/` for interactive maps and graphs.
+4. Use `courses/HKU_History/HKU_History_Courses.md` as a structured reading list for historical training.
 
 ---
 
-*Capstone submitted to the DHGA programme, June 2026. Repo continuously updated; this README is the portfolio entry point.*
+## Author
+
+**Author**: Saba  
+**Project Type**: Digital history research project (Capstone thesis)  
+**Focus**: U.S. military technology, trans-Pacific conflicts, network analysis, and critical historiography (1776–2026)
+
+---
+
+## License
+
+This repository is shared for academic, portfolio, and educational purposes.
+Please cite appropriately if used in other work.
+
+**Last Updated**: 2026-06-08
