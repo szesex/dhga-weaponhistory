@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DHGA WeaponHistory · 1776–2026 Network Analysis</title>
+  <meta name="description" content="A network-analysis study of U.S. military technology evolution from the 1776 flintlock to 2026 AI-enabled systems, and its influence on trans-Pacific conflict outcomes. DHGA Capstone, June 2026." />
+  <meta name="author" content="Saba" />
+  <meta property="og:title" content="DHGA WeaponHistory — Network Analysis 1776–2026" />
+  <meta property="og:description" content="Louvain community detection on 32 weapons × 41 relations, 6 communities, modularity 0.5362." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E🛰%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b1020;--bg-2:#101733;--panel:#131a36;--ink:#e8ecff;--muted:#9aa3c7;
+      --accent:#7cf3c2;--accent-2:#7aa7ff;--warn:#ffb86b;--line:#1f2a52;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans TC",sans-serif;}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    /* hero */
+    .hero{position:relative;padding:88px 0 72px;background:
+      radial-gradient(1200px 600px at 80% -10%,rgba(122,167,255,.18),transparent 60%),
+      radial-gradient(900px 500px at 0% 10%,rgba(124,243,194,.12),transparent 60%),
+      linear-gradient(180deg,var(--bg-2),var(--bg));
+      border-bottom:1px solid var(--line);}
+    .eyebrow{display:inline-block;padding:4px 10px;border:1px solid var(--line);
+      border-radius:999px;color:var(--muted);font-size:12px;letter-spacing:.12em;
+      text-transform:uppercase;}
+    h1{font-size:44px;line-height:1.15;margin:18px 0 12px;letter-spacing:-.02em}
+    h1 .accent{background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;}
+    .lede{font-size:18px;color:var(--muted);max-width:760px}
+    .meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;color:var(--muted);font-size:14px}
+    .meta b{color:var(--ink);font-weight:600}
+    .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;
+      border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#0a1024;border:none}
+    .btn:hover{transform:translateY(-1px);text-decoration:none}
+    /* section */
+    section{padding:56px 0;border-bottom:1px solid var(--line)}
+    section h2{font-size:24px;margin:0 0 18px;letter-spacing:-.01em}
+    .muted{color:var(--muted)}
+    /* findings */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--muted);margin-bottom:8px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .card.b0{border-left:3px solid #7aa7ff}
+    .card.b1{border-left:3px solid #7cf3c2}
+    .card.b2{border-left:3px solid #ffb86b}
+    .card.b3{border-left:3px solid #ff7eb6}
+    /* stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:14px;margin-top:8px}
+    .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+    .stat .v{font-size:30px;font-weight:700;letter-spacing:-.01em}
+    .stat .l{color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+    /* viz gallery */
+    .vgrid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .viz{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+      display:flex;flex-direction:column;transition:transform .15s ease,border-color .15s ease}
+    .viz:hover{transform:translateY(-2px);border-color:#34407a}
+    .viz .thumb{aspect-ratio:16/10;background:
+      linear-gradient(135deg,#1a2350 0%,#0b1020 100%);
+      display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;
+      border-bottom:1px solid var(--line)}
+    .viz .body{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .viz h4{margin:0;font-size:15px}
+    .viz .desc{color:var(--muted);font-size:13px;flex:1}
+    .viz .open{font-size:13px;color:var(--accent);margin-top:4px}
+    /* footer */
+    footer{padding:40px 0;color:var(--muted);font-size:13px}
+    footer a{color:var(--ink)}
+    .row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+    .col{flex:1;min-width:260px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#0a1024;
+      border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-size:12px;color:var(--ink)}
+    @media (max-width:600px){h1{font-size:32px}.lede{font-size:16px}}
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">DHGA Capstone · June 2026</span>
+    <h1><span class="accent">From flintlock to LAWS</span>.<br/>
+      250 years of U.S. military tech, mapped as a network.</h1>
+    <p class="lede">A network-analysis study of 32 weapon systems and 41 technological relationships
+      (1776–2026), asking how military innovation has shaped trans-Pacific conflict outcomes.
+      Built with Louvain community detection — modularity <b>0.5362</b>, six communities, four
+      carrying the analytical weight.</p>
+    <div class="meta">
+      <span><b>Author</b> · Saba</span>
+      <span><b>Programme</b> · Digital History &amp; Global Affairs</span>
+      <span><b>Method</b> · Louvain community detection</span>
+      <span><b>Stack</b> · Python · NetworkX · Folium · Gephi</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/szesex/dhga-weaponhistory/blob/master/capstone/DHGA_Capstone_Complete.md">Read the Capstone →</a>
+      <a class="btn" href="https://github.com/szesex/dhga-weaponhistory">View on GitHub</a>
+      <a class="btn" href="#visualizations">See Visualizations</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>At a glance</h2>
+    <div class="stats">
+      <div class="stat"><div class="v">32</div><div class="l">Weapon nodes</div></div>
+      <div class="stat"><div class="v">41</div><div class="l">Tech relations</div></div>
+      <div class="stat"><div class="v">6</div><div class="l">Communities</div></div>
+      <div class="stat"><div class="v">.54</div><div class="l">Modularity</div></div>
+      <div class="stat"><div class="v">250y</div><div class="l">Time span</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Four patterns that drive the thesis</h2>
+    <div class="grid">
+      <div class="card b0">
+        <span class="tag">Community 0</span>
+        <h3>Indo-Pacific convergence</h3>
+        <p>Modern U.S., Chinese, and Russian weapons cluster together — Cold-War bipolarity has dissolved
+          into a multipolar techno-strategic field.</p>
+      </div>
+      <div class="card b1">
+        <span class="tag">Community 1</span>
+        <h3>AI / autonomy rupture</h3>
+        <p>LAWS, Gorgon Stare, Switchblade, Reaper form an isolated paradigm — the first community
+          with no analog-era ancestry.</p>
+      </div>
+      <div class="card b2">
+        <span class="tag">Community 3</span>
+        <h3>Cold-War learning</h3>
+        <p>Soviet small arms (AK-47, AK-74) integrate into U.S. weapon communities — proof of
+          bidirectional technological transfer, not one-way catch-up.</p>
+      </div>
+      <div class="card b3">
+        <span class="tag">§4.6.5 overlay</span>
+        <h3>Profit-driven inertia</h3>
+        <p>A military–industrial layer (Lockheed / Raytheon / General Dynamics → F-35, Patriot, JASSM)
+          explains why some legacy platforms survive past their technological relevance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visualizations">
+  <div class="wrap">
+    <h2>Visualizations</h2>
+    <p class="muted" style="margin-top:-8px">All maps are interactive HTML rendered from the same
+      underlying CSV. Click any card to open the live artifact.</p>
+    <div class="vgrid">
+      <a class="viz" href="../supply_chain_folium.html" target="_blank" rel="noopener">
+        <div class="thumb">Folium · supply chain</div>
+        <div class="body">
+          <h4>Supply chain map (Folium)</h4>
+          <p class="desc">Interactive geospatial view of the global U.S. weapons supply chain.
+            Pannable, zoomable, with node tooltips.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+      <a class="viz" href="../supply_chain_with_battlefields.html" target="_blank" rel="noopener">
+        <div class="thumb">Folium · + battlefields</div>
+        <div class="body">
+          <h4>Supply chain + battlefields</h4>
+          <p class="desc">Same supply network with historical trans-Pacific battle sites overlaid
+            for spatial correlation analysis.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+      <a class="viz" href="../supply_chain_ai_weapons.html" target="_blank" rel="noopener">
+        <div class="thumb">Folium · AI weapons</div>
+        <div class="body">
+          <h4>AI weapons overlay</h4>
+          <p class="desc">LAWS, drone, and autonomous-systems layer projected onto the supply map —
+            visualizes Community 1's geographic footprint.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+      <a class="viz" href="../supply_chain_plotly.html" target="_blank" rel="noopener">
+        <div class="thumb">Plotly · network</div>
+        <div class="body">
+          <h4>Network view (Plotly)</h4>
+          <p class="desc">Interactive node-link view of the 32 × 41 graph. Hover for attributes;
+            color encodes Louvain community.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+      <a class="viz" href="../visualizations/capstone_network_graph.png" target="_blank" rel="noopener">
+        <div class="thumb">PNG · 300 dpi</div>
+        <div class="body">
+          <h4>Capstone network graph</h4>
+          <p class="desc">The static 300 dpi figure used in the capstone document. Best for print
+            and PDF embedding.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+      <a class="viz" href="https://github.com/szesex/dhga-weaponhistory/blob/master/capstone/DHGA_Capstone_Complete.md" target="_blank" rel="noopener">
+        <div class="thumb">Markdown · thesis</div>
+        <div class="body">
+          <h4>Read the full thesis</h4>
+          <p class="desc">Complete capstone document, Chicago Author-Date references, full §4.6.5
+            profit-driven-inertia argument.</p>
+          <span class="open">Open →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Reproduce locally</h2>
+    <div class="row">
+      <div class="col">
+        <p>Everything in this repo is reproducible from the CSVs in <span class="kbd">/data</span>.</p>
+        <pre style="background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto;color:var(--ink)"><code>git clone https://github.com/szesex/dhga-weaponhistory.git
+cd dhga-weaponhistory
+pip install pandas networkx python-louvain matplotlib folium plotly
+python code/capstone_network_visualization.py
+python code/gen_folium_map.py</code></pre>
+      </div>
+      <div class="col">
+        <h3 style="margin-top:0">Repository map</h3>
+        <ul class="muted" style="padding-left:18px">
+          <li><a href="https://github.com/szesex/dhga-weaponhistory/tree/master/capstone">capstone/</a> — full thesis</li>
+          <li><a href="https://github.com/szesex/dhga-weaponhistory/tree/master/data">data/</a> — single source of truth (CSVs)</li>
+          <li><a href="https://github.com/szesex/dhga-weaponhistory/tree/master/code">code/</a> — analysis scripts</li>
+          <li><a href="https://github.com/szesex/dhga-weaponhistory/tree/master/visualizations">visualizations/</a> — static graph</li>
+          <li><a href="https://github.com/szesex/dhga-weaponhistory/tree/master/Primary_Sources">Primary_Sources/</a> — NARA, LOC, DoD</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>DHGA Capstone · Saba · June 2026 ·
+      <a href="https://github.com/szesex/dhga-weaponhistory">github.com/szesex/dhga-weaponhistory</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
