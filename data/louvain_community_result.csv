@@ -1,0 +1,33 @@
+Node,Community,Id,Label,Control_Group,Era
+Flintlock_Musket,2,Flintlock_Musket,Flintlock Musket,False,Revolutionary_War
+Rifled_Musket,2,Rifled_Musket,Rifled Musket,False,Civil_War
+Springfield_Rifle,2,Springfield_Rifle,Springfield Rifle,False,Civil_War
+Gatling_Gun,2,Gatling_Gun,Gatling Gun,False,Civil_War
+Ironclad,2,Ironclad,Ironclad Warship,False,Civil_War
+Krag_Jorgensen,2,Krag_Jorgensen,Krag-Jørgensen Rifle,False,Spanish_American_War
+M1903_Springfield,2,M1903_Springfield,M1903 Springfield,False,World_War_I
+BAR,2,BAR,Browning Automatic Rifle,False,World_War_II
+M1_Garand,2,M1_Garand,M1 Garand,False,World_War_II
+Atomic_Bomb,2,Atomic_Bomb,Atomic Bomb,False,World_War_II
+M14,3,M14,M14 Rifle,False,Vietnam_War
+M16,3,M16,M16 Rifle,False,Vietnam_War
+M60,3,M60,M60 Machine Gun,False,Vietnam_War
+Abrams,0,Abrams,M1 Abrams,False,Gulf_War
+F_117,0,F_117,F-117 Nighthawk,False,Gulf_War
+Tomahawk,0,Tomahawk,Tomahawk Missile,False,Gulf_War
+Predator,0,Predator,MQ-1 Predator,False,Post_Cold_War
+F_35,0,F_35,F-35 Lightning II,False,Indo_Pacific_Era
+Gorgon_Stare,1,Gorgon_Stare,Gorgon Stare ISR,False,Drone_Era
+Switchblade,1,Switchblade,Switchblade Loitering Munition,False,Ukraine_Pacific_Era
+LAWS,1,LAWS,LAWS (Lethal Autonomous Weapon Systems),False,AI_Era
+AK47,3,AK47,AK-47,True,Post_WWII
+HQ17,0,HQ17,HQ-17 (Chinese Tor-M1),True,Modern
+TOR_M1,0,TOR_M1,TOR-M1,True,Post_Cold_War
+Mosin_Nagant,4,Mosin_Nagant,Mosin-Nagant,True,Imperial
+AK74,3,AK74,AK-74,True,Cold_War
+HQ9,0,HQ9,HQ-9,True,Modern
+TOR_M2,0,TOR_M2,TOR-M2,True,Modern
+Leopard2,5,Leopard2,Leopard 2,True,Cold_War
+J20,0,J20,Chengdu J-20,True,Modern
+Bayraktar_TB2,0,Bayraktar_TB2,Bayraktar TB2,True,Drone_Era
+M4_Carbine,3,M4_Carbine,M4 Carbine,False,Post_Cold_War

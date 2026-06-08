@@ -1,0 +1,33 @@
+Id,Label,Year,Type,Control_Group,Era,data_quality
+Flintlock_Musket,Flintlock Musket,1776,US_Weapon,FALSE,Revolutionary_War,verified
+Rifled_Musket,Rifled Musket,1861,US_Weapon,FALSE,Civil_War,verified
+Springfield_Rifle,Springfield Rifle,1861,US_Weapon,FALSE,Civil_War,verified
+Gatling_Gun,Gatling Gun,1862,US_Weapon,FALSE,Civil_War,verified
+Ironclad,Ironclad Warship,1862,US_Weapon,FALSE,Civil_War,verified
+Krag_Jorgensen,Krag-Jørgensen Rifle,1892,US_Weapon,FALSE,Spanish_American_War,verified
+M1903_Springfield,M1903 Springfield,1903,US_Weapon,FALSE,World_War_I,verified
+BAR,Browning Automatic Rifle,1918,US_Weapon,FALSE,World_War_II,verified
+M1_Garand,M1 Garand,1936,US_Weapon,FALSE,World_War_II,verified
+Atomic_Bomb,Atomic Bomb,1945,US_Weapon,FALSE,World_War_II,verified
+M14,M14 Rifle,1957,US_Weapon,FALSE,Vietnam_War,verified
+M16,M16 Rifle,1964,US_Weapon,FALSE,Vietnam_War,verified
+M60,M60 Machine Gun,1957,US_Weapon,FALSE,Vietnam_War,verified
+Abrams,M1 Abrams,1980,US_Weapon,FALSE,Gulf_War,verified
+F_117,F-117 Nighthawk,1983,US_Weapon,FALSE,Gulf_War,verified
+Tomahawk,Tomahawk Missile,1983,US_Weapon,FALSE,Gulf_War,verified
+Predator,MQ-1 Predator,1995,US_Weapon,FALSE,Post_Cold_War,verified
+F_35,F-35 Lightning II,2015,US_Weapon,FALSE,Indo_Pacific_Era,verified
+Gorgon_Stare,Gorgon Stare ISR,2014,US_Weapon,FALSE,Drone_Era,verified
+Switchblade,Switchblade Loitering Munition,2022,US_Weapon,FALSE,Ukraine_Pacific_Era,estimated
+LAWS,LAWS (Lethal Autonomous Weapon Systems),2026,US_Weapon,FALSE,AI_Era,estimated
+AK47,AK-47,1947,Control_Group,TRUE,Post_WWII,verified
+HQ17,HQ-17 (Chinese Tor-M1),2015,Control_Group,TRUE,Modern,verified
+TOR_M1,TOR-M1,1991,Control_Group,TRUE,Post_Cold_War,verified
+Mosin_Nagant,Mosin-Nagant,1891,Control_Group,TRUE,Imperial,estimated
+AK74,AK-74,1974,Control_Group,TRUE,Cold_War,verified
+HQ9,HQ-9,1990s,Control_Group,TRUE,Modern,estimated
+TOR_M2,TOR-M2,2010s,Control_Group,TRUE,Modern,estimated
+Leopard2,Leopard 2,1979,Control_Group,TRUE,Cold_War,estimated
+J20,Chengdu J-20,2017,Control_Group,TRUE,Modern,estimated
+Bayraktar_TB2,Bayraktar TB2,2014,Control_Group,TRUE,Drone_Era,estimated
+M4_Carbine,M4 Carbine,1994,US_Weapon,FALSE,Post_Cold_War,verified

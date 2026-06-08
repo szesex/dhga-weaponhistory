@@ -1,0 +1,41 @@
+Id,Label,Category,Year,Description,Clausewitz_Concept
+American_Revolution_Political_Goal,American Revolution Political Goal,Political_Context,1776,US independence - political objective driving weapon choice,Political_Continuation
+Cavalry_Tactical_Advantage,Cavalry Tactical Advantage,Tactical_CoG,1783,Cavalry = early war center of gravity,Center_of_Gravity
+MexAm_War_Territorial_Gain,Mexican-American War Territorial Gain,Political_Context,1846,US territorial expansion to Pacific coast,Political_Continuation
+Civil_War_Union_Victory,Civil War Union Victory,Strategic_CoG,1861,Union infantry rifled musket dominance,Center_of_Gravity
+Industrial_Logistics_Scaling,Industrial Logistics Scaling,Friction_Type,1861,First machine gun → supply chain friction, Friction
+Naval_Blockade_Coastal_Control,Naval Blockade Coastal Control,Strategic_CoG,1863,Ironclads enabled coastal closure,Center_of_Gravity
+Friction_Mass_Casualties,Friction: Mass Casualties,Friction_Type,1861,Minie ball + rifling = mass casualties; medical overload,Friction
+Friction_Medical_Scale,Friction: Medical Scale,Friction_Type,1861,Gatling → high wounded rates; field hospital strain,Friction
+Spanish-American_War_Colonial_Control,Spanish-American War Colonial Control,Political_Context,1898,US → Pacific empire; Philippines occupation,Political_Continuation
+Pacific_Foothold_1898,Pacific Foothold 1898,Strategic_CoG,1898,First major Pacific US base; colonial rifle requirement,Center_of_Gravity
+WWI_Trench_Warfare_Stalemate,WWI Trench Warfare Stalemate,Friction_Type,1917,Mass production → attrition; artillery + machine gun deadlock,Friction
+WWI_Combined_Arms_Integration,WWI Combined Arms Integration,Tactical_CoG,1918,BAR → infantry重心 shift to suppress fire,Center_of_Gravity
+WWII_Semi_Auto_Era,WWII Semi-Auto Era,Tactical_CoG,1941,M1 Garand = US infantry firepower superiority,Center_of_Gravity
+Allied_Industrial_Capacity,Allied Industrial Capacity,Strategic_CoG,1941,Mass production = Allied war sustainability重心,Center_of_Gravity
+WWII_Close_Quarter_Combat,WWII Close Quarter Combat,Friction_Type,1942,Pacific jungle → close combat high friction,Friction
+WWII_Paratrooper_Mobility,WWII Paratrooper Mobility,Tactical_CoG,1944,Lightweight carbine enabled airborne flexibility,Center_of_Gravity
+Pacific_Theater_WWII,Pacific Theater WWII,Strategic_CoG,1945,Hiroshima/Nagasaki → Japanese surrender,Political_Continuation
+Nuclear_Deterrence_ColdWar_Doctrine,Nuclear Deterrence Cold War Doctrine,Strategic_CoG,1945,Nuclear = Cold War strategic balance; first strike capability,Center_of_Gravity
+Thermonuclear_Race_Friction,Thermonuclear Race Friction,Friction_Type,1952,Arms race escalation; procurement friction intensifies,Friction
+Korean_War_Firepower_Competition,Korean War Firepower Competition,Friction_Type,1950,7.62mm NATO → logistical standardization friction,Friction
+Vietnam_War_Tech_Advantage,Vietnam War Tech Advantage,Tactical_CoG,1964,M16 = US firepower advantage in jungle,Center_of_Gravity
+Friction_Vietnam_Logistics,Friction: Vietnam Logistics,Friction_Type,1964,Early M16 jamming → reliability friction,Friction
+VIetnam_Heavy_Fire_Support,Vietnam Heavy Fire Support,Tactical_CoG,1967,Sustained fire = patrol base defense重心,Center_of_Gravity
+SEAD_Pacific_Suppression,SEAD Pacific Suppression,Tactical_CoG,1970,SEAD = enemy air defense重心 elimination,Center_of_Gravity
+Gulf_War_Technological_Dominance,Gulf War Technological Dominance,Political_Context,1991,Precision tech enables swift political objective,Political_Continuation
+Friction_Desert_Logistics,Friction: Desert Logistics,Friction_Type,1991,100km+ combat range → fuel/ammo supply friction,Friction
+Stealth_Revolution_Air_Dominance,Stealth Revolution Air Dominance,Strategic_CoG,1991,Stealth = air superiority重心 shift,Center_of_Gravity
+Precision_Strike_Political_Target,Precision Strike Political Target,Political_Context,1991,1500km range → hit strategic targets without ground presence,Political_Continuation
+Friction_Coalition_Coordination,Friction: Coalition Coordination,Friction_Type,1991,Multi-branch coordination = command/control friction,Friction
+ISR_Extended_Sensor_Range,ISR Extended Sensor Range,Tactical_CoG,2001,UAV extended battlefield awareness; enemy force identification重心,Center_of_Gravity
+War_on_Terror_Rapid_Deployment,War on Terror Rapid Deployment,Friction_Type,2003,Modularity → field adaptation friction reduced,Friction
+Network_Centric_Warfare,Network Centric Warfare,Strategic_CoG,2020,Sensor fusion = combined arms connectivity重心,Center_of_Gravity
+Indo-Pacific_Modern,Indo-Pacific Modern Strategic Posture,Political_Context,2020,F-35 deployed Japan/S.Korea/Australia → Pacific alliance tech,Political_Continuation
+Drone_Warfare_Lethality_Democratization,Drone Warfare Lethality Democratization,Tactical_CoG,2022,Loitering munition → enemy air defense重心 shifts,Center_of_Gravity
+Ukraine_Pacific_Era,Ukraine-Pacific Era Drone Diffusion,Political_Context,2022,Ukraine war → similar systems sought by Taiwan/Philippines,Political_Continuation
+AI_Surveillance_Networks,AI Surveillance Networks,Strategic_CoG,2024,Computer vision = real-time battlefield awareness; decision speed重心,Center_of_Gravity
+Friction_Cognitive_Overload,Friction: Cognitive Overload,Friction_Type,2024,ISR data flood → processing friction for human analysts,Friction
+Moral_Outsourcing_Dilemma,Moral Outsourcing Dilemma,Ethical_CoG,2026,AI selects targets → human moral friction in accountability,Center_of_Gravity
+AI_Pacific_Future,AI Pacific Future Strategic Race,Political_Context,2026,LAWS development → Pacific arms race; policy vacuum,Political_Continuation
+LAWS_Lethal_Chain,LAWS Lethal Chain,Tactical_CoG,2026,ISR → targeting chain = kill web重心; reduced human involvement,Center_of_Gravity
