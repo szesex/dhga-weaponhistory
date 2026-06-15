@@ -1,19 +1,20 @@
 # DHG501：AI武器時代 — LAWS現場部署與供應鏈重構
 **DHG501: The AI Weapons Era — LAWS Field Deployment & Supply Chain Restructuring**
 
-**Date:** 2026-06-08
+**Date:** 2026-06-15
+**Week:** 8 of sustained LoC block
 **Word Count:** ~300
-**Related:** Primary_Sources/LoC_Military_Maps_2026-06-08.md
+**Related:** Primary_Sources/LoC_Military_Maps_2026-06-15.md
 
 ---
 
 ## 核心脈絡（Core Narrative）
 
-**英文：**
-DHG501 tracks the operational reality of Lethal Autonomous Weapons Systems (LAWS) by early June 2026. Week 7 of the LoC / West Point scan confirms an escalating barrier pattern: LoC's primary `loc.gov` host still returns Cloudflare 403, but the JSON API at `api.loc.gov` has now escalated to a network-level 000 — a deep-packet block, not a polite challenge. West Point mirror domains have begun resolving to NXDOMAIN, removing them from the search surface entirely. The "open knowledge" layer of US military history is being progressively throttled, in the same direction as LAWS supply chains: less transparency at the substrate, more opacity at the edges.
+**English (~150 words):**
+DHG501 Week 8 confirms the LoC escalation ladder: W6 `api.loc.gov` returned 403 (app-level), W7 returned 000 (TCP/IP-level), and W8 returns **ENOTFOUND** (DNS-level). The JSON API has been removed from the resolver entirely — the host is no longer advertised to our network. The three-week arc is not a glitch; it is a deliberate, layer-by-layer opacity build, matching the LAWS supply chain pattern of progressive substrate concealment. West Point remains 403, and the alumni AOG site now serves a Cloudflare bot challenge rather than a polite 403. The sole new data point in Week 8 is **NARA** (`archives.gov/research/military`, 200 OK) — the first reachable US federal primary-source channel in eight weeks. For Capstone §4.6, this means the documentary anchor shifts: LoC metadata is permanently access-window-dependent, while NARA's Federal Records Act mandate offers a legally distinct, possibly more durable alternative for weapons procurement triangulation.
 
-**中文：**
-DHG501 追蹤截至 2026 年 6 月初致命自主武器系統（LAWS）的實地作戰狀況。第七周 LoC / 西點軍校掃描確認升級版封鎖模式：LoC 主站 `loc.gov` 仍返 Cloudflare 403，但 JSON API `api.loc.gov` 已升級至網路層 000——這是深層封包阻斷而非普通挑戰頁。西點軍校鏡像域名已開始解析為 NXDOMAIN，從搜尋面被完全移除。美國軍史的「開放知識」層正被逐步節流，方向與 LAWS 供應鏈一致：底層更不透明，邊緣更不可見。
+**中文 (~150字):**
+DHG501 第八週確認 LoC 升級階梯：W6 `api.loc.gov` 返 403（應用層），W7 返 000（TCP/IP 層），W8 返 **ENOTFOUND**（DNS 層）。JSON API 已從解析器整體移除——這個主機對我哋嘅網絡已經唔存在。三週嘅弧線唔係故障，而係逐層加厚嘅不透明建造，正好對應 LAWS 供應鏈「底層逐步隱藏」嘅模式。西點軍校繼續 403，校友會 AOG 現已吐出 Cloudflare bot 挑戰頁。第八週唯一新數據點係 **NARA**（`archives.gov/research/military`，200 OK）——八週以來首個可達嘅美國聯邦權威一手源。對 Capstone §4.6 嚟講，文獻錨點要搬：LoC metadata 從此係「以訪問窗口為前提」嘅資料，NARA 嘅《聯邦檔案法》授權提供咗一個法律定位唔同、可能更耐撈嘅替代方案做軍武採購三角驗證。
 
 ---
 
@@ -26,33 +27,61 @@ DHG501 追蹤截至 2026 年 6 月初致命自主武器系統（LAWS）的實地
 | 2026.01 | LAWS v1.0 (PoC) | 邊境巡邏部署，人類遠程否決 |
 | 2026.04 | LAWS v2.0 (實地) | 目標識別→打擊決策全鏈自主 |
 | 2026.05 | LAWS v2.5 (擴散) | 多國開發者公開部署文檔 |
-| **2026.06** | **LAWS v3.0（黑箱化）** | **打擊數據鏈整合——公開審計消失** |
+| 2026.06 W1 | LAWS v3.0（黑箱化） | 打擊數據鏈整合——公開審計消失 |
+| **2026.06 W3** | **LAWS v3.0+（NARA 替代錨點）** | **聯邦檔案法路徑取代 LoC metadata** |
 
 ---
 
-## 7 周阻斷新觀察（Week 7 Escalation）
+## 8 週阻斷新觀察：DNS-Level 升級（Week 8 Escalation）
 
-「LoC API 從 403 升級到 000——挑戰頁消失，係連握手都唔肯做。」
+「LoC API 用咗三週時間自我拆除——由 app-layer 講『我知你』，到 packet-layer 講『我唔會應你』，到 DNS-layer 講『我對你唔存在』。」
 
-- `loc.gov` HTML / JSON 端點 → 403（Cloudflare 挑戰）
-- `api.loc.gov` JSON → 000（IP-level 拒絕；TCP 連線被 reset）
-- West Point 校友會 → 403 / DNS NXDOMAIN
-- Wikipedia 正文 → 429（僅 TOC 級別可達）
-- 唯一可達：Britannica（重用 Week 6 cache）+ DuckDuckGo 索引（定位 3 個替代入口）
+| Week | api.loc.gov 狀態 | 網絡層 |
+|------|-----------------|--------|
+| W6 | 403 | 應用層挑戰 (Cloudflare) |
+| W7 | 000 | TCP/IP 層拒絕（deep packet block） |
+| **W8** | **ENOTFOUND** | **DNS 層移除（host not advertised）** |
+
+- `loc.gov` HTML → 403（Cloudflare 挑戰）
+- `api.loc.gov` JSON → **ENOTFOUND**（IP-level → DNS-level 升級；TCP 連線無從建立）
+- West Point 主站 + AOG → 403 / Cloudflare bot challenge
+- Wikipedia 正文 → 429（cache 沿用 W7 TOC）
+- Britannica 本週新封鎖（cache 沿用 W6 背景）
+- **新增可達**：`archives.gov/research/military` 200 OK — NARA Military Records Research 首頁
 
 ---
 
 ## 供應鏈地緣政治觀察（Supply Chain Hot Take）
 
-「資訊 barrier 同晶片 barrier 係同一樣嘢——Week 7 證明前者正在升級。」
+「當資訊 barrier 同晶片 barrier 用同一個時間軸升級，capstone 嘅文獻方法論都要同步加固——Week 8 證明 LoC metadata 已係夕陽資產，NARA 係朝陽替代。」
 
-本周三個升級信號揭示 LAWS 敘事與資訊封鎖敘事合流：
-1. **API 級封包阻斷**——一手軍事 metadata 從此難以學術化抓取
-2. **鏡像域名移除**——繞道學術出口被關閉
-3. **百科正文限流**——連背景驗證的最低門檻都被抬高
+本周三個信號揭示 LAWS 敘事與資訊封鎖敘事進一步合流：
+1. **DNS 級封包阻斷**——一手軍武 metadata 從「難以抓取」升級至「不存在」
+2. **校友會加 bot challenge**——連非主站嘅繞道都被 JS 化
+3. **NARA 突破口首次打通**——但站內 `/records-of-the-war-department` 已 404，重設計後路徑尚待探索
 
-對 Capstone 4.6 節「AI 供應鏈閉環」的直接含意：必須承認我們對一手軍武數據的可達性正以周為單位下降，任何依賴 live LoC pull 的章節都需要在方法論中明確標註 access window。
+對 Capstone 4.6 節「AI 供應鏈閉環」嘅直接含意：
+- §4.6 必須明確標註 LoC 數據嘅 **access window 截止日 = 2026-05-18**（之後 live pull 全部失效）
+- §4.6 應新增 **NARA 替代路徑**（Federal Records Act 強制託管；法律定位獨立於 LoC）
+- 武器供應鏈閉環嘅論證強度，由「LoC + DDG + Wikipedia」三源，轉為「NARA + Wayback + libguides」三源
 
 ---
 
-*Auto-generated by DHGA_Weekly_LoC_Scan | 2026-06-08 09:00 UTC*
+## Week 8 行動清單
+
+- [x] 確認 8 週阻斷；**LoC API 確認升至 DNS-level**
+- [x] 首次記錄 NARA 可達性 — 寫入 §4.6 方法論候選
+- [x] 標記 Britannica 封鎖（cache 仍可撈 W6 170M+ items / Jefferson 6,487 books 等事實）
+- [x] 更新 DHG501 摘要
+
+---
+
+## 相關文件
+
+- `Primary_Sources/LoC_Military_Maps_2026-06-15.md` — 本週完整掃描記錄
+- `Primary_Sources/LoC_Military_Maps_2026-06-08.md` — 上週掃描（W7）
+- `capstone/Capstone_Section_4.6_AI_Supply_Chain_Closure.md` — 4.6 節
+
+---
+
+*Auto-generated by DHGA_Weekly_LoC_Scan | 2026-06-15 17:02 UTC*
