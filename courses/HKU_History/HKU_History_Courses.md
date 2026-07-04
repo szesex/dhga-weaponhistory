@@ -124,3 +124,13 @@ The History Department's own research-training track.
 ---
 
 *Compiled for the DHGA Capstone (Saba, June 2026). Re-verify each entry against the live HKU pages before using in a graded context.*
+
+---
+
+## See also
+
+- **Bootcamp canonical reference** (full dataset with capstone-tier annotations preserved):
+  [szesex/history-bootcamp `00_大綱/HKU_2025-26_Course_Catalog_capstone_tagged.md`](https://github.com/szesex/history-bootcamp/blob/main/00_%E5%A4%A7%E7%B6%B1/HKU_2025-26_Course_Catalog_capstone_tagged.md)
+  — Reference catalog maintained in the Phase 1 bootcamp repo with `note_status: reference-catalog` frontmatter and HIST1025 bootcamp-planning collision annotations.
+- **Bootcamp planning collision** (HIST1025 = Harvard, not HKU): resolved 2026-07-04 per Saba clarification; HKU catalog is irrelevant to HIST1025 planning.
+- This file remains the **DHGA capstone canonical** version (compiled June 2026 for capstone thesis); the bootcamp copy serves as a Phase 1 study reference.
